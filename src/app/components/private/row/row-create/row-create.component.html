@@ -10,8 +10,8 @@
         <div class="card-body">
             <form [formGroup]="projectFormGroup" >
                 <ng-template matStepLabel>Field Details</ng-template>
-                <app-multi-select class="property-form" [label]="'Approval Authority'" [placeholder]="'Select Approval Authority'" [optionList]="authorityList" formControlName="authorities" [style]="'width:100%;'"></app-multi-select>
-                <div>
+                <app-multi-select class="property-form" [label]="'Approval Authority'" [placeholder]="'Select Approval Authority'" [optionList]="authorityList" formControlName="authorities" [style]="'width:100%;'" (onChangeValue)="onSelectAuthority($event)"></app-multi-select>
+                <div *ngIf="selectedAuthority.includes('NH')">
                     <mat-slide-toggle formControlName="isAppliedAtNH" style="width:30%;">Approval applied at NH</mat-slide-toggle>
                     <app-date-picker class="property-form" [label]="'Date of Application'" [placeholder]="'Enter Date of Application'" formControlName="dateOfApplication" [style]="'width:35%;'"></app-date-picker>
                     <app-text-field [isReadOnly]="'false'" [maxlength]="100" class="property-form" [label]="'Standard time for approval(Days)'" [placeholder]="'Enter Standard time for approval(Days)'" [style]="'width:35%;'" formControlName="timeForApproval"></app-text-field>
@@ -20,7 +20,7 @@
 
                 </div>
 
-                <div>
+                <div *ngIf="selectedAuthority.includes('Wildlife')">
                     <mat-slide-toggle formControlName="isAppliedAtWildlife" style="width:30%;">Approval applied at Wildlife</mat-slide-toggle>
                     <app-date-picker class="property-form" [label]="'Date of Application'" [placeholder]="'Enter Date of Application'" formControlName="dateOfApplicationWildLife" [style]="'width:35%;'"></app-date-picker>
                     <app-text-field [isReadOnly]="'false'" [maxlength]="100" class="property-form" [label]="'Standard time for approval(Days)'" [placeholder]="'Enter Standard time for approval(Days)'" formControlName="timeForApprovalWildlife" [style]="'width:35%;'"></app-text-field>
@@ -29,7 +29,7 @@
 
                 </div>
                 
-                <div>
+                <div *ngIf="selectedAuthority.includes('Forest')">
                     <mat-slide-toggle formControlName="isAppliedAtForest" style="width:30%;">Approval applied at Forest</mat-slide-toggle>
                     <app-date-picker class="property-form" [label]="'Date of Application'" [placeholder]="'Enter Date of Application'" formControlName="dateOfApplicationForest" [style]="'width:35%;'"></app-date-picker>
                     <app-text-field [isReadOnly]="'false'" [maxlength]="100" class="property-form" [label]="'Standard time for approval(Days)'" [placeholder]="'Enter Standard time for approval(Days)'" formControlName="timeForApprovalForest" [style]="'width:35%;'"></app-text-field>
@@ -38,7 +38,7 @@
 
                 </div>
 
-                <div>
+                <div *ngIf="selectedAuthority.includes('PWD')">
                     <mat-slide-toggle formControlName="isAppliedAtPWD" style="width:30%;">Approval applied at PWD</mat-slide-toggle>
                     <app-date-picker class="property-form" [label]="'Date of Application'" [placeholder]="'Enter Date of Application'" formControlName="dateOfApplicationPWD" [style]="'width:35%;'"></app-date-picker>
                     <app-text-field [isReadOnly]="'false'" [maxlength]="100" class="property-form" [label]="'Standard time for approval(Days)'" [placeholder]="'Enter Standard time for approval(Days)'" formControlName="timeForApprovalPWD" [style]="'width:35%;'"></app-text-field>
@@ -47,7 +47,7 @@
 
                 </div>
 
-                <div>
+                <div *ngIf="selectedAuthority.includes('Railways')">
                     <mat-slide-toggle formControlName="isAppliedAtRailways" style="width:30%;">Approval applied at Railways</mat-slide-toggle>
                     <app-date-picker class="property-form" [label]="'Date of Application'" [placeholder]="'Enter Date of Application'" formControlName="dateOfApplicationRailways" [style]="'width:35%;'"></app-date-picker>
                     <app-text-field [isReadOnly]="'false'" [maxlength]="100" class="property-form" [label]="'Standard time for approval(Days)'" [placeholder]="'Enter Standard time for approval(Days)'" formControlName="timeForApprovalRailways" [style]="'width:35%;'"></app-text-field>

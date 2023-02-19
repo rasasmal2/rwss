@@ -16,7 +16,8 @@ export class RowCreateComponent implements OnInit {
   projectList: any=[{code: '001', name: 'Project 1'},{code: '002', name: 'Project 2'}];
   executingAgencyList: any=[{code: '001', name: 'Executing Ahency 1'},{code: '002', name: 'Executing Ahency 2'}];
   
-  submitted=false
+  submitted=false;
+  selectedAuthority:any=[];
   constructor(public toastService: ToastrService, public cmnService:CommonServiceService, private _formBuilder: UntypedFormBuilder,private router: Router) {}
 
 
@@ -25,37 +26,37 @@ export class RowCreateComponent implements OnInit {
       authorities: ['', Validators.required],
       
       isAppliedAtNH: [false],
-      dateOfApplication: ['',[Validators.required]],
-      timeForApproval: ['',[Validators.required,Validators.pattern(/^[0-9]*$/)]],
+      dateOfApplication: [''],
+      timeForApproval: ['',[Validators.pattern(/^[0-9]*$/)]],
       isApprovalAcceptedNH: [false],
-      applicationAcceptedDateNH: ['',[Validators.required]],
+      applicationAcceptedDateNH: [''],
 
       isAppliedAtWildlife: [false],
-      dateOfApplicationWildLife: ['',[Validators.required]],
-      timeForApprovalWildlife: ['',[Validators.required,Validators.pattern(/^[0-9]*$/)]],
+      dateOfApplicationWildLife: [''],
+      timeForApprovalWildlife: ['',[Validators.pattern(/^[0-9]*$/)]],
       isApprovalAcceptedWildlife: [false],
-      applicationAcceptedDateWildLife: ['',[Validators.required]],
+      applicationAcceptedDateWildLife: [''],
       
       isAppliedAtForest: [false],
-      dateOfApplicationForest: ['',[Validators.required]],
-      timeForApprovalForest: ['',[Validators.required,Validators.pattern(/^[0-9]*$/)]],
+      dateOfApplicationForest: [''],
+      timeForApprovalForest: ['',[Validators.pattern(/^[0-9]*$/)]],
       isApprovalAcceptedForest: [false],
-      applicationAcceptedDateForest: ['',[Validators.required]],
+      applicationAcceptedDateForest: [''],
       
       isAppliedAtPWD: [false],
-      dateOfApplicationPWD: ['',[Validators.required]],
-      timeForApprovalPWD: ['',[Validators.required,Validators.pattern(/^[0-9]*$/)]],
+      dateOfApplicationPWD: [''],
+      timeForApprovalPWD: ['',[Validators.pattern(/^[0-9]*$/)]],
       isApprovalAcceptedPWD: [false],
-      applicationAcceptedDatePWD: ['',[Validators.required]],
+      applicationAcceptedDatePWD: [''],
 
 
       isAppliedAtRailways: [false],
-      dateOfApplicationRailways: ['',[Validators.required]],
-      timeForApprovalRailways: ['',[Validators.required,Validators.pattern(/^[0-9]*$/)]],
+      dateOfApplicationRailways: [''],
+      timeForApprovalRailways: ['',[Validators.pattern(/^[0-9]*$/)]],
       isApprovalAcceptedRailways: [false],
-      applicationAcceptedDateRailways: ['',[Validators.required]],
+      applicationAcceptedDateRailways: [''],
     
-      rowCertificate: ['',[Validators.required]],
+      rowCertificate: [''],
     });
 
     
@@ -97,5 +98,8 @@ export class RowCreateComponent implements OnInit {
       this.projectFormGroup.get('structuralDocFile').setValue(file[0]?.name);
     }, 500);
 
+  }
+  onSelectAuthority(value:any) {
+    this.selectedAuthority = value
   }
 }
