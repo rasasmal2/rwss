@@ -46,8 +46,8 @@ export class MilestoneDetailsComponent implements OnInit, AfterViewInit{
       let dataList:any = [
         {
           milestone: 'Survey, Design & Drawing',
-          startDate:'M1', 
-          endDate: 'M6', 
+          startDate:'Apr-2022', 
+          endDate: 'Sep-2022', 
           timeline:'6 months', 
           payment:'1%',
           progress: '',
@@ -55,37 +55,73 @@ export class MilestoneDetailsComponent implements OnInit, AfterViewInit{
         },
         {
           milestone: 'Construction of Intake Well',
-          startDate:'M7', 
-          endDate: 'M14', 
-          timeline:'6 months', 
+          startDate:'Oct-2022', 
+          endDate: 'Apr-2023', 
+          timeline:'7 months', 
           payment:'3%',
           progress: '',
           paymentMode:''
         },
         {
-          milestone: 'Supply of pipes, laying ,fitting & fixing from Raw water rising main to WTP',
-          startDate:'M7', 
-          endDate: 'M15', 
-          timeline:'12 months', 
-          payment:'10%',
+          milestone: 'Supply of pipes, laying ,fitting & fixing from Raw water source to WTP',
+          startDate:'Oct-2022', 
+          endDate: 'May-2023', 
+          timeline:'8 months', 
+          payment:'3%',
+          progress: '',
+          paymentMode:''
+        },
+        {
+          milestone: 'Completion of WTP work',
+          startDate:'Oct-2022', 
+          endDate: 'Aug-2023', 
+          timeline:'11 months', 
+          payment:'3%',
           progress: '',
           paymentMode:''
         },
         {
           milestone: 'Supply of pipes, laying ,fitting & fixing from Clear water rising main to Elevated storage Reservoirs',
-          startDate:'M12', 
-          endDate: 'M18', 
-          timeline:'12 months', 
-          payment:'40%',
+          startDate:'Mar-2023', 
+          endDate: 'Aug-2023', 
+          timeline:'6 months', 
+          payment:'20%',
           progress: '',
           paymentMode:''
         },
         {
           milestone: 'Design, Construction, Testing & Commissioning of ESR',
-          startDate:'M6', 
-          endDate: 'M18', 
-          timeline:'24 months', 
-          payment:'43%',
+          startDate:'Oct-2022', 
+          endDate: 'Aug-2023', 
+          timeline:'11 months', 
+          payment:'30%',
+          progress: '',
+          paymentMode:''
+        },
+        {
+          milestone: 'Supply of HDPE Pipes, laying and jointing to complete distribution system',
+          startDate:'Oct-2022', 
+          endDate: 'Aug-2023', 
+          timeline:'11 months', 
+          payment:'30%',
+          progress: '',
+          paymentMode:''
+        },
+        {
+          milestone: 'Supplying, fitting & fixing of flow meter, PLC Scada and all other Instruments',
+          startDate:'Oct-2022', 
+          endDate: 'Nov-2023', 
+          timeline:'2 months', 
+          payment:'3%',
+          progress: '',
+          paymentMode:''
+        },
+        {
+          milestone: 'Completion of inspection, Testing, Trial Run & final Acceptance',
+          startDate:'Dec-2023', 
+          endDate: 'Feb-2024', 
+          timeline:'3 months', 
+          payment:'10%',
           progress: '',
           paymentMode:''
         }

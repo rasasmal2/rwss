@@ -65,12 +65,13 @@ export class ProjectDashboardDetailsComponent implements OnInit {
   chartOption2: EChartsOption  = {
     tooltip: {
       trigger: 'item',
-      formatter: '{a} <br/>{b}: {c}Cr ({d}%)'
+      formatter: '{b}: {c}Cr'
+      // formatter: '{a} <br/>{b}: {c}Cr ({d}%)'
     },
     legend: {
       data: [
         'Project Value',
-        'Payment Release',
+        'Payment Released',
         'Invoice Raised',
         // 'Email',
         // 'Union Ads',
@@ -94,8 +95,11 @@ export class ProjectDashboardDetailsComponent implements OnInit {
         labelLine: {
           length: 30
         },
+        label: {
+          formatter: '{b}: {c}Cr',
+        },
         data: [
-          { value: 6, name: 'Payment Release', itemStyle:{color: '#0cc478'} },
+          { value: 6, name: 'Payment Released', itemStyle:{color: '#0cc478'} },
           { value: 2, name: 'Invoice Raised',itemStyle:{color: '#7dcbab'} },
           // { value: 679, name: 'Marketing', selected: true }
         ]
@@ -108,7 +112,7 @@ export class ProjectDashboardDetailsComponent implements OnInit {
           length: 30
         },
         label: {
-          // formatter: '{a} <br/>{b}: {c}Cr ({d}%)',
+          formatter: '{b}: {c}Cr',
           // backgroundColor: '#F6F8FC',
           // borderColor: '#8C8D8E',
           // borderWidth: 1,

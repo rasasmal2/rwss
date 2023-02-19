@@ -45,7 +45,7 @@
                 </td>
               </ng-container>
               <ng-container matColumnDef="payment">
-                <th mat-header-cell *matHeaderCellDef> Payment</th>
+                <th mat-header-cell *matHeaderCellDef> Payment %</th>
                 <td mat-cell *matCellDef="let element; let i = index">
   
                   <p>{{element.payment}}</p>
@@ -53,22 +53,22 @@
                 </td>
               </ng-container>
               <ng-container matColumnDef="progress">
-                <th mat-header-cell *matHeaderCellDef> Progress</th>
+                <th mat-header-cell *matHeaderCellDef> Enter Progress %</th>
                 <td mat-cell *matCellDef="let element; let i = index">
   
                   
                   <mat-form-field style="width: 100px;">
                     
-                    <input matInput placeholder="Progress" [value]="element.progress" [(ngModel)]="element.progress" [ngModelOptions]="{standalone: true}">
+                    <input matInput placeholder="Enter Progress %" [value]="element.progress" [(ngModel)]="element.progress" [ngModelOptions]="{standalone: true}">
                    
                   </mat-form-field>
                 </td>
               </ng-container>
               <ng-container matColumnDef="paymentMode">
-                <th mat-header-cell *matHeaderCellDef> Payment Mode</th>
+                <th mat-header-cell *matHeaderCellDef> Enter Payment Made (Cr)</th>
                 <td mat-cell *matCellDef="let element; let i = index">
                   <mat-form-field style="width: 150px;">
-                    <input matInput placeholder="Payment Mode" [value]="element.paymentMode" [(ngModel)]="element.paymentMode" [ngModelOptions]="{standalone: true}">
+                    <input matInput placeholder="Enter Payment Made (Cr)" [value]="element.paymentMode" [(ngModel)]="element.paymentMode" [ngModelOptions]="{standalone: true}">
                   </mat-form-field>
                 </td>
               </ng-container>
