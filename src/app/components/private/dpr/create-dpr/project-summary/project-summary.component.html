@@ -1,0 +1,116 @@
+<section id="assessment-review" *ngIf="this.formDetails">
+    <div class="container">
+        
+        <h3>Review your answers</h3>
+        <!-- <p>If you want to modify any value, click on change in the respective step. It will redirect you to the
+            concerned step where you can make your changes.</p> -->
+        <div class="row details-box">
+            <h4>Project Details</h4>
+            <div class="col-sm-4">
+                Project Name
+            </div>
+            <div class="col-sm-8">
+                {{formDetails?.projectDetails?.projectName}}
+                <!-- ,{{formDetails?.address?.buildingName}},{{formDetails?.address?.street}},{{formDetails?.address?.locality?.name}},{{formDetails?.address?.city}} -->
+            </div>
+            <div class="col-sm-4">
+                Project Type
+            </div>
+            <div class="col-sm-8">
+                {{formDetails?.projectDetails?.projectType?.name}}
+            </div>
+            <div class="col-sm-4">
+                Project Value
+            </div>
+            <div class="col-sm-8">
+                {{formDetails?.projectDetails?.projectValue}}
+            </div>
+            <div class="col-sm-4">
+                Project Start Date
+            </div>
+            <div class="col-sm-8">
+                {{formDetails?.projectDetails?.projectStartDate}}
+            </div>
+            <div class="col-sm-4">
+                Project End Date
+            </div>
+            <div class="col-sm-8">
+                {{formDetails?.projectDetails?.projectEndDate}}
+            </div>
+            <div class="col-sm-4">
+                Project Duration
+            </div>
+            <div class="col-sm-8">
+                {{formDetails?.projectDetails?.projectDuration?.name}}
+            </div>
+            <div class="col-sm-4">
+                Circle
+            </div>
+            <div class="col-sm-8">
+                {{formDetails?.projectDetails?.circle?.name}}
+            </div>
+            <div class="col-sm-4">
+                Division
+            </div>
+            <div class="col-sm-8">
+                {{formDetails?.projectDetails?.division?.name}}
+            </div>
+            <div class="col-sm-4">
+                Executing Agency (Contractor)
+            </div>
+            <div class="col-sm-8">
+                {{formDetails?.projectDetails?.contractorName}}
+            </div>
+            <div class="col-sm-4">
+                Registered Address
+            </div>
+            <div class="col-sm-8">
+                {{formDetails?.projectDetails?.registeredAddress}}
+            </div>
+            <div class="col-sm-4">
+                Contact person
+            </div>
+            <div class="col-sm-8">
+                {{formDetails?.projectDetails?.contactPerson}}
+            </div>
+        </div>
+        <!-- Milestone -->
+        <div class="row details-box">
+            <h4>Milestone Details</h4>
+            <app-table *ngIf="formDetails?.milestoneDisplayedColumns" [dataList]="formDetails?.milestoneDataSource" [displayedColumns]="formDetails?.milestoneDisplayedColumns"></app-table>
+            
+            
+        </div>
+        <!-- Documents -->
+        <div class="row details-box">
+            <h4>Authority Details</h4>
+            <div class="row" *ngIf="this.formDetails?.authorityDetails">
+                <div class="col-sm-4">
+                    Name of RoW Authority
+                </div>
+                <div class="col-sm-8">
+                    {{formDetails?.authorityDetails?.rowAuthorityName}}
+                </div>
+                <div class="col-sm-3 col-md-3" style="padding-top: 10px" >
+                  
+                     <a href="javascript:void(0)"><mat-icon class="picture_as_pdf">picture_as_pdf</mat-icon></a>
+                     
+                     <div>
+                         {{this.formDetails?.authorityDetails.contractorAgrFile}}
+                     </div>
+                 </div>
+            </div>
+            
+            
+        </div>
+        <!-- <div>
+            <mat-checkbox class="example-margin" [(ngModel)]="isConsentChecked" (change)="onChangeConsentCheck($event)">
+                
+                    I hereby declare and affirm that the above-furnished information is true and correct and nothing has been concealed therefrom. I am also aware of the fact that in case this information is found false/incorrect, the authorities are at liberty to initiate recovery of amount/interest/penalty/fine as provided in Punjab Municipal Act 1911 or Punjab Municipal Corporation Act 1976.
+                
+            </mat-checkbox>
+
+        </div> -->
+    </div>
+
+</section>

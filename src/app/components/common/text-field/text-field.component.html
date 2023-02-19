@@ -1,0 +1,15 @@
+<mat-form-field [style]="style" [appearance]="fieldAppearence">
+    <mat-label>{{label}}</mat-label>
+    <span matPrefix *ngIf="type=='tel'">+91 &nbsp;</span>
+    <mat-icon *ngIf="matIcon" matPrefix class="my-icon" [style]="iconStyle">{{matIcon}}</mat-icon>
+    <input matInput [type]="type" [placeholder]="placeholder" (blur)="onBlurField($event)" [readonly]="isReadOnly=='view'||isReadOnly=='true'" [formControl]="control" [maxLength]="maxlength">
+    <!-- <mat-error *ngIf="control.hasError('email') && !control.hasError('required')">
+        Please enter a valid email address
+    </mat-error> -->
+      <mat-error *ngIf="control.hasError('required')">
+        This field is <strong>required</strong>
+      </mat-error>
+      <mat-error *ngIf="control.hasError('pattern')">
+        Enter a valid <strong>number</strong>
+      </mat-error>
+</mat-form-field>

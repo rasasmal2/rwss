@@ -1,0 +1,100 @@
+<div id="topbar" style="height: 30px; background: #43B02A;" class="d-none d-lg-flex  align-items-center fixed-top main-bar header-middle"
+  [ngClass]="{'topbar-scrolled' : isSticky}">
+  <div class="container d-flex" style="padding-top: 3px;">
+    <div class="contact-info me-auto">
+    </div>
+
+    <div class="wt-topbar-right clearfix">
+      <ul class="social-bx list-inline pull-left">
+        <li><a href="jascript:void(0)" style="text-decoration: underline !important;    color: white !important;">Skip to Main Content</a></li>
+        <li>|</li>
+        <li class="textsize dropdown">
+          <a id="pt1:cl2" class="x24u xfe" onclick="return false;" href="#" style="color: white !important;">Screen Reader</a>
+          
+        </li>
+        <li>|</li>
+        <li>
+          <a id="pt1:pt_cl1" class="x24u xfe" onclick="return false;" href="#" style="color: white !important;">A-</a>
+        </li>
+        <li>|</li>
+        <li>
+          <a id="pt1:pt_cl1" class="x24u xfe" onclick="return false;" href="#" style="color: white !important;">A</a>
+        </li>
+        <li>|</li>
+        <li>
+          <a id="pt1:pt_cl1" class="x24u xfe" onclick="return false;" href="#" style="color: white !important;">A+</a>
+        </li>
+        <li>|</li>
+        <li class="lang dropdown"><a href="javascript:void(0);" style="text-decoration: underline !important;    color: white !important;">Language</a>
+          <ul class="dropdown-menu">
+            <li><a href="/">English</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <!-- <div class="social-links">
+      <a href="http://finance.assam.gov.in" target="_blank" rel="noopener noreferrer" class="website"><i class="icofont-web"></i></a> 
+      <a href="https://twitter.com/AssamFinDept" target="_blank" rel="noopener noreferrer" class="twitter"><i class="icofont-twitter"></i></a> 
+      <a href="https://facebook.com/AssamFinanceDepartment" target="_blank" rel="noopener noreferrer" class="facebook"><i class="icofont-facebook"></i></a> 
+      <a href="https://instagram.com/assamfinancedepartment" target="_blank" rel="noopener noreferrer" class="instagram"><i class="icofont-instagram"></i></a> 
+      <a href="https://youtube.com/channel/UCNmQmNJR2F-rxQOyNXGMkDg/featured" target="_blank" rel="noopener noreferrer" class="youtube"><i class="icofont-youtube"></i></a> 
+        
+    </div> -->
+  </div>
+</div>
+
+<div id="topbar" style="margin-top: 30px;" class="d-none d-lg-flex  align-items-center fixed-top main-bar header-middle"
+  [ngClass]="{'topbar-scrolled' : isSticky}">
+  <!-- <div class="container d-flex">
+    <div class="contact-info me-auto">
+      <i class="icofont-envelope"></i> <a href="mailto:egu.finassam@gmail.com">egu.finassam@gmail.com</a> <i class="icofont-phone"></i> 1800 120 6388
+    </div>
+    <div class="social-links">
+      <a href="http://finance.assam.gov.in" target="_blank" rel="noopener noreferrer" class="website"><i class="icofont-web"></i></a> 
+      <a href="https://twitter.com/AssamFinDept" target="_blank" rel="noopener noreferrer" class="twitter"><i class="icofont-twitter"></i></a> 
+      <a href="https://facebook.com/AssamFinanceDepartment" target="_blank" rel="noopener noreferrer" class="facebook"><i class="icofont-facebook"></i></a> 
+      <a href="https://instagram.com/assamfinancedepartment" target="_blank" rel="noopener noreferrer" class="instagram"><i class="icofont-instagram"></i></a> 
+      <a href="https://youtube.com/channel/UCNmQmNJR2F-rxQOyNXGMkDg/featured" target="_blank" rel="noopener noreferrer" class="youtube"><i class="icofont-youtube"></i></a> 
+        
+    </div>
+  </div> -->
+  <div class="container">
+
+    <h1 class="logo">
+      <a class="main_gov brown-text" target="_blank" href="javascript:void(0)">Rural Water Supply & Sanitation
+      </a>
+      <a class="sub_dept" href="javascript:void(0)">Panchayati Raj & Drinking Water Department</a>
+      <a style="color: #0D8390;font-weight: 700;" class="sub_dept" href="javascript:void(0)">Government of Odisha</a>
+    </h1>
+    <!-- <div class="header-info">
+      <ul style="padding-left: 0;">
+        
+        <li>
+          <a href="javascript:void(0)" rel="noopener noreferrer">
+            <img title="" src="../../../assets/images/logo1.png" style="width: 75%;">
+          </a>
+        </li>
+      </ul>
+    </div> -->
+  </div>
+</div>
+<header id="header" class="fixed-top" [ngClass]="{'header-scrolled' : isSticky}">
+
+
+    <div class="sticky-wrapper container d-flex align-items-center" [ngStyle]="{'height': isSticky ? '55px' : '' }">
+      <a class="me-auto" [ngStyle]="{'display': isSticky ? 'none' : 'block' }">
+        <img src="" alt="">
+      </a>
+      <h1 class="me-auto" [ngClass]="{'logo2': isSticky}" [ngStyle]="{'display': isSticky ? 'block' : 'none' }">      
+        <a class="main_gov brown-text" target="_blank" href="javascript:void(0)">Rural Water Supply & Sanitation</a>
+        <!-- <a class="sub_dept" href="javascript:void(0)">PR&DW Department</a> -->
+
+        <a class="sub_dept" href="javascript:void(0)">Government of Odisha</a>
+      </h1>
+      <app-private-header *ngIf="isLoggedIn && isLoggedIn=='true'"></app-private-header>
+      <app-public-header *ngIf="!isLoggedIn || isLoggedIn=='false'"></app-public-header>
+    </div>
+  
+  
+  
+  </header>

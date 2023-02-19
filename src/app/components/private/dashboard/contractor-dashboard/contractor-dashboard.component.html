@@ -1,0 +1,85 @@
+<!-- <div class="container">
+    <i class="icofont-home"></i> <span>::</span> <span>Project Dashboard</span>
+</div> -->
+
+<section id="search-project-dashboard" class="search-project-dashboard" *ngIf="showProjectSearch">
+    <div class="container">
+        <div class="label-header"><h5>Search Project</h5></div>
+        <div class="marginTopForFormCustomClass1">
+            <form id="frmIndexPage" novalidate="novalidate">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <label for="division">Division</label>
+                        <select  class="form-select" name="division" id="division" >
+                            <option value="">Select</option>
+                            <option *ngFor="let option of divisionList" [value]="option">{{option}}</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="year">Scheme Name</label>
+                        <select class="form-select" name="scheme" id="scheme">
+                            <option value="">Select</option>
+                            <option *ngFor="let option of schemeList" [value]="option">{{option}}</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="finYear">Fin Year</label>
+                        <select class="form-select" name="finYear" id="finYear">
+                            <option *ngFor="let option of finYear" [value]="option" selected="2022-23">{{option}}</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-4 add-padding">
+                        <label for="year">Project Number</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="col-sm-4 add-padding">
+                        <label for="year">Project Name</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="col-sm-4 add-padding" style="text-align: center; margin-top: 30px;">
+                        <button class="btn btn-primary" (click)="onSearchProject($event)">Search</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+</section>
+
+<section id="search-project-table" class="search-project-table" *ngIf="showProjectList">
+    <div class="container">
+        <div class="label-header"><h5>Project List</h5></div>
+        <div class="marginTopForFormCustomClass1">
+            <ag-grid-angular
+                style="width: 100%; height: 50vh;"
+                class="ag-theme-alpine"
+                [columnDefs]="columnDefs"
+                [defaultColDef]="defaultColDef"
+                [rowData]="rowData"
+                [paginationAutoPageSize]="true"
+                [pagination]="true"
+                (gridReady)="onGridReady($event)"
+                (cellClicked)='onCellClicked($event)'
+                [suppressRowClickSelection]="true"
+            ></ag-grid-angular>
+        </div>
+
+    </div>
+
+</section>
+
+<section id="project-dashboard-details" class="project-dashboard-details" *ngIf="showProjectDetails">
+    <div class="container">
+        <span (click)="goBack()" style="cursor: pointer;">
+            <i class="icofont-arrow-left go-back" ></i>
+            Back
+        </span>
+        
+    </div>
+    
+    <app-contractor-dashboard-details></app-contractor-dashboard-details>
+    
+
+</section>
+

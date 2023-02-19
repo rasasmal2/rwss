@@ -1,0 +1,109 @@
+.division-dss {
+    /* background: #16113A; */
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.title-cls {
+    color: #000;
+    font-weight: 600;
+}
+.label-header {
+    background: #a1c1e1;
+    text-align: center;
+    padding: 1px;
+    border-radius: 3px;
+}
+.budget-cls {
+    /* text-align: center; */
+    height: 100%;
+    /* padding-top: 8%; */
+}
+.utilization-cls {
+    position: relative;
+    top: 80px;
+    text-align: center;
+}
+.vertical-line {
+    border-left: 1px solid #536b77;
+    height: 50px;
+    position: absolute;
+    top: 0;
+    left: 100%;
+}
+
+
+.bold {
+    font-weight: 500;
+    /* color: #fff; */
+}
+.add-padding {
+    padding: 10px 0 0px 0;
+}
+
+.card-title-cls {
+    /* color: #fff; */
+    font-weight: 600;
+}
+.download-file {
+    color: #0c5ac8;
+}
+.download-file i {
+    float: right;
+    cursor: pointer;
+}
+
+.progress-percent {
+    display: inline-block;
+    position: absolute;
+    top: 40px;
+    /* color: #fff; */
+}
+.progress-totalamnt {
+    display: inline-block;
+    position: absolute;
+    top: 40px;
+    right: 10px;
+    /* color: #fff; */
+}
+/* .card {
+    background-color: #272953;
+    color: #fff;
+} */
+
+.table-h {
+    background-color: #90b7f6;
+}
+
+.custom-icon-1 {
+    color: green;
+    font-size: 20px;
+}
+
+.custom-icon-down {
+    color: red;
+    font-size: 20px;
+    float: right;
+}
+.custom-icon-up {
+    color: green;
+    font-size: 20px; float: right;
+}
+
+.icon-div {
+    background: #dbecfd;
+}
+
+.division-f-form-l {
+    /* color: #fff; */
+}
+.spn-itm {
+    float: right;
+    font-size: 20px;
+    color: #7dcbab;
+}
+
+.small-box-footer-dss {
+    text-align: center;
+    color: rgba(0, 0, 0, 0.5);
+    display: block;
+}

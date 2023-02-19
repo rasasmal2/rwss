@@ -1,0 +1,58 @@
+<nav class="nav-menu d-none d-lg-block nav-itm-l" id="nav-itm-l">
+    <ul class="">
+        <li *ngIf="isLoggedIn=='true'" class="active"><a [routerLink]="['/welcome']" class="nav-link px-2">Home</a>
+        </li>
+
+        <li *ngIf="isLoggedIn=='true' && (loginUser=='Executive Engineer' || loginUser=='Authority Engineer')" class="drop-down">
+          <a href="javascript:void(0);" class="dropdown-toggle">Construction</a>
+          <ul style="width: 120%;" *ngIf="loginUser=='Executive Engineer' || loginUser=='Authority Engineer'">
+            <div class="row">
+              <div class="col-sm-12">
+                <li *ngIf="isLoggedIn=='true' && loginUser=='Executive Engineer'"><a class="dropdown-item" routerLink="/construction/create-project">Create Project</a></li>
+                <li *ngIf="isLoggedIn=='true' && loginUser=='Executive Engineer'"><a class="dropdown-item" routerLink="/d-and-d/create">D&D</a></li>
+                <li *ngIf="isLoggedIn=='true' && loginUser=='Executive Engineer'"><a class="dropdown-item" routerLink="/row/create">RoW</a></li>
+                <li *ngIf="isLoggedIn=='true' && (loginUser=='Executive Engineer' || loginUser=='Authority Engineer')"><a class="dropdown-item" routerLink="/manage-projects">Manage Projects</a></li>
+              </div>
+            </div>
+          </ul>
+        </li>
+        <li *ngIf="isLoggedIn=='true' && (loginUser=='Executive Engineer' || loginUser=='Chief Engineer')" class="drop-down">
+          <a href="javascript:void(0);" class="dropdown-toggle">Dashboard</a>
+          <ul style="width: 120%;">
+            <div class="row">
+              <div class="col-sm-12">
+                <li><a class="dropdown-item" routerLink="/project-dashboard">Project Dashboard</a></li>
+                <li><a class="dropdown-item" routerLink="/overview-dashboard">Overview Dashboard</a></li>
+              </div>
+            </div>
+          </ul>
+        </li>
+
+        <li *ngIf="isLoggedIn=='true' && (loginUser=='Executive Engineer' || loginUser=='Chief Engineer')"
+          class="drop-down">
+          <a routerLink="/operation-maintenance" href="javascript:void(0)" role="button" id="dropdownMenuLink"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            Operation & Maintenance
+          </a>
+        </li>
+        
+
+        <li *ngIf="isLoggedIn=='true'" class="drop-down">
+            <a href="javascript:void(0)" class="dropdown-toggle profile-img" data-bs-toggle="dropdown"
+                aria-expanded="true" style="width: 30px">
+                <img src="../../../assets/images/profileLogo.png" alt="mdo" width="32" height="32"
+                    class="rounded-circle">
+            </a>
+            <ul style="left: -148px;width:500%;">
+                <li><a class="dropdown-item" href="javascript:void(0)">{{userName}} | {{loginUser}}</a></li>
+                <li><a class="dropdown-item" href="javascript:void(0)">Settings</a></li>
+                <li><a class="dropdown-item" href="javascript:void(0)">Profile</a></li>
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="javascript:void(0)" (click)="onLogOut()">Sign out</a></li>
+            </ul>
+        </li>
+
+    </ul>
+</nav>

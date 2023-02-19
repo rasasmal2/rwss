@@ -1,0 +1,21 @@
+<mat-form-field [style]="style">
+    <mat-label>{{label}}</mat-label>
+    <mat-select (openedChange)="myInput2.focus()" ngDefaultControl [formControl]="selectCtrl" [placeholder]="placeholder" (selectionChange)="onSelect($event.value)" multiple>
+        <input class="myInputMulti-search" #myInput2  type="text" [formControl]="searchFilterCtrl" (keyup)="search()" autocomplete="off" placeholder="search">
+
+        <mat-select-trigger>
+        {{selectCtrl.value?.[0] || ''}}
+        <span *ngIf="(selectCtrl.value?.length || 0) > 1" class="example-additional-selection">
+          (+{{(selectCtrl.value?.length || 0) - 1}} {{selectCtrl.value?.length === 2 ? 'other' : 'others'}})
+        </span>
+      </mat-select-trigger>
+      <mat-option *ngFor="let topping of options" [value]="topping">{{topping}}</mat-option>
+      <mat-option *ngIf="options && options.length==0">
+        No result found
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="selectCtrl.hasError('required')">
+        This field is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+  

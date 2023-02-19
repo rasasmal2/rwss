@@ -1,0 +1,36 @@
+<section>
+    <div>
+        <div class="associated-cls">
+            <h3 style="float: left;">Office</h3>
+            <app-button class="lgf-btn" [type]="'submit'" value="Submit" [text]="'Add'" [btnId]="'primary'" [style]="'float:right;'" (click)="openDialog()"></app-button>
+        </div>
+        <div>
+            <section id="search-project-dashboard" class="search-project-dashboard">
+                <!-- <div class="container"> -->
+                    <div class="label-header"><h5>Search Office</h5></div>
+                    <div class="marginTopForFormCustomClass1">
+                        <form [formGroup]="searchOfcFrm" id="searchOfcFrm" novalidate="novalidate">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <app-text-field class="property-form" [label]="'Office Name'" [placeholder]="'Enter Office Name'" [isReadOnly]="'false'" formControlName="officeName" [maxlength]="100" [style]="'width:30%'"></app-text-field>
+                                    <app-select-search class="property-form" [label]="'Office Type'" [placeholder]="'Select Office Type'" [optionList]="officeTypeList" formControlName="officeType" [style]="'width:30%'"></app-select-search>
+                                    <app-select-search class="property-form" [label]="'District'" [placeholder]="'Select District'" [optionList]="districtList" formControlName="district" [style]="'width:30%'"></app-select-search>
+                                    <app-button class="lgf-btn" [type]="'submit'" value="Submit" [text]="'Search'" [btnId]="'accent'" [style]="''" (click)="searchOffice()"></app-button>
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+            
+                <!-- </div> -->
+            
+            </section>
+        </div>
+        <div>
+            <app-table [dataList]="dataSource" [displayedColumns]="displayedColumns" (onClickAction)="onClickRoadTableAction($event)"></app-table>
+        </div>
+
+        
+        
+    </div>
+</section>

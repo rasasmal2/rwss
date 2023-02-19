@@ -1,0 +1,60 @@
+<!-- <div class="container">
+    <i class="icofont-home"></i> <span>::</span> <span>Project Dashboard</span>
+</div> -->
+
+<section id="search-project-dashboard" class="search-project-dashboard" *ngIf="showProjectSearch">
+    <div class="container">
+        <div class="label-header"><h5>Search Project</h5></div>
+        <div class="marginTopForFormCustomClass1">
+            <form id="frmIndexPage" [formGroup]="projectFormGroup">
+                <app-select-search class="property-form" [label]="'Project Type'" [placeholder]="'Select Project Type'" [optionList]="projectTypeList" formControlName="projectType"></app-select-search>
+                <app-text-field [isReadOnly]="'false'" [maxlength]="100" class="property-form" [label]="'Project Name'" [placeholder]="'Enter Project Name'" formControlName="projectName" [style]="''"></app-text-field>
+                <app-date-picker class="property-form" [label]="'Project Start Date'" [placeholder]="'Enter Project Start Date'" formControlName="projectStartDate"></app-date-picker>
+                <app-date-picker class="property-form" [label]="'Project End Date'" [placeholder]="'Enter Project End Date'" formControlName="projectEndDate"></app-date-picker>
+
+                <div style="height: 40px;">
+                    <app-button [text]="'Search'" [btnId]="'default'" (click)="onSearchProject($event)" [type]="'submit'" [style]="'float:right;margin-right:10px;'"></app-button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+</section>
+
+<section id="search-project-table" class="search-project-table" *ngIf="showProjectList">
+    <div class="container">
+        <div class="label-header"><h5>Project List</h5></div>
+        <div class="marginTopForFormCustomClass1">
+            <ag-grid-angular
+                style="width: 100%; height: 50vh;"
+                class="ag-theme-alpine"
+                [columnDefs]="columnDefs"
+                [defaultColDef]="defaultColDef"
+                [rowData]="rowData"
+                [paginationAutoPageSize]="true"
+                [pagination]="true"
+                (gridReady)="onGridReady($event)"
+                (cellClicked)='onCellClicked($event)'
+                [suppressRowClickSelection]="true"
+            ></ag-grid-angular>
+        </div>
+
+    </div>
+
+</section>
+
+<section id="project-dashboard-details" class="project-dashboard-details" *ngIf="showProjectDetails">
+    <div class="container">
+        <span (click)="goBack()" style="cursor: pointer;">
+            <i class="icofont-arrow-left go-back" ></i>
+            Back
+        </span>
+        
+    </div>
+    
+    <app-project-dashboard-details [projectData]="projectData"></app-project-dashboard-details>
+    
+
+</section>
+

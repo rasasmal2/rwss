@@ -1,0 +1,118 @@
+<section>
+    <div class="container" style="padding-top: 10px;">
+      <div class="row">
+        <div class="col-lg-10 col-md-10 heading-cls">
+          Welcome <span>{{userName}} | {{this.loginUser}}</span>
+        </div>
+        <!-- <div class="col-lg-2 col-md-2">
+          <nav class="nav-menu d-none d-lg-block">
+            <ul class="">
+              <li  class="drop-down">
+                <a href="javascript:void(0);" class="dropdown-toggle" style="color: #01458e;">QUICK ACTION</a>
+                <ul>
+                  <li><a class="dropdown-item">Search TL</a></li>
+                  <li><a class="dropdown-item">New Application</a></li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </div> -->
+      </div>
+    </div>
+    
+  </section>
+  <section id="counts" class="counts">
+    <div class="container aos-init aos-animate" data-aos="fade-up">
+  
+      <div class="row">
+      
+        <div class="col-lg-4 col-md-6 mt-5 mt-lg-0 mb-5" *ngIf="loginUser=='Executive Engineer'" (click)="goTo('construction/create-project')">
+          <div class="count-box count-box2" style="background-color: #7bcd1b; color: white;">
+            <i class="icofont-court"></i> 
+            <!-- <span data-toggle="counter-up" id="adminDepartmentCount">65</span> -->
+            <p>Create Project</p>
+          </div>
+        </div>
+      
+        <div class="col-lg-4 col-md-6 mt-5 mt-lg-0 mb-5" (click)="goTo('manage-projects')" *ngIf="loginUser=='Executive Engineer' || loginUser=='Authority Engineer'">
+          <div class="count-box count-box2" style="background-color: #C4D600; color: white;">
+            <i class="icofont-bank-alt"></i>
+            <!-- <span data-toggle="counter-up" id="fieldDepartmentCount">109</span> -->
+            <p>Manage Projects</p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 mt-5 mt-lg-0 mb-5" (click)="goTo('d-and-d/create')" *ngIf="loginUser=='Executive Engineer'">
+          <div class="count-box count-box2" style="background-color: #009A44; color: white;">
+            <i class="icofont-contact-add"></i>
+            <!-- <span data-toggle="counter-up" id="fieldDepartmentCount">109</span> -->
+            <p>D&D</p>
+          </div>
+        </div>
+        
+      </div>
+      <div class="row">
+        
+
+        
+  
+        <div class="col-lg-4 col-md-6 mb-5" *ngIf="loginUser=='Executive Engineer'" (click)="goTo('row/create')">
+          <div class="count-box count-box2" style="background-color: #7bcd1b; color: white;">
+            <i class="icofont-bag-alt"></i> 
+            <!-- <span data-toggle="counter-up" id="ddosCount">11127</span> -->
+            <p>ROW</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mt-5 mt-md-0 mb-5" *ngIf="loginUser=='Executive Engineer' || loginUser=='Chief Engineer'">
+          <div class="count-box count-box2" style="background-color: #C4D600; color: white;">
+            <i class="icofont-dashboard-web"></i>
+            <span data-toggle="counter-up" id="employeeCount"></span> 
+            <p>Reports & Dashboard</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mt-5 mt-md-0 mb-5" *ngIf="loginUser=='Executive Engineer' || loginUser=='Chief Engineer'" (click)="goTo('operation-maintenance')">
+          <div class="count-box count-box2" style="background-color: #009A44; color: white;">
+            <i class="icofont-dashboard-web"></i>
+            <span data-toggle="counter-up" id="employeeCount"></span> 
+            <p>Operation & Maintenance</p>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  </section>
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-8" style="font-size: 20px; font-weight: 600; color: #01458e;">
+          My Worklist
+        </div>
+        <div class="col-lg-4 col-md-4">
+          <form class="form-inline">
+            <div class="form-group mx-sm-3 mb-2">
+              <label for="appNo" class="sr-only">Enter Project Name</label>
+              <input type="text" class="form-control" id="appNo" placeholder="Enter Project Name">
+            </div>
+            <app-button [text]="'Search'" [btnId]="'default'" [type]="'submit'" [style]="'float:right;'"></app-button>
+            <!-- <button type="submit" class="btn btn-primary mb-2">Search</button> -->
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="container" style="padding-bottom: 15px;">
+      <!-- <app-ag-table></app-ag-table> -->
+      <ag-grid-angular
+        style="width: 100%; height: 50vh;"
+        class="ag-theme-alpine"
+        [columnDefs]="columnDefs"
+        [defaultColDef]="defaultColDef"
+        [rowData]="rowData"
+        [paginationAutoPageSize]="true"
+        [pagination]="true"
+        (gridReady)="onGridReady($event)"
+      ></ag-grid-angular>
+    </div>
+    
+  </section>

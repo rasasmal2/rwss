@@ -1,0 +1,74 @@
+.success-header {
+    background: #116c11;
+    height: auto;
+    text-align: center;
+    font-size: 21px;
+    padding: 15px;
+    color: white;
+    font-weight: 500;
+}
+.success-icon {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.success-icon span {
+    border: 1px solid;
+    border-radius: 50px;
+    background: white;
+    height: 60px;
+    width: 60px;
+    display: inline-block;
+}
+.success-icon span .mat-icon{
+    color: #116c11;
+    text-align: center;
+    height: 50px;
+    width: 50px;
+    font-size: 50px;
+}
+.success-icon span i {
+    color: #116c11;
+    top: 7px;
+    position: relative;
+}
+.success-footer {
+    margin-top: 10px;
+}
+
+
+.failed-header {
+    background: #d4351c;
+    height: auto;
+    text-align: center;
+    font-size: 21px;
+    padding: 15px;
+    color: white;
+    font-weight: 500;
+}
+.failed-icon {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.failed-icon span {
+    border: 1px solid;
+    border-radius: 50px;
+    background: white;
+    height: 60px;
+    width: 60px;
+    display: inline-block;
+}
+.failed-icon span .mat-icon{
+    color: #d4351c;
+    text-align: center;
+    height: 50px;
+    width: 50px;
+    font-size: 50px;
+}
+.failed-icon span i {
+    color: #d4351c;
+    top: 7px;
+    position: relative;
+}
+.failed-footer {
+    margin-top: 10px;
+}

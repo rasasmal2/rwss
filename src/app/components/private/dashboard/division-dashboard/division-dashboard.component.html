@@ -1,0 +1,239 @@
+<div class="division-dss">
+    <div class="container">
+        <div class="label-header">
+            <h5 class="title-cls">Division Dashboard</h5>
+        </div>
+        <!-- <div class="row add-padding">
+            <div class="col-sm-12">
+                <div>
+                    <label for="division" style="color: #fff;">Select Division</label>
+                    <select  class="form-select" name="division" id="division">
+                      <option *ngFor="let option of divisionList" [value]="option">{{option}}</option>
+                    </select>
+                  </div>
+            </div>
+        </div> -->
+
+        <form id="divisionDasFilterForm" novalidate="novalidate">
+            <div class="row">
+                <div class="col-sm-4">
+                    <label for="state" class="division-f-form-l">Division</label>
+                    <input type="text" class="form-control" [value]="divisionPerson" disabled>
+                    <!-- <select  class="form-select" name="division" id="division" >
+                        <option *ngFor="let option of divisionList" [value]="option"  selected="divisionPerson">{{option}}</option>
+                    </select> -->
+                </div>
+                <div class="col-sm-4">
+                    <label for="scheme" class="division-f-form-l">Scheme</label>
+                    <select class="form-select" name="scheme" id="scheme">
+                        <option value="">Select</option>
+                        <option *ngFor="let option of schemeList" [value]="option">{{option}}</option>
+                    </select>
+                </div>
+                <div class="col-sm-4">
+                    <label for="finYear" class="division-f-form-l">Fin Year</label>
+                    <select class="form-select" name="finYear" id="finYear">
+                        <option *ngFor="let option of finYear" [value]="option" selected="2022-23">{{option}}</option>
+                    </select>
+                </div>
+            </div>
+        </form>
+
+        <div class="row add-padding">
+            <div class="col-sm-3">
+                <div class="card budget-cls">
+                    <div class="card-body">
+                        <h6 class="card-title card-title-cls">Package Approved</h6>
+                        <div class="row">
+                            <div class="col-sm-6"> No. </div>
+                            <div class="col-sm-6"> 15 </div>
+                            <div class="col-sm-6"> Amount (Cr) </div>
+                            <div class="col-sm-6"> 19.27 </div>
+                            <div class="col-sm-6"> Length (km) </div>
+                            <div class="col-sm-6"> 325 </div>
+                        </div>
+                        
+                    </div>
+                    <div class="card-footer">
+                        <a class="small-box-footer-dss" href="javascript:void(0)">More Info <i
+                            class="fa fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="card budget-cls">
+                    <div class="card-body">
+                        <h6 class="card-title card-title-cls">Work Awarded</h6>
+                        <div class="row">
+                            <div class="row">
+                                <div class="col-sm-6"> No. </div>
+                                <div class="col-sm-6"> 12 </div>
+                                <div class="col-sm-6"> Amount (Cr) </div>
+                                <div class="col-sm-6"> 16.23 </div>
+                                <div class="col-sm-6"> Length (km) </div>
+                                <div class="col-sm-6"> 290 </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="card-footer">
+                        <a class="small-box-footer-dss" href="javascript:void(0)">More Info <i
+                            class="fa fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="card budget-cls">
+                    <div class="card-body">
+                        <h6 class="card-title card-title-cls">No of Works</h6>
+                        <div class="row">
+                            <div class="col-sm-6"> Ongoing </div>
+                            <div class="col-sm-6"> 10 </div>
+                            <div class="col-sm-6"> Completed </div>
+                            <div class="col-sm-6"> 02 </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a class="small-box-footer-dss" href="javascript:void(0)">More Info <i
+                            class="fa fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="card budget-cls">
+                    <div class="card-body">
+                        <h6 class="card-title card-title-cls">Value of Approved</h6>
+                        <div class="row">
+                            <div class="col-sm-10"> Measurement (in Cr) </div>
+                            <div class="col-sm-2"> 9 </div>
+                            <div class="col-sm-10"> Bill (in Cr) </div>
+                            <div class="col-sm-2"> 5 </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a class="small-box-footer-dss" href="javascript:void(0)">More Info <i
+                            class="fa fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row add-padding">
+            <div class="col-sm-7">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card budget-cls">
+                            <div class="card-body">
+                                <h6 class="card-title card-title-cls">Material Comsumption vs Forest Royalty</h6>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div echarts [options]="barchartOption1" style="height: 250px;" class="demo-chart"></div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div echarts [options]="barchartOption2" style="height: 250px;" class="demo-chart"></div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- <div class="row add-padding">
+                    <div class="col-sm-4">
+                        <div class="card budget-cls">
+                            <div class="card-body">
+                                <h6 class="card-title card-title-cls">Up/Cross Sell</h6>
+
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <p>
+                                            <span>Revenue</span>
+                                            <span class="spn-itm">16501</span>
+                                        </p>
+                                        <p>
+                                            <span>% of Revenue</span>
+                                            <span class="spn-itm">11%</span>
+                                        </p>
+                                        <hr>
+                                        <h6 class="card-title card-title-cls">Churn</h6>
+                                        <div>
+                                            <p>
+                                                <span>Total</span>
+                                                <span class="spn-itm">26</span>
+                                            </p>
+                                            <p>
+                                                <span>Rate</span>
+                                                <span class="spn-itm">2%</span>
+                                            </p>
+                                            <p>
+                                                <span>Revenue</span>
+                                                <span class="spn-itm">43812</span>
+                                            </p>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="card budget-cls">
+                            <div class="card-body">
+                                <h6 class="card-title card-title-cls">Accumulated Revenue</h6>
+                                <div echarts [options]="chartOption4" style="height: 280px;" class="demo-chart"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+            <div class="col-sm-5">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h6 class="card-title card-title-cls">Scheme Wise Project Details</h6>
+                                <div class="row">
+                                    <!-- <div class="col-sm-4">
+                                        <div style="padding-top: 13px;">
+                                            <div class="bold" style="font-size: 15px;">
+                                                SOPD-G
+                                            </div>
+                                            <div style="font-size: 17px;color: #1a6470;">
+                                                7 | 12.00Cr
+                                            </div>
+                                            <div class="bold" style="font-size: 15px;">
+                                                SOPD-SS
+                                            </div>
+                                            <div style="font-size: 17px;color: #7dcbab;">
+                                                5 | 5.20Cr
+                                            </div>
+                                            <div class="bold" style="font-size: 15px;">
+                                                SOPD-TSP
+                                            </div>
+                                            <div style="font-size: 17px;color: #7dcbab;">
+                                                3 | 2.07Cr
+                                            </div>
+                                        </div>
+
+                                    </div> -->
+                                    <div class="col-sm-12">
+                                        <div echarts [options]="chartOption2" style="height: 250px;" class="demo-chart">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="col-sm-12" style="padding-top: 10px;">
+                        <div class="card budget-cls">
+                            <div class="card-body">
+                                <h6 class="card-title card-title-cls">Incremental Sales</h6>
+                                <div echarts [options]="chartOption3" style="height: 360px;" class="demo-chart"></div>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

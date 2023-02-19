@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'ProjectMonitoringSystem-RWSS'`, () => {
+  it(`should have as title 'e-vidyavahini'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('ProjectMonitoringSystem-RWSS');
+    expect(app.title).toEqual('e-vidyavahini');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('ProjectMonitoringSystem-RWSS app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('e-vidyavahini app is running!');
   });
 });

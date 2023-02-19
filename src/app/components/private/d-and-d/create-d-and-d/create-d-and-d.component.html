@@ -1,0 +1,143 @@
+<section>
+    <div class="container" style="padding-top: 10px;">
+        <div class="row">
+            <div class="col-lg-10 col-md-10 heading-cls"> <span>D&D Creation</span></div>
+        </div>
+    </div>
+</section>
+<section id="main-section">
+    <div>
+        <mat-horizontal-stepper labelPosition="bottom" [linear]="isLinear" #stepper fxLayout="column" fxFlex="100" fxLayoutAlign=" stretch">
+              
+            <mat-step [stepControl]="projectFormGroup">
+                <ng-template matStepLabel>Field Details</ng-template>
+                <form [formGroup]="projectFormGroup" >
+                    <div class="ddCls">
+                        <app-select-search class="property-form" [label]="'Project Type'" [placeholder]="'Select Project Type'" [optionList]="projectTypeList" formControlName="projectType"></app-select-search>
+                        <app-select-search class="property-form" [label]="'Select Project'" [placeholder]="'Select Project'" [optionList]="projectList" formControlName="projectName"></app-select-search>
+                        <app-text-field [isReadOnly]="'false'" [maxlength]="100" class="property-form" [label]="'Name of Design cell Nodal Officer'" [placeholder]="'Enter Name of Design cell Nodal Officer'" formControlName="nodalOfficerName" [style]="''"></app-text-field>
+                        <app-text-field [isReadOnly]="'false'" [type]="'tel'" [maxlength]="100" class="property-form" [label]="'Mobile No of Design cell Nodal Officer'" [placeholder]="'Enter Mobile No of Design cell Nodal Officer'" formControlName="nodalOfficerMobileNo" [style]="''"></app-text-field>
+                        <app-text-field [isReadOnly]="'false'" [type]="'email'" [maxlength]="100" class="property-form" [label]="'Email address of Design cell Nodal Officer'" [placeholder]="'Enter Email address of Design cell Nodal Officer'" formControlName="nodalOfficerEmail" [style]="''"></app-text-field>
+                        <app-select-search class="property-form" [label]="'Select Executing Agency'" [placeholder]="'Select Executing Agency'" [optionList]="executingAgencyList" formControlName="executingAgency"></app-select-search>
+                        
+                    </div>
+                    <div>
+                        <button mat-button matStepperNext color="primary"  (click)="saveandnext('field')">Save & Next</button>
+                      </div>
+                </form>
+            </mat-step>
+            <mat-step [stepControl]="gdaFormGroup">
+                <ng-template matStepLabel>GDA Details</ng-template>
+                <form [formGroup]="gdaFormGroup" >
+                    <div class="ddCls">
+                        <mat-slide-toggle formControlName="isGDASubmitted" style="width:30%;">GAD Submitted</mat-slide-toggle>
+                        <app-date-picker class="property-form" [label]="'GAD Submission Date'" [style]="'width:60%;'" [placeholder]="'Enter GAD Submission Date'" formControlName="GDASubmissionDate"></app-date-picker>
+                        
+                        <mat-slide-toggle formControlName="isGDAApproved" style="width:30%;">GAD Approved</mat-slide-toggle>
+                        <app-date-picker class="property-form" [label]="'GAD Approval Date'" [style]="'width:60%;'" [placeholder]="'Enter GAD Approval Date'" formControlName="GDAApprovalDate"></app-date-picker>
+                
+                        <div class="form-group row" style="margin-top:30px;">
+                            <label for="filename1" class="col-sm-3 col-form-label" style="width:30%">Upload Document(GAD)</label>
+                            <div class="col-sm-7" style="width:47%">
+                                <input type="text" name="filename1" class="form-control" [ngClass]="{'error_class': gdaSubmitted && gdaFormGroup.controls.GDA_File.errors?.required}" formControlName="GDA_File" placeholder="No file selected" readonly>
+                                <mat-error *ngIf="gdaSubmitted && gdaFormGroup.controls.GDA_File.errors?.required">
+                                    This field is <strong>required</strong>
+                                </mat-error>
+                            </div>
+                            <span  class="col-sm-2 input-group-btn">
+                                <div class="btn btn-outline-secondary custom-file-uploader">
+                                    Select a file
+                                <input type="file" name="file" (change)="onUploadGDADoc($event)" />
+                                
+                                </div>
+                            </span>
+                        </div>
+                    </div>
+                    <div>
+                        <button mat-button matStepperNext color="primary"  (click)="saveandnext('GDA')">Save & Next</button>
+                        <button mat-button matStepperPrevious color="secondary" >Back</button>
+
+                    </div>
+                </form>
+            </mat-step>
+            <mat-step [stepControl]="hfdFormGroup">
+                <ng-template matStepLabel>HFD Details</ng-template>
+                <form [formGroup]="hfdFormGroup" >
+                    <div class="ddCls">
+                        <mat-slide-toggle formControlName="isHFDSubmitted" style="width:30%;">HFD Submitted</mat-slide-toggle>
+                        <app-date-picker class="property-form" [label]="'HFD Submission Date'" [style]="'width:60%;'" [placeholder]="'Enter HFD Submission Date'" formControlName="HFDSubmissionDate"></app-date-picker>
+
+                        <mat-slide-toggle formControlName="isHFDApproved" style="width:30%;">HFD Approved</mat-slide-toggle>
+                        <app-date-picker class="property-form" [label]="'HFD Approval Date'" [style]="'width:60%;'" [placeholder]="'Enter HFD Approval Date'" formControlName="HFDApprovalDate"></app-date-picker>
+
+                        <div class="form-group row" style="margin-top:30px;">
+                            <label for="filename1" class="col-sm-3 col-form-label" style="width:30%">Upload Document(HFD)</label>
+                            <div class="col-sm-7" style="width:47%">
+                                <input type="text" name="filename1" class="form-control" [ngClass]="{'error_class': hfdSubmitted && hfdFormGroup.controls.HFD_File.errors?.required}" formControlName="HFD_File" placeholder="No file selected" readonly>
+                                <mat-error *ngIf="hfdSubmitted && hfdFormGroup.controls.HFD_File.errors?.required">
+                                    This field is <strong>required</strong>
+                                </mat-error>
+                            </div>
+                            <span  class="col-sm-2 input-group-btn">
+                                <div class="btn btn-outline-secondary custom-file-uploader">
+                                    Select a file
+                                <input type="file" name="file" (change)="onUploadHFDDoc($event)" />
+                                
+                                </div>
+                            </span>
+                        </div>
+                    </div>
+                    <div>
+                        <button mat-button matStepperNext color="primary"  (click)="saveandnext('HFD')">Save & Next</button>
+                        <button mat-button matStepperPrevious color="secondary" >Back</button>
+
+                    </div>
+                </form>
+            </mat-step>
+            <mat-step [stepControl]="structuralFormGroup">
+                <ng-template matStepLabel>Structural Design Details</ng-template>
+                <form [formGroup]="structuralFormGroup" >
+                    <div class="ddCls">
+                        <mat-slide-toggle formControlName="isStructuralDesignSubmitted" style="width:30%;">Structural Design Submitted</mat-slide-toggle>
+                        <app-date-picker class="property-form" [label]="'Design Submission Date'" [style]="'width:60%;'" [placeholder]="'Enter Design Submission Date'" formControlName="structuralDesiginSubmissionDate"></app-date-picker>
+                        <mat-slide-toggle formControlName="isStructuralDesignApproved" style="width:30%;">Structural Design Approved</mat-slide-toggle>
+                        <app-date-picker class="property-form" [label]="'Design Approval Date'" [style]="'width:60%;'" [placeholder]="'Enter Design Approval Date'" formControlName="structuralApprovalDate"></app-date-picker>
+
+                        <div class="form-group row" style="margin-top:30px;">
+                            <label for="filename1" class="col-sm-3 col-form-label" style="width:30%">Upload Document(Structural)</label>
+                            <div class="col-sm-7" style="width:47%">
+                                <input type="text" name="filename1" class="form-control" [ngClass]="{'error_class': structuralSubmitted && structuralFormGroup.controls.structuralDocFile.errors?.required}" formControlName="structuralDocFile" placeholder="No file selected" readonly>
+                                <mat-error *ngIf="structuralSubmitted && structuralFormGroup.controls.structuralDocFile.errors?.required">
+                                    This field is <strong>required</strong>
+                                </mat-error>
+                                <!-- <span class="select-file-txt btn btn-outline-secondary">Select a file</span> -->
+                            </div>
+                            <span  class="col-sm-2 input-group-btn">
+                                <div class="btn btn-outline-secondary custom-file-uploader">
+                                    Select a file
+                                <input type="file" name="file" (change)="onUploadStructuralDoc($event)" />
+                                
+                                </div>
+                            </span>
+                        </div>
+                    </div>
+                    <div>
+                        <!-- <button mat-button matStepperNext color="primary"  (click)="saveandnext('address')">Submit</button> -->
+                        
+                        <app-button [text]="'Submit'" [btnId]="'primary'" (click)="onSubmitDnD()" [type]="'submit'" [style]="'float:right;'"></app-button>
+                        <app-button [text]="'Save as draft'" [btnId]="'default'" (click)="onSaveDnD()" [type]="'submit'" [style]="'float:right;margin-right:10px;'"></app-button>
+                        <button mat-button matStepperPrevious color="secondary" [style]="'margin-top: 0px;'">Back</button>
+                        <!-- <app-button mat-button matStepperPrevious [text]="'Back'" [btnId]="'secondary'" [style]="'float:right;margin-right:10px;'"></app-button> -->
+
+                    </div>
+                </form>
+            </mat-step>
+        </mat-horizontal-stepper>
+    </div>
+    <!-- <div class="card">
+        <div class="card-body">
+            
+        </div>
+        
+    </div> -->
+</section>

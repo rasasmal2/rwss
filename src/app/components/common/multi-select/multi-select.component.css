@@ -1,0 +1,7 @@
+.myInputMulti-search {
+    border: none;
+    width: 100%
+}
+.myInputMulti-search:focus-visible {
+    outline: none;
+}

@@ -1,0 +1,49 @@
+<div class="example-container mat-elevation-z8">
+    <mat-table #table [dataSource]="dataList" matSort *ngIf="displayedColumns && displayedColumns.length>0">      
+      <!-- <ng-container matColumnDef="select">
+        <mat-header-cell *matHeaderCellDef></mat-header-cell>
+        <mat-cell *matCellDef="let row">
+          <mat-checkbox (click)="$event.stopPropagation()" (change)="selectHandler(row)"
+            [checked]="selection.isSelected(row)">
+          </mat-checkbox>
+        </mat-cell>
+      </ng-container> -->
+      <ng-container [matColumnDef]="col?.col" *ngFor="let col of displayedColumns; let i=index;">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> {{col?.name}} </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element[col.col]}} 
+            <!-- <mat-icon *ngIf="col.col=='Action'" (click)="onEdit(element)"> edit </mat-icon>
+            <mat-icon *ngIf="col.col=='Action'"> pageview </mat-icon>
+            <mat-icon *ngIf="col.col=='Action'"> delete </mat-icon>    -->
+            <div *ngIf="col.col=='select'">
+
+            </div>
+
+            <mat-checkbox *ngIf="col.col=='select'" (click)="$event.stopPropagation()" (change)="selectHandler($event,element)"
+              [checked]="selection.isSelected(element)">
+            </mat-checkbox>
+
+            <button mat-icon-button class="material-icons app-toolbar-menu save-button"
+                *ngIf="col.col=='Action' && col?.iconType.includes('edit')" title="Edit" color="primary"
+                (click)="onEdit(element)">
+                <mat-icon>edit</mat-icon>
+            </button>
+
+            <button mat-icon-button class="material-icons app-toolbar-menu delete-button"
+                *ngIf="col.col=='Action' && col?.iconType.includes('delete')" title="Delete" color="warn"
+                (click)="onDelete(element)">
+                <mat-icon>delete</mat-icon>
+            </button>
+            <button mat-icon-button class="material-icons app-toolbar-menu view-button"
+                *ngIf="col.col=='Action' && col?.iconType.includes('view')" title="VIew" color="accent"
+                (click)="onView(element)">
+                <mat-icon>preview</mat-icon>
+            </button>
+
+        </mat-cell>
+
+      </ng-container>
+      <mat-header-row *matHeaderRowDef="columnNames"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: columnNames;"></mat-row>
+    </mat-table>
+    <mat-paginator [pageSizeOptions]="[2,5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+  </div>

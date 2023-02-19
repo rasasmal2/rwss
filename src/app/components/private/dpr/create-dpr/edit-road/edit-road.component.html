@@ -1,0 +1,147 @@
+<section>
+  <div>
+    <!-- <app-edit-table [displayedColumns]="displayedColumns" [dataList]="dataSource" [fields]="fields"></app-edit-table> -->
+    <!-- <app-table [dataList]="dataSource" [displayedColumns]="displayedColumns" (onClickAction)="onClickEditTableAction($event)"></app-table> -->
+    <div class="mat-elevation-z8">
+      <button title="Add Milestone" class="add-button-icon"><mat-icon (click)="AddNewRow()"
+          class="add-button">add_circle</mat-icon></button>
+      <br />
+
+      <form [formGroup]="VOForm" autocomplete="off">
+        <ng-container formArrayName="VORows">
+          <table #table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+            <!-- Position Column -->
+            <ng-container matColumnDef="position">
+              <th mat-header-cell *matHeaderCellDef> No. </th>
+              <td mat-cell *matCellDef="let element; let i = index" [formGroup]="element">
+                {{i+1}}
+                <!-- <mat-form-field style="width: 70px;">
+                    <input matInput type="text" formControlName="position" [readonly]="true">
+                  </mat-form-field> -->
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="milestone">
+              <th mat-header-cell *matHeaderCellDef> Milestone</th>
+              <td mat-cell *matCellDef="let element; let i = index" [formGroup]="element">
+              <p [hidden]="!VOForm.get('VORows').value[i].isEditable">{{VOForm.get('VORows').value[i].milestone}}</p>
+              <mat-form-field style="width: 200px;" [hidden]="VOForm.get('VORows').value[i].isEditable">
+                
+                <input  matInput type="text" formControlName="milestone"
+                  [readonly]="VOForm.get('VORows').value[i].isEditable">
+              </mat-form-field>
+
+              </td>
+            </ng-container>
+            <ng-container matColumnDef="startDate">
+              <th mat-header-cell *matHeaderCellDef> Start Time</th>
+              <td mat-cell *matCellDef="let element; let i = index" [formGroup]="element">
+
+                <p [hidden]="!VOForm.get('VORows').value[i].isEditable">{{VOForm.get('VORows').value[i].startDate}}</p>
+                
+                <app-select-search [valueOnly]="true" class="property-form" [hidden]="VOForm.get('VORows').value[i].isEditable" [style]="'width:160px;'" [label]="''" [placeholder]="'Select Start Time'" [optionList]="startTimeList" formControlName="startDate"
+                (onChangeValue)="onChangeStartTime($event,i)"></app-select-search>
+
+                <!-- <mat-form-field style="width: 70px;" [hidden]="VOForm.get('VORows').value[i].isEditable">
+                  <input matInput type="text" formControlName="startDate"
+                    [readonly]="VOForm.get('VORows').value[i].isEditable">
+                </mat-form-field> -->
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="endDate">
+              <th mat-header-cell *matHeaderCellDef> End Time</th>
+              <td mat-cell *matCellDef="let element; let i = index" [formGroup]="element">
+
+                <p [hidden]="!VOForm.get('VORows').value[i].isEditable">{{VOForm.get('VORows').value[i].endDate}}</p>
+                <app-select-search [valueOnly]="true" class="property-form" [hidden]="VOForm.get('VORows').value[i].isEditable" [style]="'width:160px;'" [label]="''" [placeholder]="'Select End Time'" [optionList]="endTimeList[i]" formControlName="endDate"
+                (onChangeValue)="onChangeEndTime($event, i)"></app-select-search>
+
+                
+                <!-- <mat-form-field style="width: 70px;" [hidden]="VOForm.get('VORows').value[i].isEditable">
+                  <input matInput type="text" formControlName="endDate"
+                    [readonly]="VOForm.get('VORows').value[i].isEditable">
+                </mat-form-field> -->
+              </td>
+            </ng-container>
+            <ng-container matColumnDef="timeline">
+              <th mat-header-cell *matHeaderCellDef> Timeline</th>
+              <td mat-cell *matCellDef="let element; let i = index" [formGroup]="element">
+
+                <p [hidden]="!VOForm.get('VORows').value[i].isEditable">{{VOForm.get('VORows').value[i].timeline}}</p>
+                <mat-form-field style="width: 100px;" [hidden]="VOForm.get('VORows').value[i].isEditable">
+                  <input matInput type="text" formControlName="timeline"
+                    [readonly]="true">
+                </mat-form-field>
+              </td>
+            </ng-container>
+            <ng-container matColumnDef="payment">
+              <th mat-header-cell *matHeaderCellDef> Payment %</th>
+              <td mat-cell *matCellDef="let element; let i = index" [formGroup]="element">
+
+                <p [hidden]="!VOForm.get('VORows').value[i].isEditable">{{VOForm.get('VORows').value[i].payment}}</p>
+                <mat-form-field style="width: 70px;" [hidden]="VOForm.get('VORows').value[i].isEditable">
+                  <input matInput type="text" formControlName="payment"
+                    [readonly]="VOForm.get('VORows').value[i].isEditable">
+                </mat-form-field>
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="action">
+              <th mat-header-cell *matHeaderCellDef> Action </th>
+              <td mat-cell *matCellDef="let element; let i = index" [formGroup]="element">
+                <button mat-icon-button class="material-icons app-toolbar-menu save-button"
+                  matTooltip="Save Changes" (click)="SaveVO(VOForm,i)"
+                  *ngIf="!VOForm.get('VORows').value[i].isEditable" color="primary">
+                  <mat-icon>check_circle</mat-icon>
+                </button>
+
+                <button mat-icon-button class="material-icons app-toolbar-menu cancel-button"
+                  matTooltip="Cancel Changes" color="warn" (click)="CancelSVO(VOForm,i)"
+                  *ngIf="!VOForm.get('VORows').value[i].isEditable">
+                  <mat-icon>cancel</mat-icon>
+                </button>
+
+                <button mat-icon-button class="material-icons app-toolbar-menu save-button"
+                  *ngIf="VOForm.get('VORows').value[i].isEditable" matTooltip="Edit" color="primary"
+                  (click)="EditSVO(VOForm,i)">
+                  <mat-icon>edit</mat-icon>
+                </button>
+
+                <button mat-icon-button class="material-icons app-toolbar-menu delete-button"
+                  *ngIf="VOForm.get('VORows').value[i].isEditable" matTooltip="Delete" (click)="DeleteSVO(VOForm,i)" color="warn">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+            <!-- Row shown when there is no matching data. -->
+            <!-- <tr class="mat-row" *matNoDataRow>
+                <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+              </tr> -->
+          </table>
+        </ng-container>
+      </form>
+      <mat-card *ngIf="isLoading" style="display: flex; justify-content: center; align-items: center">
+        <mat-progress-spinner color="primary" mode="indeterminate">
+        </mat-progress-spinner>
+      </mat-card>
+
+      <!-- <mat-paginator-goto [length]="100" [pageIndex]="0" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]"
+              (page)="paginationChange($event)"></mat-paginator-goto> -->
+      <mat-paginator [pageSizeOptions]="[5, dataSource.data.length>8? dataSource.data.length:''  ]"
+        showFirstLastButtons>
+      </mat-paginator>
+    </div>
+  </div>
+  <!-- <div>
+    <button mat-button matStepperNext color="primary" (click)="saveandnext()">Save & Next</button>
+    <button mat-button matStepperPrevious color="secondary" >Back</button>
+  </div> -->
+
+
+</section>

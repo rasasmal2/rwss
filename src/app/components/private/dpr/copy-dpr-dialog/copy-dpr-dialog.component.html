@@ -1,0 +1,42 @@
+<section>
+    <h1 mat-dialog-title>{{data?.title}}</h1>
+    <div mat-dialog-content *ngIf="data && data.component">
+        <div>
+            <form [formGroup]="copyDPRFOrm" (ngSubmit)="onSearchCopyDPR($event)">
+                <app-text-field class="property-form" [label]="'DPR Name'" [placeholder]="'Enter DPR Name'"
+                    formControlName="dprName" [maxlength]="100"></app-text-field>
+                <app-text-field class="property-form" [label]="'DPR No.'" [placeholder]="'Enter DPR No.'"
+                    formControlName="dprNo" [maxlength]="100"></app-text-field>
+
+                <app-date-picker class="property-form" [label]="'DPR Creation From Date'" [placeholder]="'Select From Date'" formControlName="createFrom"></app-date-picker>
+                <app-date-picker class="property-form" [label]="'DPR Creation To Date'" [placeholder]="'Select To Date'" formControlName="createTo"></app-date-picker>
+                    
+                <div style="margin-top: 5px;height: 45px;">
+                        
+                    <app-button [text]="'Search'" [btnId]="'primary'" [style]="'float:right'"></app-button>
+
+                </div>
+
+                
+                
+
+                    
+                <!-- <app-button class="lgf-btn" [type]="'submit'" value="Submit" [text]="'Add'" [btnId]="'primary'"
+                    [style]="'position: absolute;bottom: 10px;z-index: 9;right: 15px;'"></app-button> -->
+    
+            </form>
+            <div>
+                <app-table [dataList]="searchTableDataSource" [displayedColumns]="searchTableColumns" (selectCheckBox)="onSelectCheckBox($event)"></app-table>
+            </div>
+            
+        </div>
+    </div>
+    <div mat-dialog-actions>
+        <app-button class="lgf-btn" [type]="'submit'" value="copy_dpr" [text]="'Copy DPR'"
+        [btnId]="'primary'" [style]="'position: absolute;bottom: 10px;right: 3%;'" (click)="onCopyDPR()"></app-button>
+        <app-button mat-button mat-dialog-close class="lgf-btn" [type]="'submit'" value="Close" [text]="'Close'"
+            [btnId]="'warn'" [style]="'position: absolute;bottom: 10px;right: 15%;'"></app-button>
+
+    </div>
+    
+</section>

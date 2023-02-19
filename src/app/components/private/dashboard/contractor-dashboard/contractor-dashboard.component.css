@@ -1,0 +1,32 @@
+.search-project-dashboard {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.label-header {
+    background: #a1c1e1;
+    text-align: center;
+    padding: 1px;
+    border-radius: 3px;
+}
+
+.search-project-table {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.project-dashboard-details {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.marginTopForFormCustomClass1 {
+    margin-top: 10px;
+}
+
+.go-back:hover {
+    color: #01458e;
+}
+.add-padding {
+    padding: 10px;
+}

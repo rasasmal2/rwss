@@ -1,0 +1,22 @@
+<section>
+    <h1 mat-dialog-title>{{data?.title}}</h1>
+<div mat-dialog-content *ngIf="data && data.component">
+    <div>
+        <form [formGroup]="roadForm" (ngSubmit)="onSubmitForm($event)">
+            
+            <app-select-search class="property-form" [label]="'Specify District'" [placeholder]="'Select District'" [optionList]="districtList" formControlName="district" [style]="'width:100%;'"></app-select-search>
+            <app-select-search class="property-form" [label]="'Specify Associated Road'" [placeholder]="'Select Road'" [optionList]="roadList" formControlName="associatedRoad" [style]="'width:100%;'"></app-select-search>
+            <app-button class="lgf-btn" [type]="'submit'" value="Submit" [text]="'Add'" [btnId]="'primary'" [style]="'bottom: 10px;position: absolute;right: 15px;z-index: 9;'"></app-button>
+            
+          </form>
+    </div>
+
+</div>
+<div mat-dialog-actions>
+  <!-- <button mat-button mat-dialog-close>Close</button> -->
+  <app-button mat-button mat-dialog-close class="lgf-btn" [type]="'submit'" value="Close" [text]="'Close'" [btnId]="'warn'" [style]="'position: absolute;bottom: 10px;right: 12%;'"></app-button>
+
+</div>
+
+    
+</section>

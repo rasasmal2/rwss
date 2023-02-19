@@ -1,0 +1,83 @@
+<div class="login-container">
+    
+    <div class="container login-container-main">
+        <div class="d-flex justify-content-center h-100">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Sign In</h3>
+                    <!-- <div class="d-flex justify-content-end social_icon">
+                        <span><img class="login-with-img" src="../../assets/images/facebook.png" alt=""></span>
+                        <span><img class="login-with-img" src="../../assets/images/google.png" alt=""></span>
+                        <span><img class="login-with-img" src="../../assets/images/twiteer.jpg" alt=""></span>
+                        
+                    </div> -->
+                </div>
+                <div class="card-body">
+                    
+                    
+                    <form [formGroup]="loginForm" (submit)="onSubmit($event)">
+                        <!-- <div>
+                            <app-select-search [label]="'User Type'" [placeholder]="'Select User Type'" [optionList]="userTypeList"  formControlName='userType' [style]="'width:100%;padding-top:5px'"></app-select-search>
+                        </div> -->
+                        <div>
+                            <app-text-field [label]="'User Name'" [placeholder]="'Enter User Name'" [type]="'text'" formControlName='username' [maxlength]="100" [style]="'width:100%;padding-top:5px'"></app-text-field>
+                        </div>
+                        <div>
+                            <app-text-field [label]="'Password'" [placeholder]="'Enter Password'" [type]="'password'" formControlName='password' [maxlength]="20" [style]="'width:100%;padding-top:5px'"></app-text-field>
+                        </div>
+                        <div class="form-group Captchatext">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <label id="captcha">Lets solve this math problem : 10 - 5
+
+                                        <a href="javascript:void(0);" title="Refresh captcha" id="reload" style="margin-left: 100px;color: #4c55a4;" onclick="generateCaptcha()">
+                                            <i class="fa fa-refresh"></i>
+                                        </a>
+                                    </label>
+                                </div>
+                                
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                        <app-text-field [label]="'Answer'" [placeholder]="'Answer'" [type]="'text'" formControlName='captchAnswer' [maxlength]="100" [style]="'width:100%;padding-top:5px'" [matIcon]="'lock'" [iconStyle]="'color:#4c55a4;'"></app-text-field>
+                                        
+                                </div>
+                                <!-- <div class="col-sm-2">
+                                    <a href="javascript:void(0);" id="reload" onclick="generateCaptcha()">
+                                        <i class="fa fa-refresh"></i>
+                                    </a>
+                                </div> -->
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <app-button class="lgf-btn" [type]="'submit'" value="Submit" [text]="'Sign In'" [btnId]="'primary'" [style]="'width: 100%; margin-top:0px'"></app-button>
+                                        
+                                    </div>
+                                    <!-- <div class="col-sm-6 text-end">
+                                        <a href="https://evidyavahini.jharkhand.gov.in/forgotpassword" class="forgotPass">Forgot
+                                            Password?</a>
+                                    </div> -->
+                                </div>
+                            </div>
+                        </div>
+    
+                        
+                    </form>
+                    
+                </div>
+                <div class="card-footer">
+                    <div class="d-flex justify-content-center links">
+                        Don't have an account?<a href="#">Sign Up</a>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <a href="javascript:void(0)" style="color: red !important;">Forgot your password?</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

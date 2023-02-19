@@ -1,0 +1,18 @@
+<mat-form-field [style]="style">
+    <mat-label>{{label}}</mat-label>
+    <mat-select (openedChange)="myInput.focus()" ngDefaultControl [formControl]="selectCtrl" [placeholder]="placeholder" (selectionChange)="onSelect($event.value)">
+        <!-- <mat-option>
+          <ngx-mat-select-search [formControl]="searchFilterCtrl" placeholderLabel ="Search" noEntriesFoundLabel="No Data Found"></ngx-mat-select-search>
+        </mat-option> -->
+        <input class="myInput-search" #myInput matInput focused="'true'" type="text" [formControl]="searchFilterCtrl" (keyup)="search()" autocomplete="off" placeholder="search">
+        <mat-option *ngFor="let option of options" [value]="valueOnly ? option.name: option">
+          {{option.name}}
+        </mat-option>
+        <mat-option *ngIf="options && options.length==0">
+          No result found
+        </mat-option>
+    </mat-select>
+    <mat-error *ngIf="selectCtrl.hasError('required')">
+      This field is <strong>required</strong>
+    </mat-error>
+</mat-form-field>

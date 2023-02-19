@@ -1,0 +1,97 @@
+<section>
+    <div class="card">
+      <!-- <app-edit-table [displayedColumns]="displayedColumns" [dataList]="dataSource" [fields]="fields"></app-edit-table> -->
+      <!-- <app-table [dataList]="dataSource" [displayedColumns]="displayedColumns" (onClickAction)="onClickEditTableAction($event)"></app-table> -->
+      <div class="mat-elevation-z8 card-body">
+        <form autocomplete="off">
+            <table #table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  
+              <!-- Position Column -->
+              <ng-container matColumnDef="position">
+                <th mat-header-cell *matHeaderCellDef> No. </th>
+                <td mat-cell *matCellDef="let element; let i = index">
+                  {{i+1}}
+              </ng-container>
+  
+              <ng-container matColumnDef="milestone">
+                <th mat-header-cell *matHeaderCellDef> Milestone</th>
+                <td mat-cell *matCellDef="let element; let i = index">
+                    <p>{{element.milestone}}</p>
+                </td>
+              </ng-container>
+              <ng-container matColumnDef="startDate">
+                <th mat-header-cell *matHeaderCellDef> Start Time</th>
+                <td mat-cell *matCellDef="let element; let i = index">
+  
+                  <p>{{element.startDate}}</p>
+                  
+                </td>
+              </ng-container>
+  
+              <ng-container matColumnDef="endDate">
+                <th mat-header-cell *matHeaderCellDef> End Time</th>
+                <td mat-cell *matCellDef="let element; let i = index">
+  
+                  <p>{{element.endDate}}</p>
+                  
+                </td>
+              </ng-container>
+              <ng-container matColumnDef="timeline">
+                <th mat-header-cell *matHeaderCellDef> Timeline</th>
+                <td mat-cell *matCellDef="let element; let i = index">
+  
+                  <p>{{element.timeline}}</p>
+                  
+                </td>
+              </ng-container>
+              <ng-container matColumnDef="payment">
+                <th mat-header-cell *matHeaderCellDef> Payment</th>
+                <td mat-cell *matCellDef="let element; let i = index">
+  
+                  <p>{{element.payment}}</p>
+                  
+                </td>
+              </ng-container>
+              <ng-container matColumnDef="progress">
+                <th mat-header-cell *matHeaderCellDef> Progress</th>
+                <td mat-cell *matCellDef="let element; let i = index">
+  
+                  
+                  <mat-form-field style="width: 100px;">
+                    
+                    <input matInput placeholder="Progress" [value]="element.progress" [(ngModel)]="element.progress" [ngModelOptions]="{standalone: true}">
+                   
+                  </mat-form-field>
+                </td>
+              </ng-container>
+              <ng-container matColumnDef="paymentMode">
+                <th mat-header-cell *matHeaderCellDef> Payment Mode</th>
+                <td mat-cell *matCellDef="let element; let i = index">
+                  <mat-form-field style="width: 150px;">
+                    <input matInput placeholder="Payment Mode" [value]="element.paymentMode" [(ngModel)]="element.paymentMode" [ngModelOptions]="{standalone: true}">
+                  </mat-form-field>
+                </td>
+              </ng-container>
+  
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  
+              <!-- Row shown when there is no matching data. -->
+              <!-- <tr class="mat-row" *matNoDataRow>
+                  <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+                </tr> -->
+            </table>
+            <div>
+                <app-button [text]="'Submit'" [btnId]="'primary'" (click)="submit($event)" [type]="'submit'" [style]="'float:right;margin-right:10px;'"></app-button>
+                <app-button [text]="'Save as draft'" [btnId]="'secondary'" (click)="save($event)" [type]="'submit'" [style]="'float:right;margin-right:10px;'"></app-button>
+
+            </div>
+        </form>
+  
+        
+      </div>
+    </div>
+    
+  
+  
+  </section>

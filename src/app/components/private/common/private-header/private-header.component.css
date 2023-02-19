@@ -1,0 +1,7 @@
+  .rounded-circle {
+    margin-left: -5px;
+  }
+  .profile-img::before {
+    margin-left: -5px;
+  }
+  

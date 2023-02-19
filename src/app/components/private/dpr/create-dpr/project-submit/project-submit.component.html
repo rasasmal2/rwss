@@ -1,0 +1,71 @@
+<!-- <app-header-page></app-header-page> -->
+<!-- *ngIf="!isSubmissionFaield" -->
+<div style="padding: 20px;" *ngIf="true">
+    <div class="card">
+        <div class="card-body">
+            <div class="success-header">
+                <div >
+                    Project details submitted successfully
+                </div>
+                
+                <div class="success-icon">
+                    <span>
+                        <mat-icon> thumb_up_alt </mat-icon>
+                    </span>
+                    
+                </div>
+                <div style="font-size: 16px;">
+                    Project Id: P01-2023-02-14-003
+                </div>
+                <!-- <div style="font-size: 16px;">
+                    {{this.property?.acknowldgementNumber}}
+                </div> -->
+            </div>
+            <!-- <div class="success-footer">
+                <p>
+                    The notification along with the application number is sent to your registered mobile number. You can make payment later using the Track Application link from the home page once you receive the message in your mobile number.
+                </p>
+                <div class="row">
+                    <div class="col-sm-2" style="font-size: 16px;font-weight: 600;">
+                       Application No.:
+                    </div>
+                    <div class="col-sm-10">
+                        P01-2023-02-14-003
+                    </div>
+                </div>
+            </div> -->
+            <div style="float: right;padding-top: 10px">
+                <app-button [text]="'Go to home'" [btnId]="'primary'" (click)="gotohome()" [type]="'submit'"></app-button>
+                <!-- <a class="btn btn-primary" href="javascript:void(0)" (click)="gotohome()">Go to home</a> -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- *ngIf="isSubmissionFaield" -->
+<div style="padding: 20px;" *ngIf="false">
+    <div class="card">
+        <div class="card-body">
+            <div class="failed-header">
+                <div >
+                    Application Submission Failed
+                </div>
+                
+                <div class="failed-icon">
+                    <span>
+                        <mat-icon> priority_high </mat-icon>
+                    </span>
+                    
+                </div>
+                
+            </div>
+            <div class="failed-footer">
+                <p>
+                    Applications submission failed
+                </p>
+            </div>
+            <div style="float: right;padding-top: 10px">
+                <a class="btn btn-primary" href="javascript:void(0)" (click)="gotohome()">Go to home</a>
+            </div>
+        </div>
+    </div>
+</div>

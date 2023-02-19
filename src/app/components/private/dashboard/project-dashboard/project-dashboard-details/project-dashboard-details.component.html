@@ -1,0 +1,222 @@
+<div >
+<div class="container">
+    <div class="label-header">
+        <h5 class="title-cls">Project Dashboard</h5>
+    </div>
+    <div class="row add-padding">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-body">
+                    <h6 class="card-title card-title-cls">Project Name</h6>
+                    <div>
+                        {{projectData?.projectName}}
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    Project Type
+                                </div>
+                                <div class="col-sm-6 bold">
+                                    {{projectData?.projectType}}
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    Project Start Date
+                                </div>
+                                <div class="col-sm-6 bold">
+                                    {{projectData?.projectStartDate}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="row add-padding">
+                                <div class="col-sm-6">
+                                    Project End Date
+                                </div>
+                                <div class="col-sm-6 bold">
+                                    {{projectData?.projectEndDate}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="row add-padding">
+                                <div class="col-sm-6">
+                                    Project Value
+                                </div>
+                                <div class="col-sm-6 bold">
+                                    {{projectData?.projectValue}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="row add-padding">
+                                <div class="col-sm-6">
+                                    Circle
+                                </div>
+                                <div class="col-sm-6 bold">
+                                    {{projectData?.circle}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="row add-padding">
+                                <div class="col-sm-6">
+                                    Division
+                                </div>
+                                <div class="col-sm-6 bold">
+                                    {{projectData?.division}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="row add-padding">
+                                <div class="col-sm-6">
+                                    Executing Agency
+                                </div>
+                                <div class="col-sm-6 bold">
+                                    {{projectData?.executingAgency}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="row add-padding">
+                                <div class="col-sm-6">
+                                    Registered Address
+                                </div>
+                                <div class="col-sm-6 bold">
+                                    {{projectData?.registeredAddress}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="row add-padding">
+                                <div class="col-sm-6">
+                                    Contact person
+                                </div>
+                                <div class="col-sm-6 bold">
+                                    {{projectData?.contactPerson}}
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row add-padding">
+        <div class="col-sm-6">
+            <div class="card budget-cls">
+                <div class="card-body">
+                    <h6 class="card-title card-title-cls">Project wise physical progress</h6>
+                    <div echarts [options]="chartOption3" style="height: 280px;" class="demo-chart"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card budget-cls">
+                <div class="card-body">
+                    <h6 class="card-title card-title-cls">Project wise financial progress</h6>
+                    <div class="row">
+                        <!-- <div class="col-sm-4 utilization-cls">
+                            <div>
+                                <span class="bold">180Cr</span>
+                            </div>
+                            <div>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 19.09%; background: #00D1FF;" aria-valuenow="19.09" aria-valuemin="0" aria-valuemax="100">
+                                        <span class="progress-percent">19.09%</span> 
+                                        <span class="progress-totalamnt">943Cr</span> 
+                                    </div>
+                                  </div>
+                            </div>
+                        </div> -->
+
+                        <div class="col-sm-12">
+                            <div echarts [options]="chartOption2" style="height: 230px;" class="demo-chart"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row add-padding">
+        <!-- <label for="">Material used in the Project till date</label> -->
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <h6 class="card-title card-title-cls">D&D Status</h6>
+                    <div class="dd-status-cls">
+                        <table>
+                            <tr>
+                              <th></th>
+                              <th>Submitted</th>
+                              <th>Approved</th>
+                            </tr>
+                            <tr>
+                              <td>GAD</td>
+                              <td><mat-icon class="yes-cls">check_circle</mat-icon></td>
+                              <td><mat-icon class="no-cls">cancel</mat-icon></td>
+                            </tr>
+                            <tr>
+                              <td>HFD</td>
+                              <td><mat-icon class="yes-cls">check_circle</mat-icon></td>
+                              <td><mat-icon class="yes-cls">check_circle</mat-icon></td>
+                            </tr>
+                            <tr>
+                              <td>Structural Design</td>
+                              <td><mat-icon class="yes-cls">check_circle</mat-icon></td>
+                              <td><mat-icon class="yes-cls">check_circle</mat-icon></td>
+                            </tr>
+                            
+                          </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 ">
+            <div class="card">
+                <div class="card-body">
+                    <h6 class="card-title card-title-cls">RoW Status</h6>
+                    <div class="dd-status-cls row-status-cls">
+                        <table>
+                            <tr>
+                              <th>Applied at</th>
+                              <th>Approval status</th>
+                            </tr>
+                            <tr>
+                              <td>NH</td>
+                              <td><mat-icon class="yes-cls">check_circle</mat-icon></td>
+                              
+                            </tr>
+                            <tr>
+                              <td>Wildlife</td>
+                              <td><mat-icon class="no-cls">cancel</mat-icon></td>
+                            </tr>
+                            <tr>
+                              <td>Forest</td>
+                              <td><mat-icon class="yes-cls">check_circle</mat-icon></td>
+                            </tr>
+                            <tr>
+                                <td>PWD</td>
+                                <td><mat-icon class="no-cls">cancel</mat-icon></td>
+                            </tr>
+                            <tr>
+                                <td>Railways</td>
+                                <td><mat-icon class="yes-cls">check_circle</mat-icon></td>
+                            </tr>
+                          </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,23 @@
+
+<nav class="nav-menu d-none d-lg-block nav-itm-l" id="nav-itm-l">
+    <ul class="">
+        <li class="active"><a [routerLink]="['/']" class="nav-link px-2">Home</a>
+        </li>
+        <li id="modules1" (click)="goToModule()" class="modules" *ngIf="isLoggedIn!=='true'"><a
+                [routerLink]="['/']" class="nav-link px-2">Modules</a></li>
+        <li id="contact-us" (click)="goToContactUs()" *ngIf="isLoggedIn!=='true'" class="contact"><a
+                [routerLink]="['/']" class="nav-link px-2">Contact us</a></li>
+
+
+        <!-- <li id="login"><a [routerLink]="['/login']" class="nav-link px-2">Login</a>
+        </li> -->
+
+        <li>
+          <a class="nav-link px-2" href="javascript:void(0)"  [routerLink]="['login']">
+            Login
+          </a>
+        </li>
+
+    </ul>
+
+</nav>

@@ -1,0 +1,83 @@
+<div class="division-dss">
+    <div class="container">
+        <div class="label-header">
+            <h5 class="title-cls">Overview Dashboard</h5>
+        </div>
+
+        <div class="row add-padding">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-body">
+                    
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    No. of Mega PWS Projects
+                                </div>
+                                <div class="col-sm-6 bold">
+                                    10
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    No. of Mega PWS Under Progress
+                                </div>
+                                <div class="col-sm-6 bold">
+                                    8
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="row add-padding">
+                                <div class="col-sm-6">
+                                    No. of Mega PWS projects completed
+                                </div>
+                                <div class="col-sm-6 bold">
+                                    5
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="row add-padding">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h6 class="card-title card-title-cls">Financial Progress</h6>
+                        <div class="row">
+                            
+                            <div class="col-sm-12">
+                                <div echarts [options]="chartOption2" style="height: 250px;" class="demo-chart">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row add-padding">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h6 class="card-title card-title-cls">Overall project completion status</h6>
+                        <div class="row">
+                            
+                            <div class="col-sm-12">
+                                <div echarts [options]="barchartOption1" style="height: 250px;" class="demo-chart">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

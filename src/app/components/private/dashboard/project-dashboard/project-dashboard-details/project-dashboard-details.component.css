@@ -1,0 +1,68 @@
+
+.budget-cls {
+    /* text-align: center; */
+    height: 100%;
+    /* padding-top: 8%; */
+}
+.utilization-cls {
+    position: relative;
+    top: 80px;
+    text-align: center;
+}
+.vertical-line {
+    border-left: 1px solid #0f0f0f;
+    height: 50px;
+    position: absolute;
+    top: 0;
+    left: 100%;
+}
+
+.bold {
+    font-weight: 500;
+    color: #01458e;
+}
+.add-padding {
+    padding: 10px 0 0px 0;
+}
+
+.download-file {
+    color: #0c5ac8;
+}
+.download-file i {
+    float: right;
+    cursor: pointer;
+}
+
+.progress-percent {
+    display: inline-block;
+    position: absolute;
+    top: 40px;
+    color: #01458e;
+}
+.progress-totalamnt {
+    display: inline-block;
+    position: absolute;
+    top: 40px;
+    right: 10px;
+    color: #01458e;
+}
+/* .card {
+    background-color: #272953;
+    color: #fff;
+} */
+
+.table-h {
+    background-color: #90b7f6;
+}
+.yes-cls {
+    color: green;
+}
+.no-cls {
+    color: gray;
+}
+.dd-status-cls table {
+    border: white;
+}
+.row-status-cls td {
+    padding: 3px 10px !important;
+}
