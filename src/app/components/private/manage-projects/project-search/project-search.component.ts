@@ -4,6 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { CommonServiceService } from 'src/app/_services/common-service.service';
 import {  AbstractControl, FormControl, FormGroup,UntypedFormArray, UntypedFormBuilder, UntypedFormGroup, Validators,UntypedFormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import config from '../../../../../assets/config';
 
 @Component({
   selector: 'app-project-search',
@@ -66,23 +67,7 @@ export class ProjectSearchComponent implements OnInit{
 
 
   onGridReady(params:any) {
-    this.rowData = [
-      {
-        "projectName": "Project 1",
-        "projectType": 'Mega',
-        "projectValue": "21Cr",
-        "projectStartDate": '2/2/23',
-        "projectEndDate": '2/1/24',
-        "projectProgress": "30%"
-      },
-      {
-        "projectName": "Project 2",
-        "projectType": 'SVMV',
-        "projectValue": "1Cr",
-        "projectStartDate": '1/2/23',
-        "projectEndDate": '2/8/23',
-        "projectProgress": "50%"
-      }]
+    this.rowData = config.projectList
 }
 onCellClicked(event:any) {
   window.scroll({ 

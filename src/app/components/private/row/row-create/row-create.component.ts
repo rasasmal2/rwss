@@ -3,6 +3,7 @@ import { ToastrService } from 'ngx-toastr';
 import { CommonServiceService } from 'src/app/_services/common-service.service';
 import {  AbstractControl, FormControl, FormGroup,UntypedFormArray, UntypedFormBuilder, UntypedFormGroup, Validators,UntypedFormControl,FormArray } from '@angular/forms';
 import { Router } from '@angular/router';
+import config from '../../../../../assets/config';
 
 @Component({
   selector: 'app-row-create',
@@ -27,67 +28,7 @@ export class RowCreateComponent implements OnInit {
   divisionList:any = [{code: 'div-1', name: 'Division 1'},{code: 'div-2', name: 'Division 2'},{code: 'div-3', name: 'Division 3'}];
   showPropertyDetails = false;
   showModal=false;
-  properties:any=[
-    {
-      "projectName": 'Execution of Rural Piped water project in Khurdah District',
-      "projectType": "Mega",
-      "projectStartDate": "04/01/2022",
-      "projectEndDate": "03/30/2024",
-      "circle": "C3",
-      "division": "D2",
-      projectValue: "300Cr",
-      executingAgency: "TPL",
-      registeredAddress: "Mumbai",
-      contactPerson: "S Ghosh"
-    },
-    {
-      "projectName": 'Execution of Rural Piped water project in Puri District',
-      "projectType": "Mega",
-      "projectStartDate": "04/01/2022",
-      "projectEndDate": "03/30/2024",
-      "circle": "C1",
-      "division": "D1",
-      projectValue: "200Cr",
-      executingAgency: "L&T",
-      registeredAddress: "Mumbai",
-      contactPerson: "S Mehta"
-    },
-    {
-      "projectName": 'Execution of Rural Piped water project in Balangir District',
-      "projectType": "Mega",
-      "projectStartDate": "04/01/2022",
-      "projectEndDate": "03/30/2024",
-      "circle": "C4",
-      "division": "D1",
-      projectValue: "200Cr",
-      executingAgency: "NCC",
-      registeredAddress: "Hydrabad",
-      contactPerson: "S Muttu"
-    },
-    {
-      "projectName": 'Execution of Rural Piped water project in Ganjam District',
-      "projectType": "Mega",
-      "projectStartDate": "04/01/2022",
-      "projectEndDate": "03/30/2024",
-      "circle": "C2",
-      "division": "D1",
-      projectValue: "300Cr",
-      executingAgency: "NCC",
-      registeredAddress: "Hydrabad",
-      contactPerson: "S Muttu"
-    },
-    {
-      "projectName": 'Execution of Rural Piped water project in Koraput District',
-      "projectType": "Mega",
-      "projectStartDate": "04/01/2022",
-      "projectEndDate": "03/30/2024",
-      "circle": "C5",
-      "division": "D1",
-      projectValue: "300Cr",
-      executingAgency: "NCC",
-      registeredAddress: "Hydrabad",
-      contactPerson: "S Muttu"
-    }];
+  properties:any=config.projectList;
   selectedProperty:any;
   isConsentChecked=false;
   formDetails:any;

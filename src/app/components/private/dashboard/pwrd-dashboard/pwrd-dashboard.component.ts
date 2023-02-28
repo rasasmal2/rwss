@@ -45,10 +45,10 @@ export class PwrdDashboardComponent implements OnInit {
       // }
     },
      xAxis: {
-      data: ['Execution of Rural Piped water project in Khurdah District', 'Execution of Rural Piped water project in Puri District', 
-      'Execution of Rural Piped water project in Balangir District',
-      'Execution of Rural Piped water project in Ganjam District',
-      'Execution of Rural Piped water project in Koraput District',
+      data: ['Project 1', 'Project 2', 
+      'Project 3',
+      'Project 4',
+      'Project 5',
       'Execution of Rural Piped water project in Koraput District',
       'Execution of Rural Piped water project in Malkangiri District',
       'Execution of Rural Piped water project in Angul District',

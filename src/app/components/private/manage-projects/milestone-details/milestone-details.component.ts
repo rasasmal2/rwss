@@ -9,6 +9,7 @@ import { startWith } from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
 import { SelectionModel } from "@angular/cdk/collections";
 import { Observable, Subscription, tap } from 'rxjs';
+import config from '../../../../../assets/config';
 
 @Component({
   selector: 'app-milestone-details',
@@ -58,43 +59,7 @@ export class MilestoneDetailsComponent implements OnInit, AfterViewInit{
     
     // this.isLoading = false;
 
-      let dataList:any = [
-        {
-          milestone: 'Survey, Design & Drawing',
-          startDate:'01/03/2023', 
-          endDate: '10/30/2023', 
-          payment:'1%',
-          progress: ''
-        },
-        {
-          milestone: 'Construction of Intake Well',
-          startDate:'06/01/2023', 
-          endDate: '11/02/2023', 
-          payment:'3%',
-          progress: ''
-        },
-        {
-          milestone: 'Supply of pipes, laying ,fitting & fixing from Raw water rising main to WTP',
-          startDate:'12/01/2023', 
-          endDate: '04/29/2024', 
-          payment:'10%',
-          progress: ''
-        },
-        {
-          milestone: 'Supply of pipes, laying ,fitting & fixing from Clear water rising main to Elevated storage Reservoirs',
-          startDate:'05/15/2023', 
-          endDate: '10/14/2023', 
-          payment:'40%',
-          progress: ''
-        },
-        {
-          milestone: 'Design, Construction, Testing & Commissioning of ESR',
-          startDate:'04/20/2023', 
-          endDate: '11/01/2023', 
-          payment:'43%',
-          progress: ''
-        }
-      ]
+      let dataList:any = config.milestoneList;
 
       this.dataSource = new MatTableDataSource<any>(dataList);
   }
