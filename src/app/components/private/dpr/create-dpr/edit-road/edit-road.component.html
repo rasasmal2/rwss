@@ -19,6 +19,7 @@
                 <!-- <mat-form-field style="width: 70px;">
                     <input matInput type="text" formControlName="position" [readonly]="true">
                   </mat-form-field> -->
+                  <td mat-footer-cell *matFooterCellDef> Total </td>
             </ng-container>
 
             <!-- Name Column -->
@@ -33,6 +34,7 @@
               </mat-form-field>
 
               </td>
+              <td mat-footer-cell *matFooterCellDef></td>
             </ng-container>
             <ng-container matColumnDef="startDate">
               <th mat-header-cell *matHeaderCellDef> Start Time</th>
@@ -48,6 +50,7 @@
                     [readonly]="VOForm.get('VORows').value[i].isEditable">
                 </mat-form-field> -->
               </td>
+              <td mat-footer-cell *matFooterCellDef></td>
             </ng-container>
 
             <ng-container matColumnDef="endDate">
@@ -64,6 +67,7 @@
                     [readonly]="VOForm.get('VORows').value[i].isEditable">
                 </mat-form-field> -->
               </td>
+              <td mat-footer-cell *matFooterCellDef></td>
             </ng-container>
             <ng-container matColumnDef="timeline">
               <th mat-header-cell *matHeaderCellDef> Timeline</th>
@@ -75,6 +79,7 @@
                     [readonly]="true">
                 </mat-form-field>
               </td>
+              <td mat-footer-cell *matFooterCellDef></td>
             </ng-container>
             <ng-container matColumnDef="payment">
               <th mat-header-cell *matHeaderCellDef> Payment %</th>
@@ -82,10 +87,11 @@
 
                 <p [hidden]="!VOForm.get('VORows').value[i].isEditable">{{VOForm.get('VORows').value[i].payment}}</p>
                 <mat-form-field style="width: 70px;" [hidden]="VOForm.get('VORows').value[i].isEditable">
-                  <input matInput type="text" formControlName="payment"
+                  <input matInput type="number" formControlName="payment"
                     [readonly]="VOForm.get('VORows').value[i].isEditable">
                 </mat-form-field>
               </td>
+              <td mat-footer-cell *matFooterCellDef> {{getTotalPayment()}} </td>
             </ng-container>
 
             <ng-container matColumnDef="action">
@@ -114,10 +120,12 @@
                   <mat-icon>delete</mat-icon>
                 </button>
               </td>
+              <td mat-footer-cell *matFooterCellDef></td>
             </ng-container>
 
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            <tr mat-footer-row *matFooterRowDef="displayedColumns" class="example-first-footer-row"></tr>
 
             <!-- Row shown when there is no matching data. -->
             <!-- <tr class="mat-row" *matNoDataRow>

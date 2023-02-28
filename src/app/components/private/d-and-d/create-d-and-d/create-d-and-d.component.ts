@@ -24,17 +24,118 @@ export class CreateDAndDComponent implements OnInit {
   gdaSubmitted=false;
   hfdSubmitted=false;
   structuralSubmitted=false;
-  constructor(public toastService: ToastrService, public cmnService:CommonServiceService, private _formBuilder: UntypedFormBuilder,private router: Router) {}
+  circleList:any = [{code: 'c-1', name: 'Circle 1'},{code: 'c-2', name: 'Circle 2'},{code: 'c-3', name: 'Circle 3'},{code: 'c-4', name: 'Circle 4'},{code: 'c-5', name: 'Circle 5'},{code: 'c-6', name: 'Circle 6'},{code: 'c-7', name: 'Circle 7'}];
+  divisionList:any = [{code: 'div-1', name: 'Division 1'},{code: 'div-2', name: 'Division 2'},{code: 'div-3', name: 'Division 3'}];
+  showPropertyDetails = false;
+  showModal=false;
+  properties:any=[
+    {
+      "projectName": 'Execution of Rural Piped water project in Khurdah District',
+      "projectType": "Mega",
+      "projectStartDate": "04/01/2022",
+      "projectEndDate": "03/30/2024",
+      "circle": "C3",
+      "division": "D2",
+      projectValue: "300Cr",
+      executingAgency: "TPL",
+      registeredAddress: "Mumbai",
+      contactPerson: "S Ghosh"
+    },
+    {
+      "projectName": 'Execution of Rural Piped water project in Puri District',
+      "projectType": "Mega",
+      "projectStartDate": "04/01/2022",
+      "projectEndDate": "03/30/2024",
+      "circle": "C1",
+      "division": "D1",
+      projectValue: "200Cr",
+      executingAgency: "L&T",
+      registeredAddress: "Mumbai",
+      contactPerson: "S Mehta"
+    },
+    {
+      "projectName": 'Execution of Rural Piped water project in Balangir District',
+      "projectType": "Mega",
+      "projectStartDate": "04/01/2022",
+      "projectEndDate": "03/30/2024",
+      "circle": "C4",
+      "division": "D1",
+      projectValue: "200Cr",
+      executingAgency: "NCC",
+      registeredAddress: "Hydrabad",
+      contactPerson: "S Muttu"
+    },
+    {
+      "projectName": 'Execution of Rural Piped water project in Ganjam District',
+      "projectType": "Mega",
+      "projectStartDate": "04/01/2022",
+      "projectEndDate": "03/30/2024",
+      "circle": "C2",
+      "division": "D1",
+      projectValue: "300Cr",
+      executingAgency: "NCC",
+      registeredAddress: "Hydrabad",
+      contactPerson: "S Muttu"
+    },
+    {
+      "projectName": 'Execution of Rural Piped water project in Koraput District',
+      "projectType": "Mega",
+      "projectStartDate": "04/01/2022",
+      "projectEndDate": "03/30/2024",
+      "circle": "C5",
+      "division": "D1",
+      projectValue: "300Cr",
+      executingAgency: "NCC",
+      registeredAddress: "Hydrabad",
+      contactPerson: "S Muttu"
+    }];
+  selectedProperty:any;
+  isConsentChecked=false;
+  formDetails:any;
 
+  constructor(public toastService: ToastrService, public cmnService:CommonServiceService, private _formBuilder: UntypedFormBuilder,private router: Router) {}
+  onSearchProperty() {
+    let projectType = this.projectFormGroup.get('projectType').value;
+    let projectName = this.projectFormGroup.get('projectName').value;
+    let circle = this.projectFormGroup.get('circle').value;
+    let division = this.projectFormGroup.get('division').value;
+    if(projectType || projectName || circle ||  division) {
+      
+      this.cmnService.setLoading(true);
+      setTimeout(() => {
+        this.showModal = true;
+        
+        this.cmnService.setLoading(false);
+      }, 500);
+    } else {
+      this.toastService.info('Please select at-least one field')
+    }
+    
+  }
+  hide() {
+    this.showModal = false;
+  }
+
+  onSelectProperty(property:any) {
+    this.showPropertyDetails = true;
+    this.selectedProperty = property;
+    // this.propertyGroup.get('uniquePropertyId').setValue(property?.propertyId);
+    this.showModal = false;
+  }
+  getDate(date:any) {
+    return new Date(date).toDateString()
+  }
 
   ngOnInit() {
     this.projectFormGroup = this._formBuilder.group({
-      projectName: ['', Validators.required],
-      projectType: ['', Validators.required],
+      projectName: [''],
+      projectType: [''],
+      circle: [''],
+      division: [''],
       nodalOfficerName: ['', Validators.required],
       nodalOfficerEmail: ['', Validators.required],
       nodalOfficerMobileNo: ['', [Validators.required,Validators.pattern(/^[0-9]{10,10}$/)]],
-      executingAgency: ['', Validators.required]
+      // executingAgency: ['', Validators.required]
       
     });
 
@@ -67,21 +168,25 @@ export class CreateDAndDComponent implements OnInit {
     // this.misDataSource = new MatTableDataSource<any>(this.misDataList);
   }
   onSaveDnD() {
-    this.structuralSubmitted=true
-    if(this.structuralFormGroup.invalid) return;
+    
     this.toastService.success('D&D has been successfully Saved');
   }
   onSubmitDnD() {
-    this.structuralSubmitted=true
-    if(this.structuralFormGroup.invalid) return;
-    this.toastService.success('D&D has been successfully sent to head of Design Cell');
+    this.formDetails = {
+      projectDetails: this.selectedProperty,
+      nodalOfficerDetails: this.projectFormGroup.value,
+      gadDetails: this.gdaFormGroup.value,
+      hfdDetails: this.hfdFormGroup.value,
+      structuralDetails: this.structuralFormGroup.value,
+    }
+    localStorage.setItem('d_d_details', JSON.stringify(this.formDetails));
+    this.router.navigate(['d-and-d/submit'])
   }
 
   onUploadGDADoc(event:any) {
     let file = event.target.files;
     const formData = new FormData();
     formData.append('file', file[0])
-    console.log(formData);
     this.cmnService.setLoading(true)
     setTimeout(() => {
       this.cmnService.setLoading(false);
@@ -93,7 +198,6 @@ export class CreateDAndDComponent implements OnInit {
     let file = event.target.files;
     const formData = new FormData();
     formData.append('file', file[0])
-    console.log(formData);
     this.cmnService.setLoading(true)
     setTimeout(() => {
       this.cmnService.setLoading(false);
@@ -105,7 +209,6 @@ export class CreateDAndDComponent implements OnInit {
     let file = event.target.files;
     const formData = new FormData();
     formData.append('file', file[0])
-    console.log(formData);
     this.cmnService.setLoading(true)
     setTimeout(() => {
       this.cmnService.setLoading(false);
@@ -124,8 +227,16 @@ export class CreateDAndDComponent implements OnInit {
     }else if(name=='HFD') {
       this.hfdSubmitted=true
       if(this.hfdFormGroup.invalid) return;
-    } else {
-
+    } else if(name=='structural') {
+      this.structuralSubmitted=true
+      if(this.structuralFormGroup.invalid) return;
+      this.formDetails = {
+        projectDetails: this.selectedProperty,
+        nodalOfficerDetails: this.projectFormGroup.value,
+        gadDetails: this.gdaFormGroup.value,
+        hfdDetails: this.hfdFormGroup.value,
+        structuralDetails: this.structuralFormGroup.value,
+      }
     }
 
   }

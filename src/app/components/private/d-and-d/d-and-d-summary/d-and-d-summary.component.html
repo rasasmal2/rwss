@@ -1,0 +1,219 @@
+<section id="assessment-review" *ngIf="this.formDetails">
+    <div class="container">
+        
+        <h3>Review your answers</h3>
+        <!-- <p>If you want to modify any value, click on change in the respective step. It will redirect you to the
+            concerned step where you can make your changes.</p> -->
+        <div class="row details-box">
+            <h4>Project Details</h4>
+            <div class="col-sm-4">
+                Project Name
+            </div>
+            <div class="col-sm-8">
+                {{formDetails?.projectDetails?.projectName}}
+                <!-- ,{{formDetails?.address?.buildingName}},{{formDetails?.address?.street}},{{formDetails?.address?.locality?.name}},{{formDetails?.address?.city}} -->
+            </div>
+            <div class="col-sm-4">
+                Project Type
+            </div>
+            <div class="col-sm-8">
+                {{formDetails?.projectDetails?.projectType}}
+            </div>
+            <div class="col-sm-4">
+                Project Value
+            </div>
+            <div class="col-sm-8">
+                {{formDetails?.projectDetails?.projectValue}}
+            </div>
+            <div class="col-sm-4">
+                Project Start Date
+            </div>
+            <div class="col-sm-8">
+                {{formDetails?.projectDetails?.projectStartDate}}
+            </div>
+            <div class="col-sm-4">
+                Project End Date
+            </div>
+            <div class="col-sm-8">
+                {{formDetails?.projectDetails?.projectEndDate}}
+            </div>
+            <div class="col-sm-4">
+                Circle
+            </div>
+            <div class="col-sm-8">
+                {{formDetails?.projectDetails?.circle}}
+            </div>
+            <div class="col-sm-4">
+                Division
+            </div>
+            <div class="col-sm-8">
+                {{formDetails?.projectDetails?.division}}
+            </div>
+            <div class="col-sm-4">
+                Executing Agency
+            </div>
+            <div class="col-sm-8">
+                {{formDetails?.projectDetails?.executingAgency}}
+            </div>
+            <div class="col-sm-4">
+                Registered Address
+            </div>
+            <div class="col-sm-8">
+                {{formDetails?.projectDetails?.registeredAddress}}
+            </div>
+            <div class="col-sm-4">
+                Contact person
+            </div>
+            <div class="col-sm-8">
+                {{formDetails?.projectDetails?.contactPerson}}
+            </div>
+            <div class="col-sm-4">
+                Name of Design cell nodal officer
+            </div>
+            <div class="col-sm-8">
+                {{formDetails?.nodalOfficerDetails?.nodalOfficerName}}
+            </div>
+            <div class="col-sm-4">
+                Mobile No. of Design cell nodal officer
+            </div>
+            <div class="col-sm-8">
+                {{formDetails?.nodalOfficerDetails?.nodalOfficerMobileNo}}
+            </div>
+            <div class="col-sm-4">
+                Email of Design cell nodal officer
+            </div>
+            <div class="col-sm-8">
+                {{formDetails?.nodalOfficerDetails?.nodalOfficerEmail}}
+            </div>
+        </div>
+        <!-- GAD Details -->
+        <div class="row details-box">
+            <h4>GAD Details</h4>
+            <div class="col-sm-4">
+                GAD Submitted
+            </div>
+            <div class="col-sm-8">
+                {{formDetails?.gadDetails?.isGDASubmitted}}
+                
+            </div>
+            <div class="col-sm-4">
+                GAD Submission date
+            </div>
+            <div class="col-sm-8">
+                {{getDate(formDetails?.gadDetails?.GDASubmissionDate)}}
+                
+            </div>
+            <div class="col-sm-4">
+                GAD Approved
+            </div>
+            <div class="col-sm-8">
+                {{formDetails?.gadDetails?.isGDAApproved}}
+                
+            </div>
+            <div class="col-sm-4">
+                GAD Approval date
+            </div>
+            <div class="col-sm-8">
+                {{getDate(formDetails?.gadDetails?.GDAApprovalDate)}}
+                
+            </div>
+            <div class="col-sm-3 col-md-3" style="padding-top: 10px" >
+                  
+                <a href="javascript:void(0)"><mat-icon class="picture_as_pdf">picture_as_pdf</mat-icon></a>
+                
+                <div>
+                    {{this.formDetails?.gadDetails.GDA_File}}
+                </div>
+            </div>
+        </div>
+        <!-- HFD Details -->
+        <div class="row details-box">
+            <h4>HFD Details</h4>
+            <div class="col-sm-4">
+                HFD Submitted
+            </div>
+            <div class="col-sm-8">
+                {{formDetails?.hfdDetails?.isHFDSubmitted}}
+                
+            </div>
+            <div class="col-sm-4">
+                HFD Submission date
+            </div>
+            <div class="col-sm-8">
+                {{getDate(formDetails?.hfdDetails?.HFDSubmissionDate)}}
+                
+            </div>
+            <div class="col-sm-4">
+                HFD Approved
+            </div>
+            <div class="col-sm-8">
+                {{formDetails?.hfdDetails?.isHFDApproved}}
+                
+            </div>
+            <div class="col-sm-4">
+                HFD Approval date
+            </div>
+            <div class="col-sm-8">
+                {{getDate(formDetails?.hfdDetails?.HFDApprovalDate)}}
+                
+            </div>
+            <div class="col-sm-3 col-md-3" style="padding-top: 10px" >
+                  
+                <a href="javascript:void(0)"><mat-icon class="picture_as_pdf">picture_as_pdf</mat-icon></a>
+                
+                <div>
+                    {{this.formDetails?.hfdDetails.HFD_File}}
+                </div>
+            </div>
+        </div>
+        <!-- structural Details -->
+        <div class="row details-box">
+            <h4>Structural Details</h4>
+            <div class="col-sm-4">
+                Structural Submitted
+            </div>
+            <div class="col-sm-8">
+                {{formDetails?.structuralDetails?.isStructuralDesignSubmitted}}
+                
+            </div>
+            <div class="col-sm-4">
+                Structural Submission date
+            </div>
+            <div class="col-sm-8">
+                {{getDate(formDetails?.structuralDetails?.structuralDesiginSubmissionDate)}}
+                
+            </div>
+            <div class="col-sm-4">
+                Structural Approved
+            </div>
+            <div class="col-sm-8">
+                {{formDetails?.structuralDetails?.isStructuralDesignApproved}}
+                
+            </div>
+            <div class="col-sm-4">
+                Structural Approval date
+            </div>
+            <div class="col-sm-8">
+                {{getDate(formDetails?.structuralDetails?.structuralApprovalDate)}}
+                
+            </div>
+            <div class="col-sm-3 col-md-3" style="padding-top: 10px" >
+                  
+                <a href="javascript:void(0)"><mat-icon class="picture_as_pdf">picture_as_pdf</mat-icon></a>
+                
+                <div>
+                    {{this.formDetails?.structuralDetails.structuralDocFile}}
+                </div>
+            </div>
+        </div>
+        <div *ngIf="loginUser=='Chief Engineer'">
+            <div style="height: 40px;">
+                <app-button [text]="'Approve'" [btnId]="'primary'" (click)="onApprove()" [type]="'submit'" [style]="'float:right;margin-right:0px;'"></app-button>
+                <app-button [text]="'Reject'" [btnId]="'warn'" (click)="onReject()" [type]="'submit'" [style]="'float:right;margin-right:10px;'"></app-button>
+            </div>
+            
+
+        </div>
+    </div>
+
+</section>

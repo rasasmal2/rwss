@@ -6,85 +6,309 @@
     </div>
 </section>
 <section id="main-section">
-    <div class="card">
-        <div class="card-body">
-            <form [formGroup]="projectFormGroup" >
-                <ng-template matStepLabel>Field Details</ng-template>
-                <app-multi-select class="property-form" [label]="'Approval Authority'" [placeholder]="'Select Approval Authority'" [optionList]="authorityList" formControlName="authorities" [style]="'width:100%;'"></app-multi-select>
-                <div>
-                    <mat-slide-toggle formControlName="isAppliedAtNH" style="width:30%;">Approval applied at NH</mat-slide-toggle>
-                    <app-date-picker class="property-form" [label]="'Date of Application'" [placeholder]="'Enter Date of Application'" formControlName="dateOfApplication" [style]="'width:35%;'"></app-date-picker>
-                    <app-text-field [isReadOnly]="'false'" [maxlength]="100" class="property-form" [label]="'Standard time for approval(Days)'" [placeholder]="'Enter Standard time for approval(Days)'" [style]="'width:35%;'" formControlName="timeForApproval"></app-text-field>
-                    <mat-slide-toggle formControlName="isApprovalAcceptedNH" style="width:30%;">Approval accepted at NH</mat-slide-toggle>
-                    <app-date-picker class="property-form" [label]="'Application Accepted Date'" [placeholder]="'Enter Application Accepted Date'" formControlName="applicationAcceptedDateNH" [style]="'width:35%;'"></app-date-picker>
+    
+    <mat-horizontal-stepper labelPosition="bottom" [linear]="isLinear" #stepper fxLayout="column" fxFlex="100" fxLayoutAlign=" stretch">
+              
+        <mat-step [stepControl]="searchFormGrp">
+            <ng-template matStepLabel>Project Details</ng-template>
 
-                </div>
+            <form [formGroup]="searchFormGrp">
+                <div class="label-header"><h5>Search Project</h5></div>
+                <app-select-search class="property-form" [label]="'Project Type'" [placeholder]="'Select Project Type'" [optionList]="projectTypeList" formControlName="projectType"></app-select-search>
+                <app-text-field [isReadOnly]="'false'" [maxlength]="100" class="property-form"
+                [label]="'Project Name'" [placeholder]="'Enter Project Name'"
+                formControlName="projectName" [style]="''"></app-text-field>
+                <app-select-search class="property-form" [label]="'Circle'" [placeholder]="'Select Circle'"
+                    [optionList]="circleList" formControlName="circle"></app-select-search>
+                <app-select-search class="property-form" [label]="'Division'" [placeholder]="'Select Division'"
+                    [optionList]="divisionList" formControlName="division"></app-select-search>
+                <!-- <input type="text" hidden formControlName="uniquePropertyId"> -->
+              <!-- <button mat-button color="warn" (click)="onSearchProperty()" style="margin-top: 18px;">Search</button> -->
+              <span style="padding-left:10px;">D&D Status: <b>Approved</b></span>
+              <app-button [text]="'Search'" [btnId]="'default'" (click)="onSearchProperty()" [type]="'submit'" [style]="'float:right;'"></app-button>
 
-                <div>
-                    <mat-slide-toggle formControlName="isAppliedAtWildlife" style="width:30%;">Approval applied at Wildlife</mat-slide-toggle>
-                    <app-date-picker class="property-form" [label]="'Date of Application'" [placeholder]="'Enter Date of Application'" formControlName="dateOfApplicationWildLife" [style]="'width:35%;'"></app-date-picker>
-                    <app-text-field [isReadOnly]="'false'" [maxlength]="100" class="property-form" [label]="'Standard time for approval(Days)'" [placeholder]="'Enter Standard time for approval(Days)'" formControlName="timeForApprovalWildlife" [style]="'width:35%;'"></app-text-field>
-                    <mat-slide-toggle formControlName="isApprovalAcceptedWildlife" style="width:30%;">Approval accepted at Wildlife</mat-slide-toggle>
-                    <app-date-picker class="property-form" [label]="'Application Accepted Date'" [placeholder]="'Enter Application Accepted Date'" formControlName="applicationAcceptedDateWildLife" [style]="'width:35%;'"></app-date-picker>
+              <br/>
+              <div *ngIf="showPropertyDetails" style="padding-top:20px;">
+                <h4 style="padding-left:10px;">Project Details</h4>
+                <div class="row" style="padding: 10px;">
 
-                </div>
-                
-                <div>
-                    <mat-slide-toggle formControlName="isAppliedAtForest" style="width:30%;">Approval applied at Forest</mat-slide-toggle>
-                    <app-date-picker class="property-form" [label]="'Date of Application'" [placeholder]="'Enter Date of Application'" formControlName="dateOfApplicationForest" [style]="'width:35%;'"></app-date-picker>
-                    <app-text-field [isReadOnly]="'false'" [maxlength]="100" class="property-form" [label]="'Standard time for approval(Days)'" [placeholder]="'Enter Standard time for approval(Days)'" formControlName="timeForApprovalForest" [style]="'width:35%;'"></app-text-field>
-                    <mat-slide-toggle formControlName="isApprovalAcceptedForest" style="width:30%;">Approval accepted at Forest</mat-slide-toggle>
-                    <app-date-picker class="property-form" [label]="'Application Accepted Date'" [placeholder]="'Enter Application Accepted Date'" formControlName="applicationAcceptedDateForest" [style]="'width:35%;'"></app-date-picker>
-
-                </div>
-
-                <div>
-                    <mat-slide-toggle formControlName="isAppliedAtPWD" style="width:30%;">Approval applied at PWD</mat-slide-toggle>
-                    <app-date-picker class="property-form" [label]="'Date of Application'" [placeholder]="'Enter Date of Application'" formControlName="dateOfApplicationPWD" [style]="'width:35%;'"></app-date-picker>
-                    <app-text-field [isReadOnly]="'false'" [maxlength]="100" class="property-form" [label]="'Standard time for approval(Days)'" [placeholder]="'Enter Standard time for approval(Days)'" formControlName="timeForApprovalPWD" [style]="'width:35%;'"></app-text-field>
-                    <mat-slide-toggle formControlName="isApprovalAcceptedPWD" style="width:30%;">Approval accepted at PWD</mat-slide-toggle>
-                    <app-date-picker class="property-form" [label]="'Application Accepted Date'" [placeholder]="'Enter Application Accepted Date'" formControlName="applicationAcceptedDatePWD" [style]="'width:35%;'"></app-date-picker>
-
-                </div>
-
-                <div>
-                    <mat-slide-toggle formControlName="isAppliedAtRailways" style="width:30%;">Approval applied at Railways</mat-slide-toggle>
-                    <app-date-picker class="property-form" [label]="'Date of Application'" [placeholder]="'Enter Date of Application'" formControlName="dateOfApplicationRailways" [style]="'width:35%;'"></app-date-picker>
-                    <app-text-field [isReadOnly]="'false'" [maxlength]="100" class="property-form" [label]="'Standard time for approval(Days)'" [placeholder]="'Enter Standard time for approval(Days)'" formControlName="timeForApprovalRailways" [style]="'width:35%;'"></app-text-field>
-                    <mat-slide-toggle formControlName="isApprovalAcceptedRailways" style="width:30%;">Approval accepted at Railways</mat-slide-toggle>
-                    <app-date-picker class="property-form" [label]="'Application Accepted Date'" [placeholder]="'Enter Application Accepted Date'" formControlName="applicationAcceptedDateRailways" [style]="'width:35%;'"></app-date-picker>
-
-                </div>
-                
-                
-                
-                
-                <div style="height:30px;"></div>
-                <div class="form-group row" style="margin-top:30px;">
-                    <label for="filename1" class="col-sm-4 col-form-label" style="width:30%;">RoW Certificate from concerned Line Department </label>
-                    <div class="col-sm-6" style="width:35%;">
-                        <input type="text" name="filename1" class="form-control" [ngClass]="{'error_class': submitted && projectFormGroup.controls.rowCertificate.errors?.required}" formControlName="rowCertificate" placeholder="No file selected" readonly>
-                        <mat-error *ngIf="submitted && projectFormGroup.controls.rowCertificate.errors?.required">
-                            This field is <strong>required</strong>
-                        </mat-error>
-                          <!-- <span class="select-file-txt btn btn-outline-secondary">Select a file</span> -->
+                    <div class="col-sm-6 col-md-6 font-w-600">
+                        Project Name:
                     </div>
-                    <span  class="col-sm-2 input-group-btn" style="width:35%;">
-                        <div class="btn btn-outline-secondary custom-file-uploader">
-                            Select a file
-                          <input type="file" name="file" (change)="onUploadRowCertificate($event)" />
-                          
+                    <div class="col-sm-6 col-md-6">
+                        {{selectedProperty.projectName}}
+                    </div>
+                    <div class="col-sm-6 col-md-6 font-w-600">
+                        Project Type:
+                    </div>
+                    <div class="col-sm-6 col-md-6">
+                        {{selectedProperty.projectType}}
+                    </div>
+                    <div class="col-sm-6 col-md-6 font-w-600">
+                        Circle
+                    </div>
+                    <div class="col-sm-6 col-md-6 ">
+                        {{selectedProperty.circle}}
+                    </div>
+                    <div class="col-sm-6 col-md-6 font-w-600">
+                        Division
+                    </div>
+                    <div class="col-sm-6 col-md-6 ">
+                        {{selectedProperty.division}}
+                    </div>
+                    <div class="col-sm-6 col-md-6 font-w-600">
+                        Project Start Date
+                    </div>
+                    <div class="col-sm-6 col-md-6">
+                        {{getDate(selectedProperty.projectStartDate)}}
+                    </div>
+                    <div class="col-sm-6 col-md-6 font-w-600">
+                        Project End Date
+                    </div>
+                    <div class="col-sm-6 col-md-6">
+                        {{getDate(selectedProperty.projectEndDate)}}
+                    </div>
+                    <div class="col-sm-6 col-md-6 font-w-600">
+                        Project Value
+                    </div>
+                    <div class="col-sm-6 col-md-6">
+                        {{selectedProperty?.projectValue}}
+                    </div>
+                    <div class="col-sm-6 col-md-6 font-w-600">
+                        Executing Agency
+                    </div>
+                    <div class="col-sm-6 col-md-6">
+                        {{selectedProperty?.executingAgency}}
+                    </div>
+                    <div class="col-sm-6 col-md-6 font-w-600">
+                        Contact Person
+                    </div>
+                    <div class="col-sm-6 col-md-6">
+                        {{selectedProperty?.contactPerson}}
+                    </div>
+                    <div class="col-sm-6 col-md-6 font-w-600">
+                        Registered Address
+                    </div>
+                    <div class="col-sm-6 col-md-6">
+                        {{selectedProperty?.registeredAddress}}
+                    </div>
+                    <div class="col-sm-6 col-md-6 font-w-600">
+                        Status
+                    </div>
+                    <div class="col-sm-6 col-md-6">
+                        Approved
+                    </div>
+                    
+                </div>
+                
+              </div>
+              <br/>
+                  
+              <div *ngIf="showPropertyDetails">
+                
+                <button mat-button matStepperNext color="primary" (click)="saveandnext('property_details')">Save & Next</button>
+              </div>
+            </form>
+        </mat-step>
+        <mat-step [stepControl]="projectFormGroup">
+            <ng-template matStepLabel>RoW Authority Details</ng-template>
+            
+            <form [formGroup]="projectFormGroup" >
+                <div class="form-group row">
+                    <div class="col-sm-4" style="margin-top: 10px;">
+                        <mat-label class="col-form-label">Name of RoW Authority</mat-label>
+                    </div>
+                    <div class="col-sm-8">
+                        <div *ngFor="let interest of authorityList; let i = index" style="display:inline-block;">
+                            <mat-checkbox class="example-margin" disabled [color]="'success'" [checked]="selectedAuthority[i]"
+                            >{{interest}}</mat-checkbox>
                         </div>
-                    </span>
+                    </div>
+
+                </div>
+                <div *ngFor="let authority of selectedAuthority">
+                    <div *ngIf="authority =='NH'">
+                        <mat-slide-toggle formControlName="isAppliedAtNH" style="width:30%;">Approval applied at NH</mat-slide-toggle>
+                        <app-date-picker class="property-form" [label]="'Date of Application'" [placeholder]="'Enter Date of Application'" formControlName="dateOfApplication" [style]="'width:35%;'"></app-date-picker>
+                        <app-text-field [isReadOnly]="'false'" [maxlength]="100" class="property-form" [label]="'Standard time for approval(Days)'" [placeholder]="'Enter Standard time for approval(Days)'" [style]="'width:35%;'" formControlName="timeForApproval"></app-text-field>
+                        <mat-slide-toggle formControlName="isApprovalAcceptedNH" style="width:30%;">Approval accepted at NH</mat-slide-toggle>
+                        <app-date-picker class="property-form" [label]="'Application Accepted Date'" [placeholder]="'Enter Application Accepted Date'" formControlName="applicationAcceptedDateNH" [style]="'width:35%;'"></app-date-picker>
+    
+                    </div>
+    
+                    <div *ngIf="authority =='Wildlife'">
+                        <mat-slide-toggle formControlName="isAppliedAtWildlife" style="width:30%;">Approval applied at Wildlife</mat-slide-toggle>
+                        <app-date-picker class="property-form" [label]="'Date of Application'" [placeholder]="'Enter Date of Application'" formControlName="dateOfApplicationWildLife" [style]="'width:35%;'"></app-date-picker>
+                        <app-text-field [isReadOnly]="'false'" [maxlength]="100" class="property-form" [label]="'Standard time for approval(Days)'" [placeholder]="'Enter Standard time for approval(Days)'" formControlName="timeForApprovalWildlife" [style]="'width:35%;'"></app-text-field>
+                        <mat-slide-toggle formControlName="isApprovalAcceptedWildlife" style="width:30%;">Approval accepted at Wildlife</mat-slide-toggle>
+                        <app-date-picker class="property-form" [label]="'Application Accepted Date'" [placeholder]="'Enter Application Accepted Date'" formControlName="applicationAcceptedDateWildLife" [style]="'width:35%;'"></app-date-picker>
+    
+                    </div>
+                    
+                    <div *ngIf="authority =='Forest'">
+                        <mat-slide-toggle formControlName="isAppliedAtForest" style="width:30%;">Approval applied at Forest</mat-slide-toggle>
+                        <app-date-picker class="property-form" [label]="'Date of Application'" [placeholder]="'Enter Date of Application'" formControlName="dateOfApplicationForest" [style]="'width:35%;'"></app-date-picker>
+                        <app-text-field [isReadOnly]="'false'" [maxlength]="100" class="property-form" [label]="'Standard time for approval(Days)'" [placeholder]="'Enter Standard time for approval(Days)'" formControlName="timeForApprovalForest" [style]="'width:35%;'"></app-text-field>
+                        <mat-slide-toggle formControlName="isApprovalAcceptedForest" style="width:30%;">Approval accepted at Forest</mat-slide-toggle>
+                        <app-date-picker class="property-form" [label]="'Application Accepted Date'" [placeholder]="'Enter Application Accepted Date'" formControlName="applicationAcceptedDateForest" [style]="'width:35%;'"></app-date-picker>
+    
+                    </div>
+    
+                    <div *ngIf="authority =='PWD'">
+                        <mat-slide-toggle formControlName="isAppliedAtPWD" style="width:30%;">Approval applied at PWD</mat-slide-toggle>
+                        <app-date-picker class="property-form" [label]="'Date of Application'" [placeholder]="'Enter Date of Application'" formControlName="dateOfApplicationPWD" [style]="'width:35%;'"></app-date-picker>
+                        <app-text-field [isReadOnly]="'false'" [maxlength]="100" class="property-form" [label]="'Standard time for approval(Days)'" [placeholder]="'Enter Standard time for approval(Days)'" formControlName="timeForApprovalPWD" [style]="'width:35%;'"></app-text-field>
+                        <mat-slide-toggle formControlName="isApprovalAcceptedPWD" style="width:30%;">Approval accepted at PWD</mat-slide-toggle>
+                        <app-date-picker class="property-form" [label]="'Application Accepted Date'" [placeholder]="'Enter Application Accepted Date'" formControlName="applicationAcceptedDatePWD" [style]="'width:35%;'"></app-date-picker>
+    
+                    </div>
+    
+                    <div *ngIf="authority =='Railways'">
+                        <mat-slide-toggle formControlName="isAppliedAtRailways" style="width:30%;">Approval applied at Railways</mat-slide-toggle>
+                        <app-date-picker class="property-form" [label]="'Date of Application'" [placeholder]="'Enter Date of Application'" formControlName="dateOfApplicationRailways" [style]="'width:35%;'"></app-date-picker>
+                        <app-text-field [isReadOnly]="'false'" [maxlength]="100" class="property-form" [label]="'Standard time for approval(Days)'" [placeholder]="'Enter Standard time for approval(Days)'" formControlName="timeForApprovalRailways" [style]="'width:35%;'"></app-text-field>
+                        <mat-slide-toggle formControlName="isApprovalAcceptedRailways" style="width:30%;">Approval accepted at Railways</mat-slide-toggle>
+                        <app-date-picker class="property-form" [label]="'Application Accepted Date'" [placeholder]="'Enter Application Accepted Date'" formControlName="applicationAcceptedDateRailways" [style]="'width:35%;'"></app-date-picker>
+    
+                    </div>
                 </div>
                 <div>
     
-                    <app-button [text]="'Submit'" [btnId]="'primary'" (click)="onSubmitDnD()" [type]="'submit'" [style]="'float:right;'"></app-button>
-                    <app-button [text]="'Save as draft'" [btnId]="'secondary'" (click)="onSaveDnD()" [type]="'submit'" [style]="'float:right;margin-right:10px;'"></app-button>
+                    <button mat-button matStepperNext color="primary"  (click)="saveandnext('authority')">Save & Next</button>
+                    <button mat-button matStepperPrevious color="secondary" >Back</button>
 
                 </div>
             </form>
+        </mat-step>
+        <mat-step>
+
+            <ng-template matStepLabel>Summary</ng-template>
+
+            <app-row-summary [formDetails]="formDetails"></app-row-summary>
+
+            <div>
+                <div>
+                    <mat-checkbox class="example-margin" [(ngModel)]="isConsentChecked">
+
+                        I hereby declare and affirm that the above-furnished information is true and correct and
+                        nothing has been concealed therefrom.
+
+                    </mat-checkbox>
+
+                </div>
+
+                <app-button [text]="'Submit'" [btnId]="'primary'" (click)="onSubmitRow()" [type]="'submit'" [style]="'float:right;'"></app-button>
+                <app-button [text]="'Save as draft'" [btnId]="'default'" (click)="onSaveRow()" [type]="'submit'" [style]="'float:right;margin-right:10px;'"></app-button>
+                <button mat-button matStepperPrevious color="secondary" [style]="'margin-top: 0px;'">Back</button>
+
+                <!-- <button mat-button matStepperNext mat-raised-button color="primary"
+                    [disabled]="!isConsentChecked" (click)="onSubmitForm()">Submit</button>
+                <button mat-button matStepperPrevious color="secondary">Back</button> -->
+            </div>
+        </mat-step>
+    </mat-horizontal-stepper>
+</section>
+
+<div class="modal" id="myPropertyModal" style="background: rgba(0, 0, 0, 0.7);" [style.display]="showModal ? 'block' : 'none'">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h3 class="modal-title">Search Result</h3>
+          <button type="button" class="close" data-dismiss="modal" (click) = "hide()">&times;</button>
         </div>
         
+        <!-- Modal body -->
+        <div class="modal-body">
+            <div>
+                <div class="row" *ngIf="properties && properties.length>0" style="padding: 20px;">
+                    <div class="card my-app-card" *ngFor="let property of properties" style="background: aliceblue; margin-top: 20px;">
+                        <div class="card-body"> 
+                            <div class="row">
+                                <div class="col-sm-6 col-md-6 font-w-600">
+                                    Project Name:
+                                </div>
+                                <div class="col-sm-6 col-md-6">
+                                    {{property.projectName}}
+                                </div>
+                                <div class="col-sm-6 col-md-6 font-w-600">
+                                    Project Type:
+                                </div>
+                                <div class="col-sm-6 col-md-6">
+                                    {{property.projectType}}
+                                </div>
+                                <div class="col-sm-6 col-md-6 font-w-600">
+                                    Circle
+                                </div>
+                                <div class="col-sm-6 col-md-6 ">
+                                    {{property.circle}}
+                                </div>
+                                <div class="col-sm-6 col-md-6 font-w-600">
+                                    Division
+                                </div>
+                                <div class="col-sm-6 col-md-6 ">
+                                    {{property.division}}
+                                </div>
+                                <div class="col-sm-6 col-md-6 font-w-600">
+                                    Project Start Date
+                                </div>
+                                <div class="col-sm-6 col-md-6">
+                                    {{getDate(property.projectStartDate)}}
+                                </div>
+                                <div class="col-sm-6 col-md-6 font-w-600">
+                                    Project End Date
+                                </div>
+                                <div class="col-sm-6 col-md-6">
+                                    {{getDate(property.projectEndDate)}}
+                                </div>
+                                <div class="col-sm-6 col-md-6 font-w-600">
+                                    Project Value
+                                </div>
+                                <div class="col-sm-6 col-md-6">
+                                    {{property?.projectValue}}
+                                </div>
+                                <div class="col-sm-6 col-md-6 font-w-600">
+                                    Executing Agency
+                                </div>
+                                <div class="col-sm-6 col-md-6">
+                                    {{property?.executingAgency}}
+                                </div>
+                                <div class="col-sm-6 col-md-6 font-w-600">
+                                    Contact Person
+                                </div>
+                                <div class="col-sm-6 col-md-6">
+                                    {{property?.contactPerson}}
+                                </div>
+                                <div class="col-sm-6 col-md-6 font-w-600">
+                                    Registered Address
+                                </div>
+                                <div class="col-sm-6 col-md-6">
+                                    {{property?.registeredAddress}}
+                                </div>
+                            </div>
+                            <div style="padding-top: 20px; float: right">
+                                <app-button [text]="'Select'" [btnId]="'primary'" (click)="onSelectProperty(property)"></app-button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" *ngIf="properties && properties.length==0" style="padding: 20px;">
+                    <div class="card my-app-card" style="background: aliceblue; margin-top: 20px;">
+                        <div class="card-body"> 
+                            No Data Found
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Modal footer -->
+        <!-- <div class="modal-footer">
+            <app-button [type]="'submit'" value="Submit" [text]="'Continue'" [btnId]="'primary'" [style]="'width: 100%'" (click)="onSubmit($event)"></app-button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal" (click) = "hide()">Close</button>
+        </div> -->
+        
+      </div>
     </div>
-</section>
+  </div>

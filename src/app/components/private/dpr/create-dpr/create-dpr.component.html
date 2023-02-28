@@ -16,36 +16,40 @@
 
                     <form [formGroup]="projectFormGroup">
                         <ng-template matStepLabel>Field Details</ng-template>
-                        <app-text-field [isReadOnly]="'false'" [maxlength]="100" class="property-form"
-                            [label]="'Project Name'" [placeholder]="'Enter Project Name'" formControlName="projectName"
-                            [style]="''"></app-text-field>
+                        <app-text-area class="property-form" [label]="'Project Name'"
+                            [placeholder]="'Enter Project Name'" formControlName="projectName"
+                            [style]="'width:100%;'"></app-text-area>
+                       
                         <app-select-search class="property-form" [label]="'Project Type'"
                             [placeholder]="'Select Project Type'" [optionList]="projectTypeList"
                             formControlName="projectType"></app-select-search>
                         <app-text-field [isReadOnly]="'false'" [maxlength]="100" class="property-form"
                             [label]="'Project Value'" [placeholder]="'Enter Project Value'"
                             formControlName="projectValue" [style]="''"></app-text-field>
-                        <app-date-picker class="property-form" [label]="'Project Start Date'"
-                            [placeholder]="'Enter Start Date'" formControlName="projectStartDate"></app-date-picker>
-                        <app-date-picker class="property-form" [label]="'Project End Date'"
-                            [placeholder]="'Enter End Date'" formControlName="projectEndDate"></app-date-picker>
-                        <app-select-search class="property-form" [label]="'Project Duration'"
-                            [placeholder]="'Select Project Duration'" [optionList]="durationList"
-                            formControlName="projectDuration"></app-select-search>
-
+                        
                         <app-select-search class="property-form" [label]="'Circle'" [placeholder]="'Select Circle'"
                             [optionList]="circleList" formControlName="circle"></app-select-search>
                         <app-select-search class="property-form" [label]="'Division'" [placeholder]="'Select Division'"
                             [optionList]="divisionList" formControlName="division"></app-select-search>
+
+                        <app-date-picker class="property-form" [label]="'Project Start Date'"
+                            [placeholder]="'Enter Start Date'" formControlName="projectStartDate"></app-date-picker>
+                        <app-date-picker class="property-form" [label]="'Project End Date'"
+                            [placeholder]="'Enter End Date'" formControlName="projectEndDate"></app-date-picker>
+                        
+
+                        
                         <app-text-field [isReadOnly]="'false'" [maxlength]="100" class="property-form"
                             [label]="'Name of Executing Agency'" [placeholder]="'Enter Name of Executing Agency'"
                             formControlName="contractorName" [style]="''"></app-text-field>
+                        <app-text-field [isReadOnly]="'false'" [maxlength]="100" class="property-form"
+                            [label]="'Contact Person'" [placeholder]="'Enter Contact Person'"
+                            formControlName="contactPerson" [style]="''"></app-text-field>
+
                         <app-text-area class="property-form" [label]="'Registered Address of Executing Agency'"
                             [placeholder]="'Enter Registered Address of Executing Agency'"
-                            formControlName="registeredAddress" [style]="''"></app-text-area>
-                        <app-text-area class="property-form" [label]="'Contact Person'"
-                            [placeholder]="'Enter Contact Person'" formControlName="contactPerson"
-                            [style]="''"></app-text-area>
+                            formControlName="registeredAddress" [style]="'width:100%'"></app-text-area>
+                        
 
                         <div>
                             <button mat-button matStepperNext color="primary" (click)="saveandnext('address')">Save &
@@ -54,29 +58,52 @@
                     </form>
                 </mat-step>
 
-                <mat-step>
+                <mat-step [stepControl]="milestoneFormGroup">
                     <ng-template matStepLabel>Milestone</ng-template>
-                    <app-edit-road (changeMilestone)="onChangeMilestone($event)"></app-edit-road>
-
-                    <div>
-                        <button mat-button matStepperNext color="primary" (click)="saveandnext('address')">Save &
-                            Next</button>
-                        <button mat-button matStepperPrevious color="secondary">Back</button>
-                    </div>
+                    
+                    <form [formGroup]="milestoneFormGroup">
+                        <app-edit-road (changeMilestone)="onChangeMilestone($event)"></app-edit-road>
+                        <input type="text" hidden formControlName="totalMilestone" required>
+                        
+                        <div>
+                            <button mat-button matStepperNext color="primary" (click)="saveandnext('Milestone')">Save &
+                                Next</button>
+                            <button mat-button matStepperPrevious color="secondary">Back</button>
+                        </div>
+                    </form>
+                    
                 </mat-step>
                 <mat-step [stepControl]="authorityFormGroup">
                     <ng-template matStepLabel>Authority Details</ng-template>
                     <form [formGroup]="authorityFormGroup">
-                        <app-text-field [isReadOnly]="'false'" [maxlength]="100" class="property-form"
+                        <div class="form-group row">
+                            <div class="col-sm-3" style="margin-top: 10px;">
+                                <mat-label class="col-form-label">Name of RoW Authority</mat-label>
+                            </div>
+                            <div class="col-sm-9">
+                                <div *ngFor="let interest of authorityList; let i = index" style="display:inline-block;">
+                                    <mat-checkbox class="example-margin" [color]="'success'"
+                                    (change)="onChange($event)" [value]="interest">{{interest}}</mat-checkbox>
+                                </div>
+                            </div>
+
+                        </div>
+                        
+                        
+
+                        <!-- <app-text-field [isReadOnly]="'false'" [maxlength]="100" class="property-form"
                             [label]="'Name of RoW Authority'" [placeholder]="'Enter Name of RoW Authority'"
-                            formControlName="rowAuthorityName" [style]="'width:100%'"></app-text-field>
+                            formControlName="rowAuthorityName" [style]="'width:100%'"></app-text-field> -->
                         <div class="form-group row" style="margin-top:30px;">
                             <label for="filename1" class="col-sm-3 col-form-label">Upload Contract Agreement</label>
                             <div class="col-sm-7">
                                 <input type="text" name="filename1" class="form-control"
-                                    formControlName="contractorAgrFile" placeholder="No file selected" readonly>
-
-                                <!-- <span class="select-file-txt btn btn-outline-secondary">Select a file</span> -->
+                                    formControlName="contractorAgrFile" placeholder="No file selected" 
+                                    [ngClass]="{'error_class': submitted && authorityFormGroup.controls.contractorAgrFile.errors?.required}"readonly>
+                                    
+                                    <mat-error *ngIf="submitted && authorityFormGroup.controls.contractorAgrFile.errors?.required">
+                                        This field is <strong>required</strong>
+                                    </mat-error>
                             </div>
                             <span class="col-sm-2 input-group-btn">
                                 <div class="btn btn-outline-secondary custom-file-uploader">
@@ -87,7 +114,7 @@
                             </span>
                         </div>
                         <div>
-                            <button mat-button matStepperNext color="primary" (click)="saveandnext('address')">Save &
+                            <button mat-button matStepperNext color="primary" (click)="saveandnext('authority')">Save &
                                 Next</button>
                             <button mat-button matStepperPrevious color="secondary">Back</button>
                         </div>

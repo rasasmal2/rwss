@@ -1,0 +1,10 @@
+.picture_as_pdf {
+    font-size: 40px;
+    color: gray;
+    height: auto;
+    width: auto;
+}
+
+.details-box .col-sm-4 {
+    font-weight: 600;
+}

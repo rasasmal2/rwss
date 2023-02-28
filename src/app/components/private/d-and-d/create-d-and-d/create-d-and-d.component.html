@@ -10,8 +10,111 @@
         <mat-horizontal-stepper labelPosition="bottom" [linear]="isLinear" #stepper fxLayout="column" fxFlex="100" fxLayoutAlign=" stretch">
               
             <mat-step [stepControl]="projectFormGroup">
-                <ng-template matStepLabel>Field Details</ng-template>
-                <form [formGroup]="projectFormGroup" >
+                <ng-template matStepLabel>Project Details</ng-template>
+
+                <form [formGroup]="projectFormGroup">
+                    <div class="label-header"><h5>Search Project</h5></div>
+                    <app-select-search class="property-form" [label]="'Project Type'" [placeholder]="'Select Project Type'" [optionList]="projectTypeList" formControlName="projectType"></app-select-search>
+                    <app-text-field [isReadOnly]="'false'" [maxlength]="100" class="property-form"
+                    [label]="'Project Name'" [placeholder]="'Enter Project Name'"
+                    formControlName="projectName" [style]="''"></app-text-field>
+                    <app-select-search class="property-form" [label]="'Circle'" [placeholder]="'Select Circle'"
+                        [optionList]="circleList" formControlName="circle"></app-select-search>
+                    <app-select-search class="property-form" [label]="'Division'" [placeholder]="'Select Division'"
+                        [optionList]="divisionList" formControlName="division"></app-select-search>
+                    <!-- <input type="text" hidden formControlName="uniquePropertyId"> -->
+                  <!-- <button mat-button color="warn" (click)="onSearchProperty()" style="margin-top: 18px;">Search</button> -->
+                  <span style="padding-left:10px;">Project Status: <b>Approved</b></span>
+                  <app-button [text]="'Search'" [btnId]="'default'" (click)="onSearchProperty()" [type]="'submit'" [style]="'float:right;'"></app-button>
+
+                  <br/>
+                  <div *ngIf="showPropertyDetails" style="padding-top:20px;">
+                    <h4 style="padding-left:10px;">Project Details</h4>
+                    <div class="row" style="padding: 10px;">
+
+                        <div class="col-sm-6 col-md-6 font-w-600">
+                            Project Name:
+                        </div>
+                        <div class="col-sm-6 col-md-6">
+                            {{selectedProperty.projectName}}
+                        </div>
+                        <div class="col-sm-6 col-md-6 font-w-600">
+                            Project Type:
+                        </div>
+                        <div class="col-sm-6 col-md-6">
+                            {{selectedProperty.projectType}}
+                        </div>
+                        <div class="col-sm-6 col-md-6 font-w-600">
+                            Circle
+                        </div>
+                        <div class="col-sm-6 col-md-6 ">
+                            {{selectedProperty.circle}}
+                        </div>
+                        <div class="col-sm-6 col-md-6 font-w-600">
+                            Division
+                        </div>
+                        <div class="col-sm-6 col-md-6 ">
+                            {{selectedProperty.division}}
+                        </div>
+                        <div class="col-sm-6 col-md-6 font-w-600">
+                            Project Start Date
+                        </div>
+                        <div class="col-sm-6 col-md-6">
+                            {{getDate(selectedProperty.projectStartDate)}}
+                        </div>
+                        <div class="col-sm-6 col-md-6 font-w-600">
+                            Project End Date
+                        </div>
+                        <div class="col-sm-6 col-md-6">
+                            {{getDate(selectedProperty.projectEndDate)}}
+                        </div>
+                        <div class="col-sm-6 col-md-6 font-w-600">
+                            Project Value
+                        </div>
+                        <div class="col-sm-6 col-md-6">
+                            {{selectedProperty?.projectValue}}
+                        </div>
+                        <div class="col-sm-6 col-md-6 font-w-600">
+                            Executing Agency
+                        </div>
+                        <div class="col-sm-6 col-md-6">
+                            {{selectedProperty?.executingAgency}}
+                        </div>
+                        <div class="col-sm-6 col-md-6 font-w-600">
+                            Contact Person
+                        </div>
+                        <div class="col-sm-6 col-md-6">
+                            {{selectedProperty?.contactPerson}}
+                        </div>
+                        <div class="col-sm-6 col-md-6 font-w-600">
+                            Registered Address
+                        </div>
+                        <div class="col-sm-6 col-md-6">
+                            {{selectedProperty?.registeredAddress}}
+                        </div>
+                        <div class="col-sm-6 col-md-6 font-w-600">
+                            Status
+                        </div>
+                        <div class="col-sm-6 col-md-6">
+                            Approved
+                        </div>
+                        
+                    </div>
+                    <app-text-field [isReadOnly]="'false'" [maxlength]="100" class="property-form" [label]="'Name of Design cell Nodal Officer'" [placeholder]="'Enter Name of Design cell Nodal Officer'" formControlName="nodalOfficerName" [style]="''"></app-text-field>
+                    <app-text-field [isReadOnly]="'false'" [type]="'tel'" [maxlength]="100" class="property-form" [label]="'Mobile No of Design cell Nodal Officer'" [placeholder]="'Enter Mobile No of Design cell Nodal Officer'" formControlName="nodalOfficerMobileNo" [style]="''"></app-text-field>
+                    <app-text-field [isReadOnly]="'false'" [type]="'email'" [maxlength]="100" class="property-form" [label]="'Email address of Design cell Nodal Officer'" [placeholder]="'Enter Email address of Design cell Nodal Officer'" formControlName="nodalOfficerEmail" [style]="''"></app-text-field>
+                      
+                  </div>
+                  <br/>
+                      
+                  <div *ngIf="showPropertyDetails">
+                    
+                    <button mat-button matStepperNext color="primary" (click)="saveandnext('property_details')">Save & Next</button>
+                  </div>
+                </form>
+
+
+                <!-- <form [formGroup]="projectFormGroup" >
                     <div class="ddCls">
                         <app-select-search class="property-form" [label]="'Project Type'" [placeholder]="'Select Project Type'" [optionList]="projectTypeList" formControlName="projectType"></app-select-search>
                         <app-select-search class="property-form" [label]="'Select Project'" [placeholder]="'Select Project'" [optionList]="projectList" formControlName="projectName"></app-select-search>
@@ -24,10 +127,10 @@
                     <div>
                         <button mat-button matStepperNext color="primary"  (click)="saveandnext('field')">Save & Next</button>
                       </div>
-                </form>
+                </form> -->
             </mat-step>
             <mat-step [stepControl]="gdaFormGroup">
-                <ng-template matStepLabel>GDA Details</ng-template>
+                <ng-template matStepLabel>GAD Details</ng-template>
                 <form [formGroup]="gdaFormGroup" >
                     <div class="ddCls">
                         <mat-slide-toggle formControlName="isGDASubmitted" style="width:30%;">GAD Submitted</mat-slide-toggle>
@@ -122,22 +225,141 @@
                         </div>
                     </div>
                     <div>
-                        <!-- <button mat-button matStepperNext color="primary"  (click)="saveandnext('address')">Submit</button> -->
-                        
-                        <app-button [text]="'Submit'" [btnId]="'primary'" (click)="onSubmitDnD()" [type]="'submit'" [style]="'float:right;'"></app-button>
-                        <app-button [text]="'Save as draft'" [btnId]="'default'" (click)="onSaveDnD()" [type]="'submit'" [style]="'float:right;margin-right:10px;'"></app-button>
-                        <button mat-button matStepperPrevious color="secondary" [style]="'margin-top: 0px;'">Back</button>
-                        <!-- <app-button mat-button matStepperPrevious [text]="'Back'" [btnId]="'secondary'" [style]="'float:right;margin-right:10px;'"></app-button> -->
-
+                        <button mat-button matStepperNext color="primary"  (click)="saveandnext('structural')">Save & Next</button>
+                        <button mat-button matStepperPrevious color="secondary" >Back</button>
                     </div>
                 </form>
             </mat-step>
+            <mat-step>
+
+                <ng-template matStepLabel>Summary</ng-template>
+
+                <app-d-and-d-summary [formDetails]="formDetails"></app-d-and-d-summary>
+
+                <div>
+                    <div>
+                        <mat-checkbox class="example-margin" [(ngModel)]="isConsentChecked">
+
+                            I hereby declare and affirm that the above-furnished information is true and correct and
+                            nothing has been concealed therefrom.
+
+                        </mat-checkbox>
+
+                    </div>
+
+                    <app-button [text]="'Submit'" [btnId]="'primary'" (click)="onSubmitDnD()" [type]="'submit'" [style]="'float:right;'"></app-button>
+                    <app-button [text]="'Save as draft'" [btnId]="'default'" (click)="onSaveDnD()" [type]="'submit'" [style]="'float:right;margin-right:10px;'"></app-button>
+                    <button mat-button matStepperPrevious color="secondary" [style]="'margin-top: 0px;'">Back</button>
+
+                    <!-- <button mat-button matStepperNext mat-raised-button color="primary"
+                        [disabled]="!isConsentChecked" (click)="onSubmitForm()">Submit</button>
+                    <button mat-button matStepperPrevious color="secondary">Back</button> -->
+                </div>
+            </mat-step>
         </mat-horizontal-stepper>
     </div>
-    <!-- <div class="card">
-        <div class="card-body">
-            
+</section>
+
+<div class="modal" id="myPropertyModal" style="background: rgba(0, 0, 0, 0.7);" [style.display]="showModal ? 'block' : 'none'">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h3 class="modal-title">Search Result</h3>
+          <button type="button" class="close" data-dismiss="modal" (click) = "hide()">&times;</button>
         </div>
         
-    </div> -->
-</section>
+        <!-- Modal body -->
+        <div class="modal-body">
+            <div>
+                <div class="row" *ngIf="properties && properties.length>0" style="padding: 20px;">
+                    <div class="card my-app-card" *ngFor="let property of properties" style="background: aliceblue; margin-top: 20px;">
+                        <div class="card-body"> 
+                            <div class="row">
+                                <div class="col-sm-6 col-md-6 font-w-600">
+                                    Project Name:
+                                </div>
+                                <div class="col-sm-6 col-md-6">
+                                    {{property.projectName}}
+                                </div>
+                                <div class="col-sm-6 col-md-6 font-w-600">
+                                    Project Type:
+                                </div>
+                                <div class="col-sm-6 col-md-6">
+                                    {{property.projectType}}
+                                </div>
+                                <div class="col-sm-6 col-md-6 font-w-600">
+                                    Circle
+                                </div>
+                                <div class="col-sm-6 col-md-6 ">
+                                    {{property.circle}}
+                                </div>
+                                <div class="col-sm-6 col-md-6 font-w-600">
+                                    Division
+                                </div>
+                                <div class="col-sm-6 col-md-6 ">
+                                    {{property.division}}
+                                </div>
+                                <div class="col-sm-6 col-md-6 font-w-600">
+                                    Project Start Date
+                                </div>
+                                <div class="col-sm-6 col-md-6">
+                                    {{getDate(property.projectStartDate)}}
+                                </div>
+                                <div class="col-sm-6 col-md-6 font-w-600">
+                                    Project End Date
+                                </div>
+                                <div class="col-sm-6 col-md-6">
+                                    {{getDate(property.projectEndDate)}}
+                                </div>
+                                <div class="col-sm-6 col-md-6 font-w-600">
+                                    Project Value
+                                </div>
+                                <div class="col-sm-6 col-md-6">
+                                    {{property?.projectValue}}
+                                </div>
+                                <div class="col-sm-6 col-md-6 font-w-600">
+                                    Executing Agency
+                                </div>
+                                <div class="col-sm-6 col-md-6">
+                                    {{property?.executingAgency}}
+                                </div>
+                                <div class="col-sm-6 col-md-6 font-w-600">
+                                    Contact Person
+                                </div>
+                                <div class="col-sm-6 col-md-6">
+                                    {{property?.contactPerson}}
+                                </div>
+                                <div class="col-sm-6 col-md-6 font-w-600">
+                                    Registered Address
+                                </div>
+                                <div class="col-sm-6 col-md-6">
+                                    {{property?.registeredAddress}}
+                                </div>
+                            </div>
+                            <div style="padding-top: 20px; float: right">
+                                <app-button [text]="'Select'" [btnId]="'primary'" (click)="onSelectProperty(property)"></app-button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" *ngIf="properties && properties.length==0" style="padding: 20px;">
+                    <div class="card my-app-card" style="background: aliceblue; margin-top: 20px;">
+                        <div class="card-body"> 
+                            No Data Found
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Modal footer -->
+        <!-- <div class="modal-footer">
+            <app-button [type]="'submit'" value="Submit" [text]="'Continue'" [btnId]="'primary'" [style]="'width: 100%'" (click)="onSubmit($event)"></app-button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal" (click) = "hide()">Close</button>
+        </div> -->
+        
+      </div>
+    </div>
+  </div>

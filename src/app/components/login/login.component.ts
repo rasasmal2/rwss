@@ -35,8 +35,13 @@ export class LoginComponent implements OnInit {
       captcha: this.loginForm.value.captchAnswer,
     }
     
-
-    if(obj.username=='EE-1' && obj.password=='123456') {
+    if(obj.username=='AEE-1' && obj.password=='123456') {
+      // this.userService.onLogin(obj);
+      localStorage.setItem("isLoggedIn", 'true');
+      localStorage.setItem('loginUser', 'Assistant Executive Engineer');
+      localStorage.setItem("name", 'Bimal Mahapatra');
+      this.router.navigate(['/welcome'])
+    } else if(obj.username=='EE-1' && obj.password=='123456') {
       // this.userService.onLogin(obj);
       localStorage.setItem("isLoggedIn", 'true');
       localStorage.setItem('loginUser', 'Executive Engineer');

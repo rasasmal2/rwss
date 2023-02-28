@@ -15,6 +15,8 @@ import { AttachmentDetailsComponent } from './attachment-details/attachment-deta
 import { CopyDprDialogComponent } from './copy-dpr-dialog/copy-dpr-dialog.component';
 import { ProjectSummaryComponent } from './create-dpr/project-summary/project-summary.component';
 import { ProjectSubmitComponent } from './create-dpr/project-submit/project-submit.component';
+import { ProjectApprovalComponent } from './project-approval/project-approval.component';
+import { ProjectApprovalDetailsComponent } from './project-approval/project-approval-details/project-approval-details.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { ProjectSubmitComponent } from './create-dpr/project-submit/project-subm
     AttachmentDetailsComponent,
     CopyDprDialogComponent,
     ProjectSummaryComponent,
-    ProjectSubmitComponent
+    ProjectSubmitComponent,
+    ProjectApprovalComponent,
+    ProjectApprovalDetailsComponent
   ],
   imports: [
     CommonModule,

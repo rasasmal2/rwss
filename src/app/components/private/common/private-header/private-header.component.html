@@ -3,21 +3,30 @@
         <li *ngIf="isLoggedIn=='true'" class="active"><a [routerLink]="['/welcome']" class="nav-link px-2">Home</a>
         </li>
 
-        <li *ngIf="isLoggedIn=='true' && (loginUser=='Executive Engineer' || loginUser=='Authority Engineer')" class="drop-down">
-          <a href="javascript:void(0);" class="dropdown-toggle">Construction</a>
-          <ul style="width: 120%;" *ngIf="loginUser=='Executive Engineer' || loginUser=='Authority Engineer'">
+        <li *ngIf="isLoggedIn=='true'" class="drop-down">
+          <a href="javascript:void(0);" class="dropdown-toggle">Project Management</a>
+          <ul style="width: 120%;">
             <div class="row">
               <div class="col-sm-12">
-                <li *ngIf="isLoggedIn=='true' && loginUser=='Executive Engineer'"><a class="dropdown-item" routerLink="/construction/create-project">Create Project</a></li>
-                <li *ngIf="isLoggedIn=='true' && loginUser=='Executive Engineer'"><a class="dropdown-item" routerLink="/d-and-d/create">D&D</a></li>
-                <li *ngIf="isLoggedIn=='true' && loginUser=='Executive Engineer'"><a class="dropdown-item" routerLink="/row/create">RoW</a></li>
-                <li *ngIf="isLoggedIn=='true' && (loginUser=='Executive Engineer' || loginUser=='Authority Engineer')"><a class="dropdown-item" routerLink="/manage-projects">Manage Projects</a></li>
+                <li *ngIf="isLoggedIn=='true' && loginUser=='Assistant Executive Engineer'"><a class="dropdown-item" routerLink="/construction/create-project">Create Project</a></li>
+                <li *ngIf="isLoggedIn=='true' && loginUser=='Assistant Executive Engineer'"><a class="dropdown-item" routerLink="/d-and-d/create">Create D&D</a></li>
+                <li *ngIf="isLoggedIn=='true' && loginUser=='Assistant Executive Engineer'"><a class="dropdown-item" routerLink="/row/create">Create RoW</a></li>
+                <li *ngIf="isLoggedIn=='true' && (loginUser=='Executive Engineer')"><a class="dropdown-item" routerLink="/construction/project-approval">Project Approval</a></li>
+                <li *ngIf="isLoggedIn=='true' && (loginUser=='Chief Engineer')"><a class="dropdown-item" routerLink="/d-and-d/dd-approval">D&D Approval</a></li>
+                <li *ngIf="isLoggedIn=='true'"><a class="dropdown-item" routerLink="/manage-projects">Project Monitoring</a></li>
               </div>
             </div>
           </ul>
         </li>
-        <li *ngIf="isLoggedIn=='true' && (loginUser=='Executive Engineer' || loginUser=='Chief Engineer')" class="drop-down">
-          <a href="javascript:void(0);" class="dropdown-toggle">Dashboard</a>
+        <li *ngIf="isLoggedIn=='true'"
+          class="drop-down">
+          <a routerLink="/operation-maintenance" href="javascript:void(0)" role="button" id="dropdownMenuLink"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            Procurement
+          </a>
+        </li>
+        <li *ngIf="isLoggedIn=='true' && (loginUser=='Executive Engineer' || loginUser=='Assistant Executive Engineer' || loginUser=='Chief Engineer')" class="drop-down">
+          <a href="javascript:void(0);" class="dropdown-toggle">Reports & Dashboard</a>
           <ul style="width: 120%;">
             <div class="row">
               <div class="col-sm-12">
@@ -27,14 +36,22 @@
             </div>
           </ul>
         </li>
+        <li *ngIf="isLoggedIn=='true' && (loginUser=='Executive Engineer' || loginUser=='Assistant Executive Engineer' || loginUser=='Chief Engineer')"
+          class="drop-down">
+          <a href="javascript:void(0)" role="button" id="dropdownMenuLink"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            Grievance Management
+          </a>
+        </li>
+        
 
-        <li *ngIf="isLoggedIn=='true' && (loginUser=='Executive Engineer' || loginUser=='Chief Engineer')"
+        <!-- <li *ngIf="isLoggedIn=='true' && (loginUser=='Executive Engineer' || loginUser=='Chief Engineer')"
           class="drop-down">
           <a routerLink="/operation-maintenance" href="javascript:void(0)" role="button" id="dropdownMenuLink"
             data-bs-toggle="dropdown" aria-expanded="false">
             Operation & Maintenance
           </a>
-        </li>
+        </li> -->
         
 
         <li *ngIf="isLoggedIn=='true'" class="drop-down">

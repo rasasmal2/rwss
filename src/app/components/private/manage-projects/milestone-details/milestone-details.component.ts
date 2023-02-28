@@ -5,8 +5,10 @@ import { MatModalComponent } from 'src/app/components/common/mat-modal/mat-modal
 import { AbstractControl, FormArray, FormBuilder, FormControl,UntypedFormBuilder, FormGroup,UntypedFormGroup,Validators } from '@angular/forms';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
-import { startWith, tap } from 'rxjs/operators';
+import { startWith } from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
+import { SelectionModel } from "@angular/cdk/collections";
+import { Observable, Subscription, tap } from 'rxjs';
 
 @Component({
   selector: 'app-milestone-details',
@@ -14,12 +16,12 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./milestone-details.component.css']
 })
 export class MilestoneDetailsComponent implements OnInit, AfterViewInit{
-  
+  selection = new SelectionModel<any>(true, []);
   dataList:any = [
     // { milestone: '0', startDate: '2.15'}
     
   ];
-  displayedColumns:any = ['position','milestone','startDate','endDate','timeline','payment','progress','paymentMode'];
+  displayedColumns:any = ['position','milestone','startDate','endDate','payment','progress'];
   columnNames:any=[];
   dataSource:any = new MatTableDataSource<any>();
 
@@ -36,6 +38,19 @@ export class MilestoneDetailsComponent implements OnInit, AfterViewInit{
   constructor( private fb: UntypedFormBuilder,public _formBuilder: UntypedFormBuilder,
     public tosasService: ToastrService) { }
 
+    selectHandler(event:any, row: any) {
+    
+      // if (!this.selection.isSelected(row)) {
+      //   this.selection.clear();
+      // }
+      this.selection.toggle(row);
+      if(event.checked) {
+        // this.selectCheckBox.emit(row);
+      } else {
+        // this.selectCheckBox.emit(null);
+      }
+      
+    }
 
   ngOnInit(): void {
     
@@ -46,62 +61,52 @@ export class MilestoneDetailsComponent implements OnInit, AfterViewInit{
       let dataList:any = [
         {
           milestone: 'Survey, Design & Drawing',
-          startDate:'M1', 
-          endDate: 'M6', 
-          timeline:'6 months', 
+          startDate:'01/03/2023', 
+          endDate: '10/30/2023', 
           payment:'1%',
-          progress: '',
-          paymentMode:''
+          progress: ''
         },
         {
           milestone: 'Construction of Intake Well',
-          startDate:'M7', 
-          endDate: 'M14', 
-          timeline:'6 months', 
+          startDate:'06/01/2023', 
+          endDate: '11/02/2023', 
           payment:'3%',
-          progress: '',
-          paymentMode:''
+          progress: ''
         },
         {
           milestone: 'Supply of pipes, laying ,fitting & fixing from Raw water rising main to WTP',
-          startDate:'M7', 
-          endDate: 'M15', 
-          timeline:'12 months', 
+          startDate:'12/01/2023', 
+          endDate: '04/29/2024', 
           payment:'10%',
-          progress: '',
-          paymentMode:''
+          progress: ''
         },
         {
           milestone: 'Supply of pipes, laying ,fitting & fixing from Clear water rising main to Elevated storage Reservoirs',
-          startDate:'M12', 
-          endDate: 'M18', 
-          timeline:'12 months', 
+          startDate:'05/15/2023', 
+          endDate: '10/14/2023', 
           payment:'40%',
-          progress: '',
-          paymentMode:''
+          progress: ''
         },
         {
           milestone: 'Design, Construction, Testing & Commissioning of ESR',
-          startDate:'M6', 
-          endDate: 'M18', 
-          timeline:'24 months', 
+          startDate:'04/20/2023', 
+          endDate: '11/01/2023', 
           payment:'43%',
-          progress: '',
-          paymentMode:''
+          progress: ''
         }
       ]
 
       this.dataSource = new MatTableDataSource<any>(dataList);
   }
   submit(event:any) {
-    this.tosasService.success('Milestone Submitted Successfully');
+    this.changeMilestone.emit({msg:'Milestone Saved Successfully'});
+    
   }
   save(event:any) {
     this.tosasService.success('Milestone Saved Successfully');
   }
 
   onClickEditTableAction(event:any) {
-    console.log("edit event==",event)
   }
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
@@ -127,6 +132,5 @@ onPaginateChange(paginator: MatPaginator, list: HTMLCollectionOf<Element>) {
 }
 
   saveandnext() {
-    console.log("this.VOForm ==",this.VOForm.value)
   }
 }

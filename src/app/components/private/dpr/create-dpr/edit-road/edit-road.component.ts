@@ -163,7 +163,11 @@ export class EditRoadComponent implements OnInit, AfterViewInit{
     
     console.log("---",VOFormElement.get('VORows').at(i).valid)
     if(VOFormElement.get('VORows').at(i).invalid) return;
-    this.changeMilestone.emit(this.VOForm.get('VORows'))
+    let milestoneTable:any = {
+      totalPayment: this.getTotalPayment(),
+      formValue: this.VOForm.get('VORows')
+    }
+    this.changeMilestone.emit(milestoneTable)
     VOFormElement.get('VORows').at(i).get('isEditable').patchValue(true);
     
   }
@@ -210,7 +214,7 @@ onPaginateChange(paginator: MatPaginator, list: HTMLCollectionOf<Element>) {
       startDate: new FormControl('',Validators.required),
       endDate: new FormControl('',Validators.required),
       timeline: new FormControl('',Validators.required),
-      payment: new FormControl('',Validators.required),
+      payment: new FormControl(0,Validators.required),
       action: new FormControl('newRecord'),
       isEditable: new FormControl(false),
       isNewRow: new FormControl(true),
@@ -250,5 +254,10 @@ onPaginateChange(paginator: MatPaginator, list: HTMLCollectionOf<Element>) {
         this.VOForm.get('VORows').at(index).get('timeline').patchValue(timeline+1+' Months');
       }
     }
+  }
+
+  getTotalPayment() {
+    let tt:any = this.VOForm.get('VORows').value.map((t:any) => t.payment).reduce((acc:any, value:any) => acc + value, 0);
+    return tt;
   }
 }

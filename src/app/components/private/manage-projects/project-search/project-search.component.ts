@@ -25,8 +25,17 @@ export class ProjectSearchComponent implements OnInit{
     { field: 'projectValue'},
     { field: 'projectStartDate' },
     { field: 'projectEndDate' },
-    { field: 'projectDuration' },
-    { field: 'projectProgress' }
+    { field: 'projectProgress',
+    cellRenderer:  (params:any)=> {
+        if (params.value !== undefined) {
+          if(params.value){
+              return '<div class="progress"><div class="progress-bar" role="progressbar"style="width: '+params.value+';" aria-valuenow="'+params.value+'" aria-valuemin="0" aria-valuemax="100">'+params.value+'</div></div>';
+          }else{
+              return params.value;
+          }
+        }
+      }
+    }
   ];
   public defaultColDef: ColDef = {
     flex: 1,
@@ -58,11 +67,10 @@ export class ProjectSearchComponent implements OnInit{
     this.rowData = [
       {
         "projectName": "Project 1",
-        "projectType": 'SVMV',
+        "projectType": 'Mega',
         "projectValue": "21Cr",
         "projectStartDate": '2/2/23',
         "projectEndDate": '2/1/24',
-        "projectDuration": "24 Months",
         "projectProgress": "30%"
       },
       {
@@ -71,7 +79,6 @@ export class ProjectSearchComponent implements OnInit{
         "projectValue": "1Cr",
         "projectStartDate": '1/2/23',
         "projectEndDate": '2/8/23',
-        "projectDuration": "6 Months",
         "projectProgress": "50%"
       }]
 }
@@ -107,6 +114,16 @@ goBack() {
   this.showProjectDetails = false;
   this.showProjectList = true;
   this.showProjectSearch = true;
+}
+
+changeMilestone(event:any) {
+  if(event) {
+    this.toastService.success(event.msg);
+    setTimeout(() => {
+      this.goBack()
+    }, 200);
+    
+  }
 }
 
 }

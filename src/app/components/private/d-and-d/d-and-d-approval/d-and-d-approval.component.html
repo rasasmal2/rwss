@@ -1,0 +1,35 @@
+<section id="search-project-table" class="search-project-table" *ngIf="showProjectList">
+    <div class="container">
+        <div class="label-header"><h5>D&D List</h5></div>
+        <div class="marginTopForFormCustomClass1">
+            <ag-grid-angular
+                style="width: 100%; height: 50vh;"
+                class="ag-theme-alpine"
+                [columnDefs]="columnDefs"
+                [defaultColDef]="defaultColDef"
+                [rowData]="rowData"
+                [paginationAutoPageSize]="true"
+                [pagination]="true"
+                (gridReady)="onGridReady($event)"
+                (cellClicked)='onCellClicked($event)'
+                [suppressRowClickSelection]="true"
+            ></ag-grid-angular>
+        </div>
+
+    </div>
+
+</section>
+
+<section id="project-dashboard-details" class="project-dashboard-details" *ngIf="showProjectDetails">
+    <div class="container">
+        <span (click)="goBack()" style="cursor: pointer;">
+            <i class="icofont-arrow-left go-back" ></i>
+            Back
+        </span>
+        
+    </div>
+    
+    <app-d-and-d-summary [formDetails]="projectData"></app-d-and-d-summary>
+    
+
+</section>

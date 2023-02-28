@@ -1,0 +1,283 @@
+<section id="assessment-review" *ngIf="this.formDetails">
+    <div class="container">
+        
+        <h3>Review your answers</h3>
+        <!-- <p>If you want to modify any value, click on change in the respective step. It will redirect you to the
+            concerned step where you can make your changes.</p> -->
+        <div class="row details-box">
+            <h5>Project Details</h5>
+            <div class="col-sm-4">
+                Project Name
+            </div>
+            <div class="col-sm-8">
+                {{formDetails?.projectDetails?.projectName}}
+                <!-- ,{{formDetails?.address?.buildingName}},{{formDetails?.address?.street}},{{formDetails?.address?.locality?.name}},{{formDetails?.address?.city}} -->
+            </div>
+            <div class="col-sm-4">
+                Project Type
+            </div>
+            <div class="col-sm-8">
+                {{formDetails?.projectDetails?.projectType}}
+            </div>
+            <div class="col-sm-4">
+                Project Value
+            </div>
+            <div class="col-sm-8">
+                {{formDetails?.projectDetails?.projectValue}}
+            </div>
+            <div class="col-sm-4">
+                Project Start Date
+            </div>
+            <div class="col-sm-8">
+                {{formDetails?.projectDetails?.projectStartDate}}
+            </div>
+            <div class="col-sm-4">
+                Project End Date
+            </div>
+            <div class="col-sm-8">
+                {{formDetails?.projectDetails?.projectEndDate}}
+            </div>
+            <div class="col-sm-4">
+                Circle
+            </div>
+            <div class="col-sm-8">
+                {{formDetails?.projectDetails?.circle}}
+            </div>
+            <div class="col-sm-4">
+                Division
+            </div>
+            <div class="col-sm-8">
+                {{formDetails?.projectDetails?.division}}
+            </div>
+            <div class="col-sm-4">
+                Executing Agency
+            </div>
+            <div class="col-sm-8">
+                {{formDetails?.projectDetails?.executingAgency}}
+            </div>
+            <div class="col-sm-4">
+                Registered Address
+            </div>
+            <div class="col-sm-8">
+                {{formDetails?.projectDetails?.registeredAddress}}
+            </div>
+            <div class="col-sm-4">
+                Contact person
+            </div>
+            <div class="col-sm-8">
+                {{formDetails?.projectDetails?.contactPerson}}
+            </div>
+        </div>
+        <div *ngFor="let authority of formDetails?.rowAuthorities">
+             <!-- NH Details -->
+            <div class="row details-box" *ngIf="authority=='NH'">
+                <h5>NH Details</h5>
+                <div class="col-sm-4">
+                    Approval applied at NH
+                </div>
+                <div class="col-sm-8">
+                    {{formDetails?.authorityDetails?.isAppliedAtNH}}
+                    
+                </div>
+                <div class="col-sm-4">
+                    Date of application
+                </div>
+                <div class="col-sm-8">
+                    {{getDate(formDetails?.authorityDetails?.dateOfApplication)}}
+                    
+                </div>
+                <div class="col-sm-4">
+                    Time for approval (Days)
+                </div>
+                <div class="col-sm-8">
+                    {{formDetails?.authorityDetails?.timeForApproval}}
+                    
+                </div>
+                <div class="col-sm-4">
+                    Approval accepted at NH
+                </div>
+                <div class="col-sm-8">
+                    {{formDetails?.authorityDetails?.isApprovalAcceptedNH}}
+                    
+                </div>
+                <div class="col-sm-4">
+                    Approval accepted date
+                </div>
+                <div class="col-sm-8">
+                    {{getDate(formDetails?.gadDetails?.applicationAcceptedDateNH)}}
+                    
+                </div>
+            </div>
+
+            <!-- Wildlife Details -->
+            <div class="row details-box" *ngIf="authority=='Wildlife'">
+                <h5>Wildlife Details</h5>
+                <div class="col-sm-4">
+                    Approval applied at Wildlife
+                </div>
+                <div class="col-sm-8">
+                    {{formDetails?.authorityDetails?.isAppliedAtWildlife}}
+                    
+                </div>
+                <div class="col-sm-4">
+                    Date of application
+                </div>
+                <div class="col-sm-8">
+                    {{getDate(formDetails?.authorityDetails?.dateOfApplicationWildLife)}}
+                    
+                </div>
+                <div class="col-sm-4">
+                    Time for approval (Days)
+                </div>
+                <div class="col-sm-8">
+                    {{formDetails?.authorityDetails?.timeForApprovalWildlife}}
+                    
+                </div>
+                <div class="col-sm-4">
+                    Approval accepted at Wildlife
+                </div>
+                <div class="col-sm-8">
+                    {{formDetails?.authorityDetails?.isApprovalAcceptedWildlife}}
+                    
+                </div>
+                <div class="col-sm-4">
+                    Approval accepted date
+                </div>
+                <div class="col-sm-8">
+                    {{getDate(formDetails?.gadDetails?.applicationAcceptedDateWildLife)}}
+                    
+                </div>
+            </div>
+
+            <!-- Forest Details -->
+            <div class="row details-box" *ngIf="authority=='Forest'">
+                <h5>Forest Details</h5>
+                <div class="col-sm-4">
+                    Approval applied at Forest
+                </div>
+                <div class="col-sm-8">
+                    {{formDetails?.authorityDetails?.isAppliedAtForest}}
+                    
+                </div>
+                <div class="col-sm-4">
+                    Date of application
+                </div>
+                <div class="col-sm-8">
+                    {{getDate(formDetails?.authorityDetails?.dateOfApplicationForest)}}
+                    
+                </div>
+                <div class="col-sm-4">
+                    Time for approval (Days)
+                </div>
+                <div class="col-sm-8">
+                    {{formDetails?.authorityDetails?.timeForApprovalForest}}
+                    
+                </div>
+                <div class="col-sm-4">
+                    Approval accepted at Forest
+                </div>
+                <div class="col-sm-8">
+                    {{formDetails?.authorityDetails?.isApprovalAcceptedForest}}
+                    
+                </div>
+                <div class="col-sm-4">
+                    Approval accepted date
+                </div>
+                <div class="col-sm-8">
+                    {{getDate(formDetails?.gadDetails?.applicationAcceptedDateForest)}}
+                    
+                </div>
+            </div>
+
+            <!-- PWD Details -->
+            <div class="row details-box" *ngIf="authority=='PWD'">
+                <h5>PWD Details</h5>
+                <div class="col-sm-4">
+                    Approval applied at PWD
+                </div>
+                <div class="col-sm-8">
+                    {{formDetails?.authorityDetails?.isAppliedAtPWD}}
+                    
+                </div>
+                <div class="col-sm-4">
+                    Date of application
+                </div>
+                <div class="col-sm-8">
+                    {{getDate(formDetails?.authorityDetails?.dateOfApplicationPWD)}}
+                    
+                </div>
+                <div class="col-sm-4">
+                    Time for approval (Days)
+                </div>
+                <div class="col-sm-8">
+                    {{formDetails?.authorityDetails?.timeForApprovalPWD}}
+                    
+                </div>
+                <div class="col-sm-4">
+                    Approval accepted at PWD
+                </div>
+                <div class="col-sm-8">
+                    {{formDetails?.authorityDetails?.isApprovalAcceptedPWD}}
+                    
+                </div>
+                <div class="col-sm-4">
+                    Approval accepted date
+                </div>
+                <div class="col-sm-8">
+                    {{getDate(formDetails?.gadDetails?.applicationAcceptedDatePWD)}}
+                    
+                </div>
+            </div>
+
+            <!-- Railways Details -->
+            <div class="row details-box" *ngIf="authority=='Railways'">
+                <h5>Railways Details</h5>
+                <div class="col-sm-4">
+                    Approval applied at Railways
+                </div>
+                <div class="col-sm-8">
+                    {{formDetails?.authorityDetails?.isAppliedAtRailways}}
+                    
+                </div>
+                <div class="col-sm-4">
+                    Date of application
+                </div>
+                <div class="col-sm-8">
+                    {{getDate(formDetails?.authorityDetails?.dateOfApplicationRailways)}}
+                    
+                </div>
+                <div class="col-sm-4">
+                    Time for approval (Days)
+                </div>
+                <div class="col-sm-8">
+                    {{formDetails?.authorityDetails?.timeForApprovalRailways}}
+                    
+                </div>
+                <div class="col-sm-4">
+                    Approval accepted at Railways
+                </div>
+                <div class="col-sm-8">
+                    {{formDetails?.authorityDetails?.isApprovalAcceptedRailways}}
+                    
+                </div>
+                <div class="col-sm-4">
+                    Approval accepted date
+                </div>
+                <div class="col-sm-8">
+                    {{getDate(formDetails?.gadDetails?.applicationAcceptedDateRailways)}}
+                    
+                </div>
+            </div>
+        </div>
+       
+        <div *ngIf="loginUser=='Chief Engineer'">
+            <div style="height: 40px;">
+                <app-button [text]="'Approve'" [btnId]="'primary'" (click)="onApprove()" [type]="'submit'" [style]="'float:right;margin-right:0px;'"></app-button>
+                <app-button [text]="'Reject'" [btnId]="'warn'" (click)="onReject()" [type]="'submit'" [style]="'float:right;margin-right:10px;'"></app-button>
+            </div>
+            
+
+        </div>
+    </div>
+
+</section>

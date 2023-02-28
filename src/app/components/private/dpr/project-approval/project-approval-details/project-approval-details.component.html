@@ -1,7 +1,7 @@
 <section id="assessment-review" *ngIf="this.formDetails">
     <div class="container">
         
-        <h3>Review your answers</h3>
+        <h3>Project review</h3>
         <!-- <p>If you want to modify any value, click on change in the respective step. It will redirect you to the
             concerned step where you can make your changes.</p> -->
         <div class="row details-box">
@@ -77,7 +77,7 @@
         <!-- Milestone -->
         <div class="row details-box">
             <h4>Milestone Details</h4>
-            <app-table *ngIf="formDetails?.milestoneDisplayedColumns" [dataList]="formDetails?.milestoneDataSource" [displayedColumns]="formDetails?.milestoneDisplayedColumns"></app-table>
+            <app-table *ngIf="formDetails?.milestoneDisplayedColumns" [dataList]="milestoneDataSource" [displayedColumns]="formDetails?.milestoneDisplayedColumns"></app-table>
             
             
         </div>
@@ -89,14 +89,12 @@
                     Name of RoW Authority
                 </div>
                 <div class="col-sm-8">
-                    <div class="col-sm-8">
-                        <ol>
-                            <li *ngFor="let name of formDetails?.authorityDetails?.rowAuthorityName">
-                                {{name}}
-                            </li>
-                        </ol>
-                        
-                    </div>
+                    <ol>
+                        <li *ngFor="let name of formDetails?.authorityDetails?.rowAuthorityName">
+                            {{name}}
+                        </li>
+                    </ol>
+                    
                 </div>
                 <div class="col-sm-3 col-md-3" style="padding-top: 10px" >
                   
@@ -110,14 +108,14 @@
             
             
         </div>
-        <!-- <div>
-            <mat-checkbox class="example-margin" [(ngModel)]="isConsentChecked" (change)="onChangeConsentCheck($event)">
-                
-                    I hereby declare and affirm that the above-furnished information is true and correct and nothing has been concealed therefrom. I am also aware of the fact that in case this information is found false/incorrect, the authorities are at liberty to initiate recovery of amount/interest/penalty/fine as provided in Punjab Municipal Act 1911 or Punjab Municipal Corporation Act 1976.
-                
-            </mat-checkbox>
+        <div >
+            <div style="height: 40px;">
+                <app-button [text]="'Approve'" [btnId]="'primary'" (click)="onApprove()" [type]="'submit'" [style]="'float:right;margin-right:0px;'"></app-button>
+                <app-button [text]="'Reject'" [btnId]="'warn'" (click)="onReject()" [type]="'submit'" [style]="'float:right;margin-right:10px;'"></app-button>
+            </div>
+            
 
-        </div> -->
+        </div>
     </div>
 
 </section>

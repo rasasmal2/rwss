@@ -5758,10 +5758,12 @@ ol.list-num-count.list-outline-none>li:before {
 .progress {
 	border-radius: 0;
 	overflow: visible;
+	margin-top: 10px;
 }
 
 .progress-bar {
 	transition: width 1.5s ease-in-out;
+	background-color: #0b9a49 !important;
 }
 
 .wt-probar-1 {
@@ -8387,7 +8389,9 @@ a i.fa.fa-sitemap {
 }
 
 .header-info ul li a {
-	color: #000000 !important
+	color: #1fa129 !important;
+    font-weight: 600;
+    font-size: 14px;
 }
 
 .header-info ul li a img {
@@ -9036,9 +9040,6 @@ ul.dropdown-menu li a.language-link {
 	color: #000000 !important
 }
 
-.header-info ul li a {
-	color: #000000 !important
-}
 
 .site-header .header-middle .container .header-info ul li a img {
 	color: #000000 !important
@@ -9456,8 +9457,8 @@ p.url-design strong a {
 
 .header-info>ul li {
 	display: table-cell;
-	padding: 0 10px;
-	vertical-align: middle;
+    padding: 26px 15px;
+    vertical-align: middle;
 }
 
 .header-info>ul li .icon-sm {
@@ -14017,13 +14018,137 @@ body .slick-next::before {
 .label-header {
     background: #9DD4CF;
     text-align: center;
-    padding: 1px;
+    padding: 5px;
 }
 .label-header h5{
-    color: #024c49;
+    color: #065754;
 }
 .card-title-cls {
     font-size: 16px;
     font-weight: 600;
     color: #01458e;
 }
+
+.modal-content {
+  border: none;
+}
+.modal-header {
+  background: #087811 !important;
+  color: white !important;
+}
+.modal-footer {
+  background-color: #b9b9b9 !important;
+}
+ .modal-header .close {
+  background: #087811;
+  border: 2px solid white;
+  border-radius: 50%;
+  font-size: 25px;
+  color: white;
+  margin-top: -18px;
+  height: 40px;
+  width: 40px;
+ }
+ .modal-header .close:hover {
+  
+  color: red;
+  border: 2px solid red;
+ }
+
+ .font-w-600 {
+	font-weight: 600;
+ }
+
+ .picture_as_pdf {
+    font-size: 40px;
+    color: gray;
+    height: 40px !important;
+    width: 45px !important;
+}
+
+.details-box .col-sm-4 {
+    font-weight: 600;
+}
+
+
+/* Success Page Start */
+.success-header {
+    background: #116c11;
+    height: auto;
+    text-align: center;
+    font-size: 21px;
+    padding: 15px;
+    color: white;
+    font-weight: 500;
+}
+.success-icon {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.success-icon span {
+    border: 1px solid;
+    border-radius: 50px;
+    background: white;
+    height: 60px;
+    width: 60px;
+    display: inline-block;
+}
+.success-icon span .mat-icon{
+    color: #116c11;
+    text-align: center;
+    height: 50px;
+    width: 50px;
+    font-size: 50px;
+}
+.success-icon span i {
+    color: #116c11;
+    top: 7px;
+    position: relative;
+}
+.success-footer {
+    margin-top: 10px;
+}
+
+
+.failed-header {
+    background: #d4351c;
+    height: auto;
+    text-align: center;
+    font-size: 21px;
+    padding: 15px;
+    color: white;
+    font-weight: 500;
+}
+.failed-icon {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.failed-icon span {
+    border: 1px solid;
+    border-radius: 50px;
+    background: white;
+    height: 60px;
+    width: 60px;
+    display: inline-block;
+}
+.failed-icon span .mat-icon{
+    color: #d4351c;
+    text-align: center;
+    height: 50px;
+    width: 50px;
+    font-size: 50px;
+}
+.failed-icon span i {
+    color: #d4351c;
+    top: 7px;
+    position: relative;
+}
+.failed-footer {
+    margin-top: 10px;
+}
+/* Success Page End */
+
+
+#myPropertyModal .modal-dialog {
+    max-width: 90% !important;
+  }

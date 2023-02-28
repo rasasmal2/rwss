@@ -1,0 +1,78 @@
+.card-button {
+    position: fixed;
+    bottom: 0;
+    width: 97%;
+}
+.mat-mdc-stepper-horizontal {
+  border-radius: 10px;
+  box-shadow: 1px 1px 5px 0px;
+}
+
+.form-container .mat-mdc-form-field + .mat-mdc-form-field {
+    margin-left: 8px;
+  }
+  
+  .form-container .mat-mdc-form-field {
+    width: 220px;
+  }
+  
+  .form-container form {
+    margin-bottom: 20px;
+  }
+  
+  .form-container form > * {
+    margin: 5px 0;
+  }
+  
+  .form-container .mat-mdc-radio-button {
+    margin: 0 12px;
+  }
+  .mat-mdc-button-base {
+    float: right;
+    margin: 10px;
+   
+  }
+  .mat-mdc-stepper-next {
+    background: #106a75;
+  }
+  .mat-mdc-stepper-previous {
+    background: #9f8346;
+  }
+  .mat-mdc-button.mat-primary, .mat-mdc-icon-button.mat-primary, .mat-mdc-stroked-button.mat-primary {
+    color: #fff !important;
+  }
+  .mat-mdc-button.mat-secondary, .mat-mdc-icon-button.mat-secondary, .mat-mdc-stroked-button.mat-secondary {
+    color: #fff !important;
+    background: #747474e8;
+  }
+  .owner-detail-cls {
+    padding: 10px;
+    background: #e2dfda38;
+    box-shadow: 0px 0px 1px 0px;
+    margin: 10px;
+  }
+
+  
+  .flat-details-card {
+    margin-top: 10px;
+    border-radius: 15px;
+    padding: 10px;
+  }
+
+  .example-radio-group {
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
+    align-items: flex-start;
+  }
+  
+  .example-radio-button {
+    margin: 5px;
+  }
+
+  .mat-stepper-next {
+    background: #106a75;
+  }
+  .mat-stepper-previous {
+    background: #9f8346;
+  }
