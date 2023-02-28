@@ -23,7 +23,7 @@ export class RowCreateComponent implements OnInit {
   isLinear=true;
   projectTypeList: any=[{code: 'SVMW', name: 'SVMW'},{code: 'Mega', name: 'Mega'}];
 
-  circleList:any = [{code: 'c-1', name: 'Circle 1'},{code: 'c-2', name: 'Circle 2'},{code: 'c-3', name: 'Circle 3'},{code: 'c-4', name: 'Circle 4'},{code: 'c-5', name: 'Circle 5'},{code: 'c-6', name: 'Circle 6'},{code: 'c-7', name: 'Circle 7'}];
+  circleList:any = [{code: 'c-1', name: 'Circle 1'},{code: 'c-2', name: 'Circle 2'}];
   divisionList:any = [{code: 'div-1', name: 'Division 1'},{code: 'div-2', name: 'Division 2'},{code: 'div-3', name: 'Division 3'}];
   showPropertyDetails = false;
   showModal=false;

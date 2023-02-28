@@ -24,7 +24,7 @@
                             [placeholder]="'Select Project Type'" [optionList]="projectTypeList"
                             formControlName="projectType"></app-select-search>
                         <app-text-field [isReadOnly]="'false'" [maxlength]="100" class="property-form"
-                            [label]="'Project Value'" [placeholder]="'Enter Project Value'"
+                            [label]="'Project Value in Cr.'" [placeholder]="'Enter Project Value'"
                             formControlName="projectValue" [style]="''"></app-text-field>
                         
                         <app-select-search class="property-form" [label]="'Circle'" [placeholder]="'Select Circle'"
@@ -38,15 +38,14 @@
                             [placeholder]="'Enter End Date'" formControlName="projectEndDate"></app-date-picker>
                         
 
-                        
-                        <app-text-field [isReadOnly]="'false'" [maxlength]="100" class="property-form"
-                            [label]="'Name of Executing Agency'" [placeholder]="'Enter Name of Executing Agency'"
-                            formControlName="contractorName" [style]="''"></app-text-field>
-                        <app-text-field [isReadOnly]="'false'" [maxlength]="100" class="property-form"
+                        <app-select-search class="property-form" [label]="'Name of Executing Agency'" [placeholder]="'Select Name of Executing Agency'"
+                            [optionList]="agencyList" formControlName="contractorName" (onChangeValue)="onSelectEAgency($event)"></app-select-search>
+                       
+                        <app-text-field [isReadOnly]="isEAgencySelect" [maxlength]="100" class="property-form"
                             [label]="'Contact Person'" [placeholder]="'Enter Contact Person'"
                             formControlName="contactPerson" [style]="''"></app-text-field>
 
-                        <app-text-area class="property-form" [label]="'Registered Address of Executing Agency'"
+                        <app-text-area [isReadOnly]="isEAgencySelect" class="property-form" [label]="'Registered Address of Executing Agency'"
                             [placeholder]="'Enter Registered Address of Executing Agency'"
                             formControlName="registeredAddress" [style]="'width:100%'"></app-text-area>
                         

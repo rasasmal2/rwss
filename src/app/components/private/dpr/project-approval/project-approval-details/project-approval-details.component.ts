@@ -1,5 +1,6 @@
 import { Component,Input,OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -11,7 +12,7 @@ export class ProjectApprovalDetailsComponent implements OnInit{
   milestoneDataSource = new MatTableDataSource<any>();
 
   @Input() formDetails: any;
-  constructor(public toasterService: ToastrService) {}
+  constructor(public toasterService: ToastrService, public router: Router) {}
 
   ngOnInit(): void {
     console.log("formDetails==",this.formDetails)
@@ -19,9 +20,15 @@ export class ProjectApprovalDetailsComponent implements OnInit{
   }
 
   onApprove() {
-    this.toasterService.success("Application Approved Successfully")
+    this.toasterService.success("Project Approved Successfully");
+    setTimeout(() => {
+      this.router.navigate(['/welcome']);
+    }, 300);
   }
   onReject() {
-    this.toasterService.error("Application Rejected Successfully")
+    this.toasterService.error("Project Rejected Successfully");
+    setTimeout(() => {
+      this.router.navigate(['/welcome']);
+    }, 300);
   }
 }

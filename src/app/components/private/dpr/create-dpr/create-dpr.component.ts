@@ -30,8 +30,9 @@ export class CreateDprComponent implements OnInit {
   projectFormGroup: any= UntypedFormGroup;
   projectTypeList: any=[{code: 'SVMW', name: 'SVMW'},{code: 'Mega', name: 'Mega'}];
   durationList: any = [{code: '6', name: '6 Months'},{code: '12', name: '12 Months'},{code: '24', name: '24 Months'}];
-  circleList:any = [{code: 'c-1', name: 'Circle 1'},{code: 'c-2', name: 'Circle 2'},{code: 'c-3', name: 'Circle 3'},{code: 'c-4', name: 'Circle 4'},{code: 'c-5', name: 'Circle 5'},{code: 'c-6', name: 'Circle 6'},{code: 'c-7', name: 'Circle 7'}];
+  circleList:any = [{code: 'c-1', name: 'Circle 1'},{code: 'c-2', name: 'Circle 2'}];
   divisionList:any = [{code: 'div-1', name: 'Division 1'},{code: 'div-2', name: 'Division 2'},{code: 'div-3', name: 'Division 3'}];
+  agencyList:any = [{code: 'Contractor 1', name: 'Contractor 1'},{code: 'Contractor 2', name: 'Contractor 2'},{code: 'Contractor 3', name: 'Contractor 3'},{code: 'Contractor Not Registered', name: 'Contractor Not Registered'}];
   authorityFormGroup: any= UntypedFormGroup;
   task:any = {
     subtasks: [
@@ -55,6 +56,7 @@ export class CreateDprComponent implements OnInit {
   milestoneFormGroup: any= UntypedFormGroup;
   totalMileStonePayment: any;
   submitted=false;
+  isEAgencySelect='true'
 
   constructor(public toastService: ToastrService, public cmnService:CommonServiceService, private _formBuilder: UntypedFormBuilder,private router: Router, public dialog: MatDialog) {}
   onEdit() {
@@ -81,8 +83,8 @@ export class CreateDprComponent implements OnInit {
       circle:['',Validators.required],
       division:['',Validators.required],
       contractorName:['',Validators.required],
-      registeredAddress:['',Validators.required],
-      contactPerson:['',Validators.required],
+      registeredAddress:['Demo Address'],
+      contactPerson:['Sailesh Das'],
     });
 
     this.authorityFormGroup = this._formBuilder.group({
@@ -97,6 +99,24 @@ export class CreateDprComponent implements OnInit {
     });
     // this.roadDataSource = new MatTableDataSource<any>(this.roadDataList);
     // this.misDataSource = new MatTableDataSource<any>(this.misDataList);
+  }
+  onSelectEAgency(event:any) {
+    if(event && event.name=='Contractor Not Registered') {
+      this.isEAgencySelect = 'false';
+      this.projectFormGroup.get('registeredAddress').setValue('');
+      this.projectFormGroup.get('contactPerson').setValue('');
+      this.projectFormGroup.controls["registeredAddress"].setValidators([Validators.required]);
+
+      this.projectFormGroup.controls["contactPerson"].setValidators([Validators.required]);
+
+      this.projectFormGroup.controls['registeredAddress'].updateValueAndValidity();
+      this.projectFormGroup.controls['contactPerson'].updateValueAndValidity();
+
+    } else {
+      this.isEAgencySelect = 'true';
+      this.projectFormGroup.get('registeredAddress').setValue('Demo Address');
+      this.projectFormGroup.get('contactPerson').setValue('Sailesh Das');
+    }
   }
 
   saveandnext(val:any) {

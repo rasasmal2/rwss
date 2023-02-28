@@ -1,6 +1,6 @@
 <mat-form-field [style]="style">
     <mat-label>{{label}}</mat-label>
-    <textarea matInput [type]="type" [placeholder]="placeholder" [formControl]="control">1600 Amphitheatre Pkwy</textarea>
+    <textarea matInput [type]="type" [placeholder]="placeholder" [readonly]="isReadOnly=='view'||isReadOnly=='true'" [formControl]="control">1600 Amphitheatre Pkwy</textarea>
     <mat-error *ngIf="control.hasError('required')">
         This field is <strong>required</strong>
     </mat-error>

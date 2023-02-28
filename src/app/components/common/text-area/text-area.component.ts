@@ -20,6 +20,7 @@ export class TextAreaComponent implements OnInit {
   @Input() placeholder:any;
   @Input() formControlName:any;
   @Input() style:any;
+  @Input() isReadOnly:any;
   
   control:any = AbstractControl;
 
