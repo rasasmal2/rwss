@@ -17,13 +17,15 @@ export class ProjectSearchComponent implements OnInit{
 
   public columnDefs: ColDef[] = [
     { field: 'projectName',
-      cellStyle: {color: '#046A38', cursor: 'pointer'}
+      cellStyle: {color: '#046A38', cursor: 'pointer'},
+      cellRenderer : ((params:any)=>{
+        return '<span title="' + params.value + '">'+params.value+'</span>';
+      })
     },
     {
       field: 'projectType'
     },
-    { field: 'projectValue'},
-    { field: 'projectStartDate' },
+    { field: 'projectStartDate'},
     { field: 'projectEndDate' },
     { field: 'projectProgress',
     cellRenderer:  (params:any)=> {

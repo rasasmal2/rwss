@@ -26,76 +26,121 @@ export class PwrdDashboardComponent implements OnInit {
   }
   
   barchartOption1: EChartsOption =  {
-    // title: {
-    //   text: 'Material Consumption',
-    //   textStyle: {
-    //     color: '#01458e',
-    //     fontSize: '1rem',
-    //     fontWeight: 600,
-    //     fontFamily: 'Open Sans, sans-serif'
-    //   }
-    // },
+  
     tooltip: {
-      trigger: 'axis',
-      axisPointer: {
-        type: 'shadow'
-      },
-      
+      // trigger: 'axis',
+      showDelay: 0,
       formatter:  (params:any)=> {
-        // console.log("params==",params)
-        var tar = params[0].data.value;
-        return '<span title="' + tar + '">'+'Project completion: '+tar +'%'+'</span><br><span title="' + params[0].axisValue + '">'+'No of projects: '+params[0].axisValue+'</span>';
-      }
-    },
-    xAxis: {
-      type: 'category',
-      data: [2, 3, 5],
-      name: 'No. of projects',
-      nameTextStyle: {
-        color: '#000'
+        console.log("params==",params)
+        return params.name+' : '+params.value+ '% completed'
+        
       },
-      axisLabel: {
-        color: '#000'
-      }
+      // axisPointer: {
+      //   show: true,
+      //   type: 'cross',
+      //   lineStyle: {
+      //     type: 'dashed',
+      //     width: 1
+      //   }
+      // }
+    },
+     xAxis: {
+      data: ['Execution of Rural Piped water project in Khurdah District', 'Execution of Rural Piped water project in Puri District', 
+      'Execution of Rural Piped water project in Balangir District',
+      'Execution of Rural Piped water project in Ganjam District',
+      'Execution of Rural Piped water project in Koraput District',
+      'Execution of Rural Piped water project in Koraput District',
+      'Execution of Rural Piped water project in Malkangiri District',
+      'Execution of Rural Piped water project in Angul District',
+      'Execution of Rural Piped water project in Nayagarh District',
+      'Execution of Rural Piped water project in Kendrapara District'
+    ],
+      show:false
     },
     yAxis: {
-      type: 'value',
       name: 'Completion %',
-      
-      nameTextStyle: {
-        color: '#000'
-      },
-      axisLabel: {
-        color: '#000'
-      }
     },
     series: [
       {
-        data: [
-          {
-            value: 30,
-            itemStyle: {
-              color: '#15807e'
-            }
-          },
-          {
-            value: 60,
-            itemStyle: {
-              color: '#009A44'
-            }
-          },
-          {
-            value: 100,
-            itemStyle: {
-              color: '#26890D'
-            }
-          },
-           ],
-          barWidth: '20%',
-        type: 'bar'
+        type: 'scatter',
+        symbolSize: 20,
+        data: [30, 20, 10,20,50,33, 36.7, 87, 33, 91],
+        color: 'green'
       }
     ]
   };
+  
+  // EChartsOption =  {
+  //   // title: {
+  //   //   text: 'Material Consumption',
+  //   //   textStyle: {
+  //   //     color: '#01458e',
+  //   //     fontSize: '1rem',
+  //   //     fontWeight: 600,
+  //   //     fontFamily: 'Open Sans, sans-serif'
+  //   //   }
+  //   // },
+  //   tooltip: {
+  //     trigger: 'axis',
+  //     axisPointer: {
+  //       type: 'shadow'
+  //     },
+      
+  //     formatter:  (params:any)=> {
+  //       // console.log("params==",params)
+  //       var tar = params[0].data.value;
+  //       return '<span title="' + tar + '">'+'Project completion: '+tar +'%'+'</span><br><span title="' + params[0].axisValue + '">'+'No of projects: '+params[0].axisValue+'</span>';
+  //     }
+  //   },
+  //   xAxis: {
+  //     type: 'category',
+  //     data: [2, 3, 5],
+  //     name: 'No. of projects',
+  //     nameTextStyle: {
+  //       color: '#000'
+  //     },
+  //     axisLabel: {
+  //       color: '#000'
+  //     }
+  //   },
+  //   yAxis: {
+  //     type: 'value',
+  //     name: 'Completion %',
+      
+  //     nameTextStyle: {
+  //       color: '#000'
+  //     },
+  //     axisLabel: {
+  //       color: '#000'
+  //     }
+  //   },
+  //   series: [
+  //     {
+  //       data: [
+  //         {
+  //           value: 30,
+  //           itemStyle: {
+  //             color: '#15807e'
+  //           }
+  //         },
+  //         {
+  //           value: 60,
+  //           itemStyle: {
+  //             color: '#009A44'
+  //           }
+  //         },
+  //         {
+  //           value: 100,
+  //           itemStyle: {
+  //             color: '#26890D'
+  //           }
+  //         },
+  //          ],
+  //         barWidth: '20%',
+  //       type: 'bar'
+  //     }
+  //   ]
+  // };
   chartOption2: EChartsOption  = {
     tooltip: {
       trigger: 'item',
@@ -118,6 +163,9 @@ export class PwrdDashboardComponent implements OnInit {
         //   position: 'inner',
         //   fontSize: 14
         // },
+        label: {
+          formatter: '{b}: {c}Cr',
+        },
         labelLine: {
           length: 30
         },
@@ -135,7 +183,7 @@ export class PwrdDashboardComponent implements OnInit {
           length: 30
         },
         label: {
-          // formatter: '{a} <br/>{b}: {c}Cr ({d}%)',
+          formatter: '{b}: {c}Cr',
           // backgroundColor: '#F6F8FC',
           // borderColor: '#8C8D8E',
           // borderWidth: 1,

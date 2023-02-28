@@ -18,20 +18,13 @@
             </div>
           </ul>
         </li>
-        <li *ngIf="isLoggedIn=='true'"
-          class="drop-down">
-          <a routerLink="/operation-maintenance" href="javascript:void(0)" role="button" id="dropdownMenuLink"
-            data-bs-toggle="dropdown" aria-expanded="false">
-            Procurement
-          </a>
-        </li>
-        <li *ngIf="isLoggedIn=='true' && (loginUser=='Executive Engineer' || loginUser=='Assistant Executive Engineer' || loginUser=='Chief Engineer')" class="drop-down">
-          <a href="javascript:void(0);" class="dropdown-toggle">Reports & Dashboard</a>
+        <li *ngIf="isLoggedIn=='true' && (loginUser=='Executive Engineer' || loginUser=='Chief Engineer')" class="drop-down">
+          <a href="javascript:void(0);" class="dropdown-toggle">Dashboard</a>
           <ul style="width: 120%;">
             <div class="row">
               <div class="col-sm-12">
-                <li><a class="dropdown-item" routerLink="/project-dashboard">Project Dashboard</a></li>
-                <li><a class="dropdown-item" routerLink="/overview-dashboard">Overview Dashboard</a></li>
+                <li><a class="dropdown-item" routerLink="/project-dashboard">Project wise dashboard</a></li>
+                <li><a class="dropdown-item" routerLink="/overview-dashboard">Overall dashboard</a></li>
               </div>
             </div>
           </ul>

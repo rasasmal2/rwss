@@ -292,4 +292,7 @@ export class RowCreateComponent implements OnInit {
     }, 500);
 
   }
+  onSelectAuthority(value:any) {
+    this.selectedAuthority = value
+  }
 }
