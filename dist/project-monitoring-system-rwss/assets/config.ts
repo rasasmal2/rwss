@@ -23,6 +23,137 @@ const config = {
         }
     ],
     steps: ['Create Detailed Project Report', 'Trade Units', 'Accessories', 'New Property', 'Trade Address', 'Ownership Details', 'Documents Required'],
+    projectList: [
+      {
+        "projectName": 'Project 1',
+        "projectType": "Mega",
+        "projectStartDate": "04/01/2022",
+        "projectEndDate": "03/30/2024",
+        "circle": "C2",
+        "division": "D2",
+        projectValue: "300Cr",
+        executingAgency: "TPL",
+        registeredAddress: "Mumbai",
+        contactPerson: "S Ghosh",
+        projectProgress: '12%'
+      },
+      {
+        "projectName": 'Project 2',
+        "projectType": "Mega",
+        "projectStartDate": "04/01/2022",
+        "projectEndDate": "03/30/2024",
+        "circle": "C1",
+        "division": "D1",
+        projectValue: "200Cr",
+        executingAgency: "L&T",
+        registeredAddress: "Mumbai",
+        contactPerson: "S Mehta",
+        projectProgress: '89%'
+      },
+      {
+        "projectName": 'Project 3',
+        "projectType": "Mega",
+        "projectStartDate": "04/01/2022",
+        "projectEndDate": "03/30/2024",
+        "circle": "C1",
+        "division": "D1",
+        projectValue: "200Cr",
+        executingAgency: "NCC",
+        registeredAddress: "Hydrabad",
+        contactPerson: "S Muttu",
+        projectProgress: '50%'
+      },
+      {
+        "projectName": 'Project 4',
+        "projectType": "Mega",
+        "projectStartDate": "04/01/2022",
+        "projectEndDate": "03/30/2024",
+        "circle": "C2",
+        "division": "D1",
+        projectValue: "300Cr",
+        executingAgency: "NCC",
+        registeredAddress: "Hydrabad",
+        contactPerson: "S Muttu",
+        projectProgress: '43%'
+      },
+      {
+        "projectName": 'Project 5',
+        "projectType": "Mega",
+        "projectStartDate": "04/01/2022",
+        "projectEndDate": "03/30/2024",
+        "circle": "C2",
+        "division": "D1",
+        projectValue: "300Cr",
+        executingAgency: "Contractor 1",
+        registeredAddress: "Demo Address",
+        contactPerson: "Sailesh Das",
+        projectProgress: '0%'
+      }],
+      milestoneList:[
+        {
+          milestone: 'Survey, Design & Drawing',
+          startDate:'01/03/2023', 
+          endDate: '10/30/2023', 
+          payment:'2%',
+          progress: ''
+        },
+        {
+          milestone: 'Construction of Intake Well',
+          startDate:'06/01/2023', 
+          endDate: '11/02/2023', 
+          payment:'3%',
+          progress: ''
+        },
+        {
+          milestone: 'Supply of pipes, laying ,fitting & fixing from Raw water rising main to WTP',
+          startDate:'12/01/2023', 
+          endDate: '04/29/2024', 
+          payment:'5%',
+          progress: ''
+        },
+        {
+          milestone: 'Completion of WTP work',
+          startDate:'10/01/2022', 
+          endDate: '08/30/2023', 
+          payment:'20%',
+          progress: ''
+        },
+        {
+          milestone: 'Supply of pipes, laying ,fitting & fixing from Clear water rising main to Elevated storage Reservoirs',
+          startDate:'05/15/2023', 
+          endDate: '10/14/2023', 
+          payment:'20%',
+          progress: ''
+        },
+        {
+          milestone: 'Design, Construction, Testing & Commissioning of ESR',
+          startDate:'04/20/2022', 
+          endDate: '11/01/2023', 
+          payment:'20%',
+          progress: ''
+        },
+        {
+          milestone: 'Supply of HDPE Pipes, laying and jointing to complete distribution system',
+          startDate:'10/01/2022', 
+          endDate: '08/31/2023', 
+          payment:'15%',
+          progress: ''
+        },
+        {
+          milestone: 'Supplying, fitting & fixing of flow meter, PLC Scada and all other Instruments',
+          startDate:'10/01/2023', 
+          endDate: '11/30/2023', 
+          payment:'5%',
+          progress: ''
+        },
+        {
+          milestone: 'Completion of inspection, Testing, Trial Run & final Acceptance',
+          startDate:'12/01/2023', 
+          endDate: '02/28/2024', 
+          payment:'10%',
+          progress: ''
+        }
+      ],
     graphData: {
         "nodes": [
           {
