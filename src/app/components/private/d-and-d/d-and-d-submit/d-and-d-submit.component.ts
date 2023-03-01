@@ -8,11 +8,12 @@ import { Router } from '@angular/router';
 })
 export class DAndDSubmitComponent implements OnInit {
   isSubmissionFaield = false
-  property:any=[]
+  property:any=[];
+  loginUser: any;
   constructor(private router: Router) { }
 
   ngOnInit(): void {
-    
+    this.loginUser = localStorage.getItem('loginUser');
   }
 
   gotohome() {

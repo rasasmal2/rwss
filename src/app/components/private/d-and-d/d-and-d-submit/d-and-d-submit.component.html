@@ -4,7 +4,10 @@
     <div class="card">
         <div class="card-body">
             <div class="success-header">
-                <div >
+                <div *ngIf="loginUser=='Assistant Executive Engineer'">
+                    D&D for Project No.: P01-2023-02-14-003 has been submitted to the Chief D&D for Verification
+                </div>
+                <div *ngIf="loginUser=='Chief D&D'">
                     D&D for Project No.: P01-2023-02-14-003 has been submitted to the Chief Engineer for Approval
                 </div>
                 

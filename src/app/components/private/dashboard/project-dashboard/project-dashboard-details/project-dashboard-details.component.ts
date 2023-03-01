@@ -28,7 +28,7 @@ export class ProjectDashboardDetailsComponent implements OnInit {
     // align: app.config.align as BarLabelOption['align'],
     // verticalAlign: app.config.verticalAlign as BarLabelOption['verticalAlign'],
     rotate: 0 as BarLabelOption['rotate'],
-    formatter: '{c}%',
+    formatter: '{c}',
     fontSize: 12,
     rich: {
       name: {}
@@ -47,7 +47,7 @@ export class ProjectDashboardDetailsComponent implements OnInit {
     },
     xAxis: {
       type: 'category',
-      data: ['Target', 'Achived']
+      data: ['Target', 'Achieved']
     },
     yAxis: {
       type: 'value'
@@ -83,14 +83,7 @@ export class ProjectDashboardDetailsComponent implements OnInit {
       data: [
         'Project Value',
         'Payment Released',
-        'Invoice Raised',
-        // 'Email',
-        // 'Union Ads',
-        // 'Video Ads',
-        // 'Baidu',
-        // 'Google',
-        // 'Bing',
-        // 'Others'
+        'Invoice Raised'
       ]
     },
     series: [
@@ -301,19 +294,25 @@ export class ProjectDashboardDetailsComponent implements OnInit {
         }
     },
       {
-        name: 'Till Date Milestone',
+        name: 'Target Milestone',
         textStyle:{
           color: '#000'
         }
     },
     {
-        name: 'Achived',
+        name: 'Achieved',
         textStyle:{
           color: '#000'
         }
     },
     {
-        name: 'Failed',
+      name: 'In-Progress',
+      textStyle:{
+        color: '#000'
+      }
+    },
+    {
+        name: 'Yet to Start',
         textStyle:{
           color: '#000'
         }
@@ -361,34 +360,43 @@ export class ProjectDashboardDetailsComponent implements OnInit {
         emphasis: {
           focus: 'series'
         },
-        data: [16]
+        data: [9]
       },
       {
-        name: 'Till Date Milestone',
+        name: 'Target Milestone',
         type: 'bar',
         label: this.labelOption,
         emphasis: {
           focus: 'series'
         },
-        data: [4]
+        data: [2]
       },
       {
-        name: 'Achived',
-        type: 'bar',
-        label: this.labelOption,
-        emphasis: {
-          focus: 'series'
-        },
-        data: [3]
-      },
-      {
-        name: 'Failed',
+        name: 'Achieved',
         type: 'bar',
         label: this.labelOption,
         emphasis: {
           focus: 'series'
         },
         data: [1]
+      },
+      {
+        name: 'In-Progress',
+        type: 'bar',
+        label: this.labelOption,
+        emphasis: {
+          focus: 'series'
+        },
+        data: [5]
+      },
+      {
+        name: 'Yet to Start',
+        type: 'bar',
+        label: this.labelOption,
+        emphasis: {
+          focus: 'series'
+        },
+        data: [3]
       }
     ]
   };
@@ -411,7 +419,7 @@ export class ProjectDashboardDetailsComponent implements OnInit {
           show: true,
           width: 18,
           itemStyle: {
-            color: '#0FD354',
+            color: '#bb0808',
           }
         },
         axisLine: {
@@ -426,12 +434,12 @@ export class ProjectDashboardDetailsComponent implements OnInit {
           length: 15,
           lineStyle: {
             width: 2,
-            color: '#0FD354'
+            color: '#bb0808'
           }
         },
         axisLabel: {
           distance: 25,
-          color: '#0FD354',
+          color: '#bb0808',
           fontSize: 10
         },
         anchor: {
@@ -440,7 +448,7 @@ export class ProjectDashboardDetailsComponent implements OnInit {
           size: 25,
           itemStyle: {
             borderWidth: 0,
-            color: '#0FD354'
+            color: '#bb0808'
           }
         },
         title: {
@@ -450,14 +458,15 @@ export class ProjectDashboardDetailsComponent implements OnInit {
         detail: {
           valueAnimation: true,
           fontSize: 20,
-          color: '#0FD354',
+          color: '#bb0808',
+          formatter: '17%',
           offsetCenter: [0, '70%']
         },
         data: [
           {
-            value: 25,
+            value: 17,
             itemStyle: {
-              color: "#0FD354"
+              color: "#bb0808"
             }
           }
         ]
@@ -497,12 +506,12 @@ export class ProjectDashboardDetailsComponent implements OnInit {
           length: 15,
           lineStyle: {
             width: 2,
-            color: '#e87210'
+            color: '#0FD354'
           }
         },
         axisLabel: {
           distance: 25,
-          color: '#e87210',
+          color: '#0FD354',
           fontSize: 10
         },
         anchor: {
@@ -511,7 +520,7 @@ export class ProjectDashboardDetailsComponent implements OnInit {
           size: 25,
           itemStyle: {
             borderWidth: 0,
-            color: "#e87210"
+            color: "#0FD354"
           }
         },
         title: {
@@ -520,14 +529,15 @@ export class ProjectDashboardDetailsComponent implements OnInit {
         detail: {
           valueAnimation: true,
           fontSize: 20,
-          color: "#e87210",
+          color: "#0FD354",
+          formatter: '46%',
           offsetCenter: [0, '70%']
         },
         data: [
           {
-            value: 52.28,
+            value: 46,
             itemStyle: {
-              color: "#e87210"
+              color: "#0FD354"
             }
           }
         ]
@@ -556,7 +566,7 @@ export class ProjectDashboardDetailsComponent implements OnInit {
           fontSize: '20',
           position: 'center',
           formatter: () => {
-            return '15%'; // Use sum variable here
+            return '20%'; // Use sum variable here
           },
         },
         // emphasis: {
@@ -571,7 +581,7 @@ export class ProjectDashboardDetailsComponent implements OnInit {
         },
         color: ["#1ca515","#ebf1f6"],
         data: [
-         15,85
+         20,80
         ]
       }
     ]
@@ -597,7 +607,7 @@ export class ProjectDashboardDetailsComponent implements OnInit {
           fontSize: '20',
           position: 'center',
           formatter: () => {
-            return '14%'; // Use sum variable here
+            return '26%'; // Use sum variable here
           },
         },
         // emphasis: {
@@ -612,7 +622,7 @@ export class ProjectDashboardDetailsComponent implements OnInit {
         },
         color: ["#c7c20e","#ebf1f6"],
         data: [
-         14,86
+         26,74
         ]
       }
     ]
@@ -634,11 +644,11 @@ export class ProjectDashboardDetailsComponent implements OnInit {
         radius: ['50%', '70%'],
         avoidLabelOverlap: false,
         label: {
-          color: '#c50404',
+          color: '#e87210',
           fontSize: '20',
           position: 'center',
           formatter: () => {
-            return '71%'; // Use sum variable here
+            return '54%'; // Use sum variable here
           },
         },
         // emphasis: {
@@ -651,9 +661,72 @@ export class ProjectDashboardDetailsComponent implements OnInit {
         labelLine: {
           show: false
         },
-        color: ["#c50404","#ebf1f6"],
+        color: ["#e87210","#ebf1f6"],
         data: [
-         71,29
+         54,46
+        ]
+      }
+    ]
+  };
+
+  riskAndIssueOption: EChartsOption = {
+    title: {
+      text: 'Total Identified Risk: 4',
+      bottom: '0',
+      left: 'center',
+      textStyle: {
+        color: '#000',
+        fontSize: '1rem',
+        fontWeight: 600,
+        fontFamily: 'Open Sans, sans-serif'
+      }
+    },
+    
+    legend: {
+      top: '5%',
+      left: 'center'
+    },
+    tooltip: {
+      trigger: 'item',
+      formatter: '{b}: {c}%'
+      // formatter: '{a} <br/>{b}: {c}Cr ({d}%)'
+    },
+    
+    toolbox: {
+      show: true,
+      feature: {
+        mark: { show: true },
+        dataView: { show: false, readOnly: false },
+        restore: { show: false },
+        saveAsImage: { show: false }
+      }
+    },
+    series: [
+      {
+        // name: 'Access From',
+        type: 'pie',
+        radius: ['40%', '60%'],
+        avoidLabelOverlap: false,
+        
+        labelLine: {
+          length: 10
+        },
+        label: {
+          formatter: '{b}: {c}%',
+        },
+        // label: {
+        //   color: '#c50404',
+        //   fontSize: '20',
+        //   position: 'center',
+        //   formatter: () => {
+        //     return '71%'; // Use sum variable here
+        //   },
+        // },
+        color: ["#c50404","#d24141", "#d88989"],
+        data: [
+          { value: 25, name: 'High' },
+          { value: 50, name: 'Medium' },
+          { value: 25, name: 'Low' },
         ]
       }
     ]
@@ -667,40 +740,42 @@ export class ProjectDashboardDetailsComponent implements OnInit {
   completeMilestoneModal=false;
   inProgressMilestoneModal=false;
   pendingMilestoneModal=false;
+  progressVsTimeModal=false
 
   modalTitle='';
 
-  private gridApi!: GridApi;
-
-  public columnDefs: ColDef[] = [
-    // we're using the auto group column by default!
-    { field: 'jobTitle' },
-    { field: 'employmentType' },
-  ];
-  public defaultColDef: ColDef = {
-    flex: 1,
-  };
-  public autoGroupColumnDef: ColDef = {
-    headerName: 'Organisation Hierarchy',
-    minWidth: 300,
-    cellRendererParams: {
-      suppressCount: true,
+  public riskColumnDefs: any = [
+    {
+      headerName: 'Top 5 Risk',
+      children: [
+        {
+          headerName: "S.No",
+          valueGetter: "node.rowIndex + 1"
+        },
+        { field: 'descriptionOfRisk',
+          
+        },
+      ],
     },
+    {
+      headerName: 'High',
+      children: [
+        
+        { field: 'riskLevel',
+          
+        },
+      ],
+    }
+  ];
+  public riskColDef: ColDef = {
+    flex: 1,
+    // minWidth: 150,
+    filter: true,
   };
-  public rowData: any[] | null = config.milestoneList
-  public groupDefaultExpanded = -1;
-  public getDataPath: GetDataPath = (data: any) => {
-    return data.orgHierarchy;
-  };
+  public riskRowData!: any[];
 
-  onFilterTextBoxChanged() {
-    this.gridApi.setQuickFilter(
-      (document.getElementById('filter-text-box') as any).value
-    );
-  }
-
-  onGridReady(params: GridReadyEvent) {
-    this.gridApi = params.api;
+  onRiskGridReady(params:any) {
+    this.riskRowData = config.riskDataList;
   }
 
   constructor() { }
@@ -725,7 +800,7 @@ export class ProjectDashboardDetailsComponent implements OnInit {
       this.modalTitle = 'Total Milestone';
       this.showModal=true;
       this.totalMilestoneModal=true;
-
+      this.progressVsTimeModal=false;
       this.completeMilestoneModal=false;
       this.inProgressMilestoneModal=false;
       this.pendingMilestoneModal=false;
@@ -733,7 +808,7 @@ export class ProjectDashboardDetailsComponent implements OnInit {
       this.modalTitle = 'Completed Milestone';
       this.showModal=true;
       this.completeMilestoneModal=true;
-
+      this.progressVsTimeModal=false;
       this.totalMilestoneModal=false;
       this.inProgressMilestoneModal=false;
       this.pendingMilestoneModal=false;
@@ -741,7 +816,7 @@ export class ProjectDashboardDetailsComponent implements OnInit {
       this.modalTitle = 'Im Progress Milestone';
       this.showModal=true;
       this.inProgressMilestoneModal=true;
-
+      this.progressVsTimeModal=false;
       this.completeMilestoneModal=false;
       this.totalMilestoneModal=false;
       this.pendingMilestoneModal=false;
@@ -749,7 +824,16 @@ export class ProjectDashboardDetailsComponent implements OnInit {
       this.modalTitle = 'Pending Milestone';
       this.showModal=true;
       this.pendingMilestoneModal=true;
+      this.progressVsTimeModal=false;
 
+      this.inProgressMilestoneModal=false;
+      this.completeMilestoneModal=false;
+      this.totalMilestoneModal=false;
+    } else if(val=='progressVsTimeModal') {
+      this.modalTitle = 'Progress as on Date';
+      this.showModal=true;
+      this.progressVsTimeModal=true
+      this.pendingMilestoneModal=false;
       this.inProgressMilestoneModal=false;
       this.completeMilestoneModal=false;
       this.totalMilestoneModal=false;

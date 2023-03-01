@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ColDef, GridReadyEvent } from 'ag-grid-community';
+import { ToastrService } from 'ngx-toastr';
+import { CommonServiceService } from 'src/app/_services/common-service.service';
+import config from '../../../../../assets/config';
 
 @Component({
   selector: 'app-contractor-dashboard',
@@ -7,25 +12,20 @@ import { ColDef, GridReadyEvent } from 'ag-grid-community';
   styleUrls: ['./contractor-dashboard.component.css']
 })
 export class ContractorDashboardComponent implements OnInit {
-  projectList = ['Project 1', 'Project 2', 'Project 3'];
-  finYear = ['2018-19','2019-20','2020-21', '2021-22', '2022-23'];
-  divisionList = ['Abhayapuri Mechanical Division','Abhayapuri Mechanical Division','Baithalangso Road Division','Barpeta, Baghbar & Chenga Territorial Road Division','Charaideo District Territorial Road Division','Dholai & Sonai Territorial Road Division','South Kamrup Territorial Road Division'];
-  schemeList = ['SOPD-FDR','SOPD-G','SOPD-GSP', 'SOPD-ODS', 'SOPD-SCSP', 'SOPD-SS','SOPD-TSP','Sansad Adarsh Gram Yojana'];
-
-  showProjectList = false;
-  showProjectDetails = false;
-  showProjectSearch = true;
-
   public columnDefs: ColDef[] = [
-    { field: 'projectNo',
-      cellStyle: {color: 'red', cursor: 'pointer'}
+    { field: 'projectName',
+      cellStyle: {color: '#046A38', cursor: 'pointer'},
+      cellRenderer : ((params:any)=>{
+        return '<span title="' + params.value + '">'+params.value+'</span>';
+      })
     },
     {
-      field: 'projectName'
+      field: 'projectType'
     },
-    { field: 'divisionName'},
-    { field: 'schemeName' },
-    { field: 'finYear' }
+    { field: 'projectStartDate'},
+    { field: 'projectEndDate' },
+    { field: 'circle' },
+    { field: 'division' }
   ];
   public defaultColDef: ColDef = {
     flex: 1,
@@ -33,9 +33,26 @@ export class ContractorDashboardComponent implements OnInit {
     filter: true,
   };
   public rowData!: any[];
-  constructor() { }
+  projectFormGroup: any= UntypedFormGroup;
+  projectTypeList: any=[{code: 'SVMW', name: 'SVMW'},{code: 'Mega', name: 'Mega'}];
+  projectList: any=[{code: '001', name: 'Project 1'},{code: '002', name: 'Project 2'}];
+  executingAgencyList: any=[{code: '001', name: 'Executing Ahency 1'},{code: '002', name: 'Executing Ahency 2'}];
+  projectData:any;
+  showProjectList = false;
+  showProjectDetails = false;
+  showProjectSearch = true;
+  constructor(public toastService: ToastrService, public cmnService:CommonServiceService, private _formBuilder: UntypedFormBuilder,private router: Router) { }
+
 
   ngOnInit(): void {
+    this.projectFormGroup = this._formBuilder.group({
+      projectName: [''],
+      projectType: [''],
+      projectStartDate: [''],
+      projectEndDate: [''],
+    });
+
+    
   }
 
   onSelectProject() {
@@ -43,14 +60,7 @@ export class ContractorDashboardComponent implements OnInit {
   }
 
   onGridReady(params:any) {
-      this.rowData = [
-        {
-          "projectNo": "PRJ/40/2022-23/3440",
-          "projectName": 'Improvement of GS road under SOPD-G scheme, FY 2022-23',
-          "divisionName": "Guwahati Road Division",
-          "schemeName": 'SOPD-G',
-          "finYear": "2022-23"
-        }]
+    this.rowData = config.projectList;
   }
   onCellClicked(event:any) {
     window.scroll({ 
@@ -58,6 +68,7 @@ export class ContractorDashboardComponent implements OnInit {
       left: 0, 
       behavior: 'smooth' 
     });
+    this.projectData = event.data
     this.showProjectDetails = true;
     this.showProjectList = false;
     this.showProjectSearch = false;

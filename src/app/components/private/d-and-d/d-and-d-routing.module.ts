@@ -10,6 +10,10 @@ const routes: Routes = [
     component: CreateDAndDComponent
   },
   {
+    path: 'verify',
+    component: CreateDAndDComponent
+  },
+  {
     path: 'submit',
     component: DAndDSubmitComponent
   },

@@ -94,13 +94,13 @@
     background-size: 20% auto;
     float: left;
     min-height: 50px;
-    line-height: 45%;
-    padding: 4px 17px 10px 55px;
-    width: 32%;
+    line-height: 40%;
+    padding: 2px 4px 0px 54px;
+    width: 53%;
     margin-bottom: 0px;
 }
 .logo2 .main_gov {
-    margin-top: 5px;
+    margin-top: 10px;
     /* font-size: 10px; */
     display: table;
     
@@ -128,7 +128,7 @@
 }
 
 .logo2 a {
-  font-size: 15px;
+  font-size: 13px;
 }
 
 /*--------------------------------------------------------------

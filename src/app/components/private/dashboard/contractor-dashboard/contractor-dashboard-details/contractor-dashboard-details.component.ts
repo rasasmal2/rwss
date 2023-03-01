@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 import { EChartsOption } from 'echarts';
 type BarLabelOption = NonNullable<echarts.BarSeriesOption['label']>;
 
@@ -8,7 +8,7 @@ type BarLabelOption = NonNullable<echarts.BarSeriesOption['label']>;
   styleUrls: ['./contractor-dashboard-details.component.css']
 })
 export class ContractorDashboardDetailsComponent implements OnInit {
-
+  @Input() projectData:any
   labelOption = {
     show: true,
     // position: 'right' as BarLabelOption['position'],
@@ -371,9 +371,19 @@ export class ContractorDashboardDetailsComponent implements OnInit {
     ]
   };
 
+  selectedAuthority:any
+
   constructor() { }
 
   ngOnInit(): void {
+    let projectData:any = localStorage.getItem('projectData');
+    if(projectData) {
+      projectData = JSON.parse(projectData)
+    }
+    if(projectData?.authorityDetails?.rowAuthorityName?.length>0) {
+      let tt:any = projectData?.authorityDetails?.rowAuthorityName;
+      this.selectedAuthority = tt;
+    }
   }
 
 }

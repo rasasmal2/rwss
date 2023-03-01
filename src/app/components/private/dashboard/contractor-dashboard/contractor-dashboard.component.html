@@ -6,39 +6,14 @@
     <div class="container">
         <div class="label-header"><h5>Search Project</h5></div>
         <div class="marginTopForFormCustomClass1">
-            <form id="frmIndexPage" novalidate="novalidate">
-                <div class="row">
-                    <div class="col-sm-4">
-                        <label for="division">Division</label>
-                        <select  class="form-select" name="division" id="division" >
-                            <option value="">Select</option>
-                            <option *ngFor="let option of divisionList" [value]="option">{{option}}</option>
-                        </select>
-                    </div>
-                    <div class="col-sm-4">
-                        <label for="year">Scheme Name</label>
-                        <select class="form-select" name="scheme" id="scheme">
-                            <option value="">Select</option>
-                            <option *ngFor="let option of schemeList" [value]="option">{{option}}</option>
-                        </select>
-                    </div>
-                    <div class="col-sm-4">
-                        <label for="finYear">Fin Year</label>
-                        <select class="form-select" name="finYear" id="finYear">
-                            <option *ngFor="let option of finYear" [value]="option" selected="2022-23">{{option}}</option>
-                        </select>
-                    </div>
-                    <div class="col-sm-4 add-padding">
-                        <label for="year">Project Number</label>
-                        <input type="text" class="form-control">
-                    </div>
-                    <div class="col-sm-4 add-padding">
-                        <label for="year">Project Name</label>
-                        <input type="text" class="form-control">
-                    </div>
-                    <div class="col-sm-4 add-padding" style="text-align: center; margin-top: 30px;">
-                        <button class="btn btn-primary" (click)="onSearchProject($event)">Search</button>
-                    </div>
+            <form id="frmIndexPage" [formGroup]="projectFormGroup">
+                <app-select-search class="property-form" [label]="'Project Type'" [placeholder]="'Select Project Type'" [optionList]="projectTypeList" formControlName="projectType"></app-select-search>
+                <app-text-field [isReadOnly]="'false'" [maxlength]="100" class="property-form" [label]="'Project Name'" [placeholder]="'Enter Project Name'" formControlName="projectName" [style]="''"></app-text-field>
+                <app-date-picker class="property-form" [label]="'Project Start Date'" [placeholder]="'Enter Project Start Date'" formControlName="projectStartDate"></app-date-picker>
+                <app-date-picker class="property-form" [label]="'Project End Date'" [placeholder]="'Enter Project End Date'" formControlName="projectEndDate"></app-date-picker>
+
+                <div style="height: 40px;">
+                    <app-button [text]="'Search'" [btnId]="'default'" (click)="onSearchProject($event)" [type]="'submit'" [style]="'float:right;margin-right:10px;'"></app-button>
                 </div>
             </form>
         </div>
@@ -78,7 +53,7 @@
         
     </div>
     
-    <app-contractor-dashboard-details></app-contractor-dashboard-details>
+    <app-contractor-dashboard-details [projectData]="projectData"></app-contractor-dashboard-details>
     
 
 </section>

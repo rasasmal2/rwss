@@ -85,7 +85,7 @@
 .div-2 {
     width: 50px;
     height: 50px;
-    background: red;
+    background: #bb0808;
     border-radius: 56%;
     position: absolute;
     top: 20px;
@@ -93,11 +93,10 @@
     box-shadow: 0px 0px 3px 3px;
 }
 .total-m-cls {
-    position: absolute;
-    left: 40%;
-    font-size: 50px;
+    /* position: absolute;
+    left: 40%; */
+    font-size: 15px;
     font-weight: 600;
-    top: 25%;
     color: #01458e;
 }
 
@@ -106,3 +105,28 @@
     bottom: 15px;
     left: 40px;
 }
+
+.cl-12 {
+    display: inline-flex;
+ }
+
+ .cl-12 p {
+    font-size: 14px;
+ }
+
+ .cl-12 p .p-cl-1{
+    color:#bb0808;
+    font-style: italic;
+ }
+
+ .p-cl-2{
+    color:#bb0808; 
+    font-size: 20px;
+    font-weight: 600;
+
+ }
+ .p-cl-21 {
+    color:#01458e; 
+    font-size: 20px;
+    font-weight: 600;
+ }

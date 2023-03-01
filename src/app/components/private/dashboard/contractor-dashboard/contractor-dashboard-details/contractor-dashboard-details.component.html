@@ -9,17 +9,17 @@
                     <div class="card-body">
                         <h6 class="card-title card-title-cls">Project Name</h6>
                         <div>
-                            Improvement of GS road under SOPD-G scheme, FY 2022-23.
+                            {{projectData?.projectName}}
                         </div>
                         <hr>
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        Project No.
+                                        Project Type
                                     </div>
                                     <div class="col-sm-6 bold">
-                                        PRJ/40/2022-23/3440
+                                        {{projectData?.projectType}}
                                     </div>
                                 </div>
     
@@ -27,50 +27,80 @@
                             <div class="col-sm-6">
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        Contractor Name
+                                        Project Start Date
                                     </div>
                                     <div class="col-sm-6 bold">
-                                        XYZ Contractor
+                                        {{projectData?.projectStartDate}}
                                     </div>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="row add-padding">
                                     <div class="col-sm-6">
-                                        Administrative Approval No.
+                                        Project End Date
                                     </div>
                                     <div class="col-sm-6 bold">
-                                        AA/2022/SOPDG/12453
+                                        {{projectData?.projectEndDate}}
                                     </div>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="row add-padding">
                                     <div class="col-sm-6">
-                                        Project start date
+                                        Project Value
                                     </div>
                                     <div class="col-sm-6 bold">
-                                        12/7/2022
+                                        {{projectData?.projectValue}}
                                     </div>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="row add-padding">
                                     <div class="col-sm-6">
-                                        Project end date
+                                        Circle
                                     </div>
                                     <div class="col-sm-6 bold">
-                                        12/12/2022
+                                        {{projectData?.circle}}
                                     </div>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="row add-padding">
                                     <div class="col-sm-6">
-                                        Project Actual end date
+                                        Division
                                     </div>
                                     <div class="col-sm-6 bold">
-            
+                                        {{projectData?.division}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="row add-padding">
+                                    <div class="col-sm-6">
+                                        Executing Agency
+                                    </div>
+                                    <div class="col-sm-6 bold">
+                                        {{projectData?.executingAgency}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="row add-padding">
+                                    <div class="col-sm-6">
+                                        Registered Address
+                                    </div>
+                                    <div class="col-sm-6 bold">
+                                        {{projectData?.registeredAddress}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="row add-padding">
+                                    <div class="col-sm-6">
+                                        Contact person
+                                    </div>
+                                    <div class="col-sm-6 bold">
+                                        {{projectData?.contactPerson}}
                                     </div>
                                 </div>
                             </div>

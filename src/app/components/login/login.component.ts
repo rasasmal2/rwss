@@ -61,6 +61,12 @@ export class LoginComponent implements OnInit {
       localStorage.setItem('loginUser', 'Authority Engineer');
       localStorage.setItem("name", 'Samir Dashgupta');
       this.router.navigate(['/welcome'])
+    } else if(obj.username=='CDD-1' && obj.password=='123456') {
+      // this.userService.onLogin(obj);
+      localStorage.setItem("isLoggedIn", 'true');
+      localStorage.setItem('loginUser', 'Chief D&D');
+      localStorage.setItem("name", 'Pabitra Martha');
+      this.router.navigate(['/welcome'])
     }
     else {
       this.toasterService.error("Invalid credential");

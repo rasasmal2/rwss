@@ -180,39 +180,45 @@
         </div>
         <div class="col-sm-2">
             <div class="card budget-cls" (click)="openModal('totalMilestone')">
-                <div class="card-body">
-                    <div class="total-m-cls">9</div>
-                    <div class="bottom-txt" >Total Milestone</div>
+                <div class="card-body" style="padding-top: 60px;">
+                    <div class="row">
+                        <p class="col-sm-9">Total Milestone</p>
+                        <span class="col-sm-3 p-cl-21">9</span>
+                    </div>
+                    <div class="row">
+                        <p class="col-sm-9">Total Tasks</p>
+                        <span class="col-sm-3 p-cl-21">21</span>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="col-sm-2">
-            <div class="card budget-cls" (click)="openModal('completeMilestone')">
+            <div class="card budget-cls">
                 <div class="card-body">
                     <div echarts [options]="completeMilestone" style="height: 150px;" class="demo-chart"></div>
-                    <div>
-                        Completed Milestone
+                    <div class="bottom-txt">
+                        Completed Task
                     </div>
                 </div>
             </div>
         </div>
         <div class="col-sm-2">
-            <div class="card budget-cls" (click)="openModal('inProgressMilestone')">
+            <div class="card budget-cls">
                 <div class="card-body">
                     <div echarts [options]="inProgressMilestone" style="height: 150px;" class="demo-chart"></div>
-                    <div>
-                        In Progress Milestone
+                    <div class="bottom-txt">
+                        In Progress Task
                     </div>
                 </div>
             </div>
         </div>
         <div class="col-sm-2">
-            <div class="card budget-cls" (click)="openModal('pendingMilestone')">
+            <div class="card budget-cls">
                 <div class="card-body">
                     
                     <div echarts [options]="pendingMilestone" style="height: 150px;" class="demo-chart"></div>
-                    <div>
-                        Pending Milestone
+                    <div class="bottom-txt">
+                        Pending Task
                     </div>
                 </div>
             </div>
@@ -238,8 +244,8 @@
         </div> -->
         <div class="col-sm-6">
             <div class="card">
-                <div class="card-body">
-                    <h6 class="card-title card-title-cls">Progress vs Time utilization</h6>
+                <div class="card-body" (click)="openModal('progressVsTimeModal')">
+                    <h6 class="card-title card-title-cls">Progress vs Time utilization as on Date</h6>
                     <div class="row">
                         <div class="col-sm-6">
                             <div echarts [options]="gaugeOption1" style="height: 280px;" class="demo-chart"></div>
@@ -259,13 +265,135 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div echarts [options]="chartOption2" style="height: 230px;" class="demo-chart"></div>
+                            
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    
+    <div class="row add-padding">
+        
+        <div class="col-sm-4">
+            <div class="card budget-cls">
+                <div class="card-body">
+                    <h6 class="card-title card-title-cls">Risk and issues</h6>
+                    <div echarts [options]="riskAndIssueOption" style="height: 250px;" class="demo-chart"></div>
+                    <!-- <div>Total Risk: <span class="p-cl-2">4</span></div> -->
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card budget-cls">
+                <div class="card-body" style="padding-top: 60px;">
+                    <div class="cl-12">
+                        <p><span class="p-cl-1">Task not started</span> even after planned start date</p>
+                        <span class="p-cl-2">10%</span>
+                    </div>
+                    <div class="cl-12">
+                        <p ><span class="p-cl-1">Task in progress </span> even after planned end date</p>
+                        <span class="p-cl-2">15%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-5">
+            <div class="budget-cls">
+                <ag-grid-angular
+                        style="width: 100%; height: 55vh;"
+                        class="ag-theme-alpine"
+                        [columnDefs]="riskColumnDefs"
+                        [defaultColDef]="riskColDef"
+                        [rowData]="riskRowData"
+                        [paginationAutoPageSize]="true"
+                        [pagination]="true"
+                        (gridReady)="onRiskGridReady($event)"
+                        
+                        [suppressRowClickSelection]="false"
+                    ></ag-grid-angular>
+                <!-- <div class="card-body">
+                    <span></span>
+                    <ag-grid-angular
+                        style="width: 100%; height: 50vh;"
+                        class="ag-theme-alpine"
+                        [columnDefs]="riskColumnDefs"
+                        [defaultColDef]="riskColDef"
+                        [rowData]="riskRowData"
+                        [paginationAutoPageSize]="true"
+                        [pagination]="true"
+                        (gridReady)="onRiskGridReady($event)"
+                        
+                        [suppressRowClickSelection]="false"
+                    ></ag-grid-angular>
+                </div> -->
+            </div>
+        </div>
+    </div>
+    <div class="row add-padding">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-body">
+                    <h6 class="card-title card-title-cls">Project Document Library</h6>
+                    <div class="row add-padding" style="padding: 10px;">
+                        <table>
+                            <tr>
+                                <td>LOA</td>
+                                <td>LOA.pdf</td>
+                                <td><i class="icofont-download" title="Download"></i></td>
+                            </tr>
+                            <tr>
+                                <td>Contract</td>
+                                <td>Contract_v.1.pdf</td>
+                                <td><i class="icofont-download" title="Download"></i></td>
+                            </tr>
+                            <tr>
+                                <td>Contract</td>
+                                <td>Contract_v.2.pdf</td>
+                                <td><i class="icofont-download" title="Download"></i></td>
+                            </tr>
+                            <tr>
+                                <td>Environmental clearance</td>
+                                <td>Environmental clearance.pdf</td>
+                                <td><i class="icofont-download" title="Download"></i></td>
+                            </tr>
+                            <tr>
+                                <td>Photograph</td>
+                                <td>Photograph.pdf</td>
+                                <td><i class="icofont-download" title="Download"></i></td>
+                            </tr>
+                            <tr>
+                                <td>GAD</td>
+                                <td>GAD.dxf</td>
+                                <td><i class="icofont-download" title="Download"></i></td>
+                            </tr>
+                            <tr>
+                                <td>HFD</td>
+                                <td>HFD.dxf</td>
+                                <td><i class="icofont-download" title="Download"></i></td>
+                            </tr>
+                            <tr>
+                                <td>Structural Design</td>
+                                <td>SD.dxf</td>
+                                <td><i class="icofont-download" title="Download"></i></td>
+                            </tr>
+                            <tr>
+                                <td>Bill</td>
+                                <td>RA-Bill1.pdf</td>
+                                <td><i class="icofont-download" title="Download"></i></td>
+                            </tr>
+                            <tr>
+                                <td>Bill</td>
+                                <td>RA-Bill2.pdf</td>
+                                <td><i class="icofont-download" title="Download"></i></td>
+                            </tr>
+                        </table>
+                        
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
 </div>
 
 
@@ -283,34 +411,12 @@
         <div class="modal-body">
             <!-- totalMilestoneModal body -->
             <div *ngIf="totalMilestoneModal">
-                <ag-grid-angular
-                style="width: 100%; height: 100%;"
-                class="ag-theme-alpine"
-                [columnDefs]="columnDefs"
-                [defaultColDef]="defaultColDef"
-                [autoGroupColumnDef]="autoGroupColumnDef"
-                [rowData]="rowData"
-                [treeData]="true"
-                [animateRows]="true"
-                [groupDefaultExpanded]="groupDefaultExpanded"
-                [getDataPath]="getDataPath"
-                (gridReady)="onGridReady($event)"
-                ></ag-grid-angular>
-            </div>
-            <!-- completeMilestoneModal body -->
-            <div *ngIf="completeMilestoneModal" class="row">
-                <div class="col-sm-12">
-                    <div class="card budget-cls">
-                        <div class="card-body">
-                            <!-- <h6 class="card-title card-title-cls">Milestone Details</h6> -->
-                            <div echarts [options]="chartOption3_N" style="height: 280px;" class="demo-chart"></div>
-                        </div>
-                    </div>
-                </div>
+                <app-project-dashboart-table></app-project-dashboart-table>
+                
             </div>
 
-             <!-- inProgressMilestoneModal body -->
-             <div *ngIf="inProgressMilestoneModal" class="row">
+             <!-- progressVsTimeModal body -->
+             <div *ngIf="progressVsTimeModal" class="row">
                 <div class="col-sm-12">
                     <div class="card budget-cls">
                         <div class="card-body">
@@ -322,8 +428,7 @@
 
              </div>
 
-             <!-- pendingMilestoneModal body -->
-             <div *ngIf="pendingMilestoneModal" class="row">
+             <div *ngIf="inProgressMilestoneModal" class="row">
                 <div class="col-sm-12">
                     <div class="card budget-cls">
                         <div class="card-body">

@@ -2,7 +2,46 @@
     <ul class="">
         <li *ngIf="isLoggedIn=='true'" class="active"><a [routerLink]="['/welcome']" class="nav-link px-2">Home</a>
         </li>
-
+        <li *ngIf="isLoggedIn=='true'" class="drop-down">
+          <a href="javascript:void(0);" class="dropdown-toggle">Project Estimate</a>
+          <ul>
+            <div class="row">
+              <div class="col-sm-6">
+               
+                <li><a class="dropdown-item" routerLink="/dpr/create-dpr">Create New Estimate</a></li>
+                <li><a class="dropdown-item">Search Estimate</a></li>
+                <li><a class="dropdown-item">Create Non-Scheduled Items</a></li>
+                <li><a class="dropdown-item">View Schedule of Rates</a></li>
+                <li><a class="dropdown-item">Report - Estimate Status Tracking</a></li>
+                <li><a class="dropdown-item">Revise/Revalidate AA</a></li>
+              </div>
+              
+            </div>
+          </ul>
+        </li>
+        <li *ngIf="isLoggedIn=='true'" class="drop-down">
+          <a class="dropdown-toggle" href="javascript:void(0)" role="button" id="dropdownMenuLink"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            Procurement
+          </a>
+          <ul style="width: 385%;">
+            <div class="row">
+              <div class="col-sm-6">
+                <li><a class="dropdown-item">Create New Blank Procurement</a></li>
+                <li><a class="dropdown-item">Create New NIT</a></li>
+                <li><a class="dropdown-item">Two - Envelope Bid Evaluation</a></li>
+                <li><a class="dropdown-item">Single - Envelope Bid Evaluation</a></li>
+                <li><a class="dropdown-item">Search NIT</a></li>
+              </div>
+              <div class="col-sm-6">
+                <li><a class="dropdown-item">Create BID Security</a></li>
+                <li><a class="dropdown-item">Create Perfomance Guarantee</a></li>
+                <li><a class="dropdown-item">Generate LOA</a></li>
+                <li><a class="dropdown-item">Generate WO/NTP</a></li>
+              </div>
+            </div>
+          </ul>
+        </li>
         <li *ngIf="isLoggedIn=='true'" class="drop-down">
           <a href="javascript:void(0);" class="dropdown-toggle">Project Management</a>
           <ul style="width: 120%;">
@@ -13,36 +52,77 @@
                 <li *ngIf="isLoggedIn=='true' && loginUser=='Assistant Executive Engineer'"><a class="dropdown-item" routerLink="/row/create">Create RoW</a></li>
                 <li *ngIf="isLoggedIn=='true' && (loginUser=='Executive Engineer')"><a class="dropdown-item" routerLink="/construction/project-approval">Project Approval</a></li>
                 <li *ngIf="isLoggedIn=='true' && (loginUser=='Chief Engineer')"><a class="dropdown-item" routerLink="/d-and-d/dd-approval">D&D Approval</a></li>
+                <li *ngIf="isLoggedIn=='true' && loginUser=='Chief D&D'"><a class="dropdown-item" routerLink="/d-and-d/verify">Verify D&D</a></li>
                 <li *ngIf="isLoggedIn=='true'"><a class="dropdown-item" routerLink="/manage-projects">Project Monitoring</a></li>
+                <li><a class="dropdown-item">Modify Project</a></li>
+                <li><a class="dropdown-item">View Project</a></li>
+                <li><a class="dropdown-item">Enter Quality Details</a></li>
+                <li><a class="dropdown-item">Project Quality Monitoring</a></li>
               </div>
             </div>
           </ul>
         </li>
-        <li *ngIf="isLoggedIn=='true'"
-          class="drop-down">
-          <a routerLink="/operation-maintenance" href="javascript:void(0)" role="button" id="dropdownMenuLink"
-            data-bs-toggle="dropdown" aria-expanded="false">
-            Procurement
-          </a>
-        </li>
-        <li *ngIf="isLoggedIn=='true' && (loginUser=='Executive Engineer' || loginUser=='Assistant Executive Engineer' || loginUser=='Chief Engineer')" class="drop-down">
+        
+        <li *ngIf="isLoggedIn=='true'" class="drop-down">
           <a href="javascript:void(0);" class="dropdown-toggle">Reports & Dashboard</a>
           <ul style="width: 120%;">
             <div class="row">
               <div class="col-sm-12">
                 <li><a class="dropdown-item" routerLink="/project-dashboard">Project wise dashboard</a></li>
                 <li><a class="dropdown-item" routerLink="/overview-dashboard">Overall dashboard</a></li>
+                <li><a class="dropdown-item" routerLink="/contractor-dashboard">Contractor dashboard</a></li>
               </div>
             </div>
           </ul>
         </li>
-        <li *ngIf="isLoggedIn=='true' && (loginUser=='Executive Engineer' || loginUser=='Assistant Executive Engineer' || loginUser=='Chief Engineer')"
-          class="drop-down">
-          <a href="javascript:void(0)" role="button" id="dropdownMenuLink"
-            data-bs-toggle="dropdown" aria-expanded="false">
-            Grievance Management
+
+        <li *ngIf="isLoggedIn=='true'" class="drop-down">
+          <a class="dropdown-toggle" href="javascript:void(0)" role="button" id="dropdownMenuLink"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              More...
           </a>
-        </li>
+          <ul>
+              <div class="row">
+                  <div class="col-sm-12">
+                    <li><a class="dropdown-item">Grievance Management</a></li>
+                      <!-- <li class="drop-down">
+                          <a class="" href="javascript:void(0)" role="button" id="dropdownMenuLink"
+                              data-bs-toggle="dropdown" aria-expanded="false">Manage Master</a>
+                          <ul style="width: 300%;left: -300%; top: -325%">
+                              <div class="row">
+                                  <div class="col-sm-6">
+                                      <li><a class="dropdown-item" href="javascript:void(0)" routerLink="/scorecard-subject">Scorecard Subject</a>
+                                      </li>
+                                      <li><a class="dropdown-item" href="javascript:void(0)">Tag Reportcard
+                                              Subject-Class</a></li>
+                                      <li><a class="dropdown-item">Subject</a></li>
+                                      <li><a class="dropdown-item" href="javascript:void(0)">Subject Tagging</a></li>
+                                      <li><a class="dropdown-item" href="javascript:void(0)">Schedule SMS Text
+                                              Config</a></li>
+                                      <li><a class="dropdown-item" href="javascript:void(0)">School Timing</a></li>
+                                      <li><a class="dropdown-item">Appoint Subject</a></li>
+                                  </div>
+                                  <div class="col-sm-6">
+                                      <li><a class="dropdown-item">GeoFencing Config</a></li>
+
+                                      <li><a class="dropdown-item">Schedule SMS Enable/Disable</a></li>
+                                      <li><a class="dropdown-item">Device Information</a></li>
+                                      <li><a class="dropdown-item">Notification Category</a></li>
+                                      <li><a class="dropdown-item">Notification Component</a></li>
+                                      <li><a class="dropdown-item">Feedback Category</a></li>
+                                  </div>
+                              </div>
+                          </ul>
+
+                          <ul>
+
+                          </ul>
+                      </li> -->
+                  </div>
+
+              </div>
+          </ul>
+      </li>
         
 
         <!-- <li *ngIf="isLoggedIn=='true' && (loginUser=='Executive Engineer' || loginUser=='Chief Engineer')"

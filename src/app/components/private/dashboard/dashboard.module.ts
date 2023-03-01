@@ -10,6 +10,7 @@ import { ContractorDashboardDetailsComponent } from './contractor-dashboard/cont
 import { ProjectDashboardDetailsComponent } from './project-dashboard/project-dashboard-details/project-dashboard-details.component';
 
 import { SharedModule } from '../../../modules/shared/shared.module';
+import { ProjectDashboartTableComponent } from './project-dashboard/project-dashboart-table/project-dashboart-table.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { SharedModule } from '../../../modules/shared/shared.module';
     DivisionDashboardComponent,
     PwrdDashboardComponent,
     ContractorDashboardDetailsComponent,
-    ProjectDashboardDetailsComponent
+    ProjectDashboardDetailsComponent,
+    ProjectDashboartTableComponent
   ],
   imports: [
     CommonModule,

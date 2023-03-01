@@ -95,65 +95,206 @@ const config = {
           startDate:'04/01/2022', 
           endDate: '09/30/2022', 
           payment:'2%',
-          progress: ''
+          progress: '',
+          children: [
+            {
+              milestone: 'Subcomponent A',
+              amount: '756'
+            },
+            {
+              milestone: 'Subcomponent B',
+              amount: '756'
+            }
+          ]
         },
         {
           milestone: 'Construction of Intake Well',
           startDate:'10/01/2022', 
           endDate: '04/30/2023', 
           payment:'3%',
-          progress: ''
+          progress: '',
+          children: [
+            {
+              milestone: 'Subcomponent A',
+              amount: '756'
+            },
+            {
+              milestone: 'Subcomponent B',
+              amount: '756'
+            }
+          ]
         },
         {
           milestone: 'Supply of pipes, laying ,fitting & fixing from Raw water rising main to WTP',
           startDate:'10/01/2022', 
           endDate: '05/31/2023', 
           payment:'5%',
-          progress: ''
+          progress: '',
+          children: [
+            {
+              milestone: 'Subcomponent A',
+              amount: '756'
+            },
+            {
+              milestone: 'Subcomponent B',
+              amount: '756'
+            }
+          ]
         },
         {
           milestone: 'Completion of WTP work',
           startDate:'10/01/2022', 
           endDate: '08/31/2023', 
           payment:'20%',
-          progress: ''
+          progress: '',
+          children: [
+            {
+              milestone: 'Subcomponent A',
+              amount: '756'
+            },
+            {
+              milestone: 'Subcomponent B',
+              amount: '756'
+            },
+            {
+              milestone: 'Subcomponent C',
+              amount: '756'
+            },
+          ]
         },
         {
           milestone: 'Supply of pipes, laying ,fitting & fixing from Clear water rising main to Elevated storage Reservoirs',
           startDate:'03/01/2023', 
           endDate: '08/31/2023', 
           payment:'20%',
-          progress: ''
+          progress: '',
+          children: [
+            {
+              milestone: 'Subcomponent A',
+              amount: '756'
+            },
+            {
+              milestone: 'Subcomponent B',
+              amount: '756'
+            }
+          ]
         },
         {
           milestone: 'Design, Construction, Testing & Commissioning of ESR',
           startDate:'10/01/2022', 
           endDate: '08/31/2023', 
           payment:'20%',
-          progress: ''
+          progress: '',
+          children: [
+            {
+              milestone: 'Subcomponent A',
+              amount: '756'
+            },
+            {
+              milestone: 'Subcomponent B',
+              amount: '756'
+            },
+            {
+              milestone: 'Subcomponent C',
+              amount: '756'
+            },
+            {
+              milestone: 'Subcomponent D',
+              amount: '756'
+            }
+          ]
         },
         {
           milestone: 'Supply of HDPE Pipes, laying and jointing to complete distribution system',
           startDate:'10/01/2022', 
           endDate: '08/31/2023',
           payment:'15%',
-          progress: ''
+          progress: '',
+          children: [
+            {
+              milestone: 'Subcomponent A',
+              amount: '756'
+            },
+            {
+              milestone: 'Subcomponent B',
+              amount: '756'
+            }
+          ]
         },
         {
           milestone: 'Supplying, fitting & fixing of flow meter, PLC Scada and all other Instruments',
           startDate:'10/01/2023', 
           endDate: '11/30/2023', 
           payment:'5%',
-          progress: ''
+          progress: '',
+          children: [
+            {
+              milestone: 'Subcomponent A',
+              amount: '756'
+            },
+            {
+              milestone: 'Subcomponent B',
+              amount: '756'
+            }
+          ]
         },
         {
           milestone: 'Completion of inspection, Testing, Trial Run & final Acceptance',
           startDate:'12/01/2023', 
           endDate: '02/28/2024', 
           payment:'10%',
-          progress: ''
+          progress: '',
+          children: [
+            {
+              milestone: 'Subcomponent A',
+              amount: '756'
+            },
+            {
+              milestone: 'Subcomponent B',
+              amount: '756'
+            }
+          ]
         }
       ],
+      riskDataList: [
+        {
+          descriptionOfRisk: 'Risk 4',
+          riskLevel: 'High'
+        },
+        {
+          descriptionOfRisk: 'Risk 3',
+          riskLevel: 'Medium'
+        },
+        {
+          descriptionOfRisk: 'Risk 2',
+          riskLevel: 'Medium'
+        },
+        {
+          descriptionOfRisk: 'Risk 1',
+          riskLevel: 'Low'
+        }
+      ],
+    mList: [
+      {
+        name: 'Fruit'
+      }, {
+        name: 'Vegetables',
+        amount: '756',
+        children: [
+          {
+            name: 'Green',
+            amount: '756',
+            children: [
+              {name: 'Broccoli', count: 10,amount: '756',
+                children: [
+                  {name: 'Sub-Broccoli',count: 10, qnty: 10,unit: 'cum',rate: '156', amount: '756',action:'true'}
+                ]
+              }
+            ]
+          }
+        ]
+      },
+    ],
     graphData: {
         "nodes": [
           {

@@ -1,7 +1,10 @@
 <section>
     <div class="container" style="padding-top: 10px;">
         <div class="row">
-            <div class="col-lg-10 col-md-10 heading-cls"> <span>D&D Creation</span></div>
+            <div class="col-lg-10 col-md-10 heading-cls"> 
+                <span *ngIf="loginUser=='Assistant Executive Engineer'">D&D Creation</span>
+                <span *ngIf="loginUser=='Chief D&D'">Verify D&D</span>
+            </div>
         </div>
     </div>
 </section>

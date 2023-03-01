@@ -32,6 +32,7 @@ export class CreateDAndDComponent implements OnInit {
   selectedProperty:any;
   isConsentChecked=false;
   formDetails:any;
+  loginUser:any;
 
   constructor(public toastService: ToastrService, public cmnService:CommonServiceService, private _formBuilder: UntypedFormBuilder,private router: Router) {}
   onSearchProperty() {
@@ -82,7 +83,7 @@ export class CreateDAndDComponent implements OnInit {
     this.gdaFormGroup = this._formBuilder.group({
       isGDASubmitted: [false, Validators.required],
       isGDAApproved: [false, Validators.required],
-      GDAApprovalDate: ['', Validators.required],
+      GDAApprovalDate: [''],
       GDASubmissionDate: ['', Validators.required],
       GDA_File: ['', Validators.required]
     });
@@ -90,7 +91,7 @@ export class CreateDAndDComponent implements OnInit {
       isHFDSubmitted: [false, Validators.required],
       isHFDApproved: [false, Validators.required],
       HFDSubmissionDate: ['', Validators.required],
-      HFDApprovalDate: ['', Validators.required],
+      HFDApprovalDate: [''],
       HFD_File: ['', Validators.required],
     });
 
@@ -98,14 +99,54 @@ export class CreateDAndDComponent implements OnInit {
       isStructuralDesignSubmitted: [false, Validators.required],
       structuralDesiginSubmissionDate: ['', Validators.required],
       isStructuralDesignApproved: [false, Validators.required],
-      structuralApprovalDate: ['', Validators.required],
+      structuralApprovalDate: [''],
       structuralDocFile: ['', Validators.required]
     });
 
-    
+      let loginUser:any = localStorage.getItem('loginUser');
+      this.loginUser = loginUser;
+      if(loginUser=='Chief D&D') {
+        this.setData();
+      }
 
     // this.roadDataSource = new MatTableDataSource<any>(this.roadDataList);
     // this.misDataSource = new MatTableDataSource<any>(this.misDataList);
+  }
+  setData() {
+    let ddDetails:any = localStorage.getItem('d_d_details');
+    if(ddDetails) {
+      ddDetails = JSON.parse(ddDetails);
+    }
+    this.showPropertyDetails = true;
+    this.selectedProperty = ddDetails?.projectDetails;
+    this.projectFormGroup.patchValue({
+      
+      nodalOfficerName: ddDetails?.nodalOfficerDetails?.nodalOfficerName,
+      nodalOfficerEmail: ddDetails?.nodalOfficerDetails?.nodalOfficerEmail,
+      nodalOfficerMobileNo: ddDetails?.nodalOfficerDetails?.nodalOfficerMobileNo,
+    })
+    this.gdaFormGroup.patchValue({
+      isGDASubmitted: ddDetails?.gadDetails?.isGDASubmitted,
+      isGDAApproved: ddDetails?.gadDetails?.isGDAApproved,
+      GDAApprovalDate: ddDetails?.gadDetails?.GDAApprovalDate,
+      GDASubmissionDate: ddDetails?.gadDetails?.GDASubmissionDate,
+      GDA_File: ddDetails?.gadDetails?.GDA_File
+    });
+    this.hfdFormGroup.patchValue({
+      isHFDSubmitted: ddDetails?.hfdDetails?.isHFDSubmitted,
+      isHFDApproved: ddDetails?.hfdDetails?.isHFDApproved,
+      HFDApprovalDate: ddDetails?.hfdDetails?.HFDApprovalDate,
+      HFDSubmissionDate: ddDetails?.hfdDetails?.HFDSubmissionDate,
+      HFD_File: ddDetails?.hfdDetails?.HFD_File
+    });
+
+    this.structuralFormGroup.patchValue({
+      isStructuralDesignSubmitted: ddDetails?.structuralDetails?.isStructuralDesignSubmitted,
+      isStructuralDesignApproved: ddDetails?.structuralDetails?.isStructuralDesignApproved,
+      structuralApprovalDate: ddDetails?.structuralDetails?.structuralApprovalDate,
+      structuralDesiginSubmissionDate: ddDetails?.structuralDetails?.structuralDesiginSubmissionDate,
+      structuralDocFile: ddDetails?.structuralDetails?.structuralDocFile
+    });
   }
   onSaveDnD() {
     
