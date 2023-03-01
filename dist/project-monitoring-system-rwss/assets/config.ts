@@ -59,7 +59,7 @@ const config = {
         "division": "D1",
         projectValue: "200Cr",
         executingAgency: "NCC",
-        registeredAddress: "Hydrabad",
+        registeredAddress: "Hyderabad",
         contactPerson: "S Muttu",
         projectProgress: '50%'
       },
@@ -72,7 +72,7 @@ const config = {
         "division": "D1",
         projectValue: "300Cr",
         executingAgency: "NCC",
-        registeredAddress: "Hydrabad",
+        registeredAddress: "Hyderabad",
         contactPerson: "S Muttu",
         projectProgress: '43%'
       },
@@ -92,50 +92,50 @@ const config = {
       milestoneList:[
         {
           milestone: 'Survey, Design & Drawing',
-          startDate:'01/03/2023', 
-          endDate: '10/30/2023', 
+          startDate:'04/01/2022', 
+          endDate: '09/30/2022', 
           payment:'2%',
           progress: ''
         },
         {
           milestone: 'Construction of Intake Well',
-          startDate:'06/01/2023', 
-          endDate: '11/02/2023', 
+          startDate:'10/01/2022', 
+          endDate: '04/30/2023', 
           payment:'3%',
           progress: ''
         },
         {
           milestone: 'Supply of pipes, laying ,fitting & fixing from Raw water rising main to WTP',
-          startDate:'12/01/2023', 
-          endDate: '04/29/2024', 
+          startDate:'10/01/2022', 
+          endDate: '05/31/2023', 
           payment:'5%',
           progress: ''
         },
         {
           milestone: 'Completion of WTP work',
           startDate:'10/01/2022', 
-          endDate: '08/30/2023', 
+          endDate: '08/31/2023', 
           payment:'20%',
           progress: ''
         },
         {
           milestone: 'Supply of pipes, laying ,fitting & fixing from Clear water rising main to Elevated storage Reservoirs',
-          startDate:'05/15/2023', 
-          endDate: '10/14/2023', 
+          startDate:'03/01/2023', 
+          endDate: '08/31/2023', 
           payment:'20%',
           progress: ''
         },
         {
           milestone: 'Design, Construction, Testing & Commissioning of ESR',
-          startDate:'04/20/2022', 
-          endDate: '11/01/2023', 
+          startDate:'10/01/2022', 
+          endDate: '08/31/2023', 
           payment:'20%',
           progress: ''
         },
         {
           milestone: 'Supply of HDPE Pipes, laying and jointing to complete distribution system',
           startDate:'10/01/2022', 
-          endDate: '08/31/2023', 
+          endDate: '08/31/2023',
           payment:'15%',
           progress: ''
         },
