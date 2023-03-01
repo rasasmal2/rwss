@@ -1,5 +1,16 @@
 import { Component, OnInit,Input } from '@angular/core';
+import { faBullseye } from '@fortawesome/free-solid-svg-icons';
 import { EChartsOption } from 'echarts';
+import {
+  ColDef,
+  GetDataPath,
+  GridApi,
+  GridReadyEvent,
+} from 'ag-grid-community';
+
+import config from '../../../../../../assets/config'
+
+
 type BarLabelOption = NonNullable<echarts.BarSeriesOption['label']>;
 @Component({
   selector: 'app-project-dashboard-details',
@@ -275,9 +286,474 @@ export class ProjectDashboardDetailsComponent implements OnInit {
       }
     ]
   };
+  chartOption3_N: EChartsOption  = {
+    tooltip: {
+      trigger: 'axis',
+      axisPointer: {
+        type: 'shadow'
+      }
+    },
+    legend: {
+      data: [{
+        name: 'Total Milestone',
+        textStyle:{
+          color: '#000'
+        }
+    },
+      {
+        name: 'Till Date Milestone',
+        textStyle:{
+          color: '#000'
+        }
+    },
+    {
+        name: 'Achived',
+        textStyle:{
+          color: '#000'
+        }
+    },
+    {
+        name: 'Failed',
+        textStyle:{
+          color: '#000'
+        }
+    }
+  ],
+      
+    },
+    // toolbox: {
+    //   show: true,
+    //   orient: 'vertical',
+    //   left: 'right',
+    //   top: 'center',
+    //   feature: {
+    //     mark: { show: true },
+    //     dataView: { show: true, readOnly: false },
+    //     magicType: { show: true, type: ['line', 'bar', 'stack'] },
+    //     restore: { show: true },
+    //     saveAsImage: { show: true }
+    //   }
+    // },
+    xAxis: [
+      {
+        type: 'category',
+        axisTick: { show: false },
+        data: ['2012'],
+        axisLabel: {
+          show: false
+        }
+      }
+    ],
+    yAxis: [
+      {
+        type: 'value',
+        axisLabel: {
+          color: '#000'
+        }
+      }
+    ],
+    series: [
+      {
+        name: 'Total Milestone',
+        type: 'bar',
+        barGap: 0,
+        label: this.labelOption,
+        emphasis: {
+          focus: 'series'
+        },
+        data: [16]
+      },
+      {
+        name: 'Till Date Milestone',
+        type: 'bar',
+        label: this.labelOption,
+        emphasis: {
+          focus: 'series'
+        },
+        data: [4]
+      },
+      {
+        name: 'Achived',
+        type: 'bar',
+        label: this.labelOption,
+        emphasis: {
+          focus: 'series'
+        },
+        data: [3]
+      },
+      {
+        name: 'Failed',
+        type: 'bar',
+        label: this.labelOption,
+        emphasis: {
+          focus: 'series'
+        },
+        data: [1]
+      }
+    ]
+  };
+  gaugeOption1: EChartsOption  = {
+    title: {
+      text: 'Physical Progress',
+      bottom: '0',
+      left: 'center',
+      textStyle: {
+        color: '#000',
+        fontSize: '1rem',
+        fontWeight: 600,
+        fontFamily: 'Open Sans, sans-serif'
+      }
+    },
+    series: [
+      {
+        type: 'gauge',
+        progress: {
+          show: true,
+          width: 18,
+          itemStyle: {
+            color: '#0FD354',
+          }
+        },
+        axisLine: {
+          lineStyle: {
+            width: 18
+          }
+        },
+        axisTick: {
+          show: false
+        },
+        splitLine: {
+          length: 15,
+          lineStyle: {
+            width: 2,
+            color: '#0FD354'
+          }
+        },
+        axisLabel: {
+          distance: 25,
+          color: '#0FD354',
+          fontSize: 10
+        },
+        anchor: {
+          show: true,
+          showAbove: true,
+          size: 25,
+          itemStyle: {
+            borderWidth: 0,
+            color: '#0FD354'
+          }
+        },
+        title: {
+          show: true,
+          
+        },
+        detail: {
+          valueAnimation: true,
+          fontSize: 20,
+          color: '#0FD354',
+          offsetCenter: [0, '70%']
+        },
+        data: [
+          {
+            value: 25,
+            itemStyle: {
+              color: "#0FD354"
+            }
+          }
+        ]
+      }
+    ]
+  };
+
+  gaugeOption2: EChartsOption  = {
+    title: {
+      text: 'Time Utilized',
+      left: 'center',
+      bottom: '0',
+      textStyle: {
+        color: '#000',
+        fontSize: '1rem',
+        fontWeight: 600,
+        fontFamily: 'Open Sans, sans-serif'
+      }
+    },
+    
+    series: [
+      {
+        type: 'gauge',
+        progress: {
+          show: true,
+          width: 18
+        },
+        axisLine: {
+          lineStyle: {
+            width: 18
+          }
+        },
+        axisTick: {
+          show: false
+        },
+        splitLine: {
+          length: 15,
+          lineStyle: {
+            width: 2,
+            color: '#e87210'
+          }
+        },
+        axisLabel: {
+          distance: 25,
+          color: '#e87210',
+          fontSize: 10
+        },
+        anchor: {
+          show: true,
+          showAbove: true,
+          size: 25,
+          itemStyle: {
+            borderWidth: 0,
+            color: "#e87210"
+          }
+        },
+        title: {
+          show: false
+        },
+        detail: {
+          valueAnimation: true,
+          fontSize: 20,
+          color: "#e87210",
+          offsetCenter: [0, '70%']
+        },
+        data: [
+          {
+            value: 52.28,
+            itemStyle: {
+              color: "#e87210"
+            }
+          }
+        ]
+      }
+    ]
+  };
+
+  completeMilestone: EChartsOption  = {
+    tooltip: {
+      show:false,
+      trigger: 'item'
+    },
+    legend: {
+      top: '5%',
+      left: 'center',
+      show: false
+    },
+    series: [
+      {
+        name: 'Completed Milestone',
+        type: 'pie',
+        radius: ['50%', '70%'],
+        avoidLabelOverlap: false,
+        label: {
+          color: '#1ca515',
+          fontSize: '20',
+          position: 'center',
+          formatter: () => {
+            return '15%'; // Use sum variable here
+          },
+        },
+        // emphasis: {
+        //   label: {
+        //     show: true,
+        //     fontSize: 40,
+        //     fontWeight: 'bold'
+        //   }
+        // },
+        labelLine: {
+          show: false
+        },
+        color: ["#1ca515","#ebf1f6"],
+        data: [
+         15,85
+        ]
+      }
+    ]
+  };
+  inProgressMilestone: EChartsOption  = {
+    tooltip: {
+      trigger: 'item',
+      show:false
+    },
+    legend: {
+      top: '5%',
+      left: 'center',
+      show:false
+    },
+    series: [
+      {
+        name: 'Milestone In Progress',
+        type: 'pie',
+        radius: ['50%', '70%'],
+        avoidLabelOverlap: false,
+        label: {
+          color: '#c7c20e',
+          fontSize: '20',
+          position: 'center',
+          formatter: () => {
+            return '14%'; // Use sum variable here
+          },
+        },
+        // emphasis: {
+        //   label: {
+        //     show: true,
+        //     fontSize: 40,
+        //     fontWeight: 'bold'
+        //   }
+        // },
+        labelLine: {
+          show: false
+        },
+        color: ["#c7c20e","#ebf1f6"],
+        data: [
+         14,86
+        ]
+      }
+    ]
+  };
+  pendingMilestone: EChartsOption  = {
+    tooltip: {
+      show:false,
+      trigger: 'item'
+    },
+    legend: {
+      show:false,
+      top: '5%',
+      left: 'center'
+    },
+    series: [
+      {
+        name: 'Pending Milestone',
+        type: 'pie',
+        radius: ['50%', '70%'],
+        avoidLabelOverlap: false,
+        label: {
+          color: '#c50404',
+          fontSize: '20',
+          position: 'center',
+          formatter: () => {
+            return '71%'; // Use sum variable here
+          },
+        },
+        // emphasis: {
+        //   label: {
+        //     show: true,
+        //     fontSize: 40,
+        //     fontWeight: 'bold'
+        //   }
+        // },
+        labelLine: {
+          show: false
+        },
+        color: ["#c50404","#ebf1f6"],
+        data: [
+         71,29
+        ]
+      }
+    ]
+  };
+
+
+
+  selectedAuthority:any;
+  showModal=false;
+  totalMilestoneModal=false;
+  completeMilestoneModal=false;
+  inProgressMilestoneModal=false;
+  pendingMilestoneModal=false;
+
+  modalTitle='';
+
+  private gridApi!: GridApi;
+
+  public columnDefs: ColDef[] = [
+    // we're using the auto group column by default!
+    { field: 'jobTitle' },
+    { field: 'employmentType' },
+  ];
+  public defaultColDef: ColDef = {
+    flex: 1,
+  };
+  public autoGroupColumnDef: ColDef = {
+    headerName: 'Organisation Hierarchy',
+    minWidth: 300,
+    cellRendererParams: {
+      suppressCount: true,
+    },
+  };
+  public rowData: any[] | null = config.milestoneList
+  public groupDefaultExpanded = -1;
+  public getDataPath: GetDataPath = (data: any) => {
+    return data.orgHierarchy;
+  };
+
+  onFilterTextBoxChanged() {
+    this.gridApi.setQuickFilter(
+      (document.getElementById('filter-text-box') as any).value
+    );
+  }
+
+  onGridReady(params: GridReadyEvent) {
+    this.gridApi = params.api;
+  }
+
   constructor() { }
 
   ngOnInit(): void {
+    let projectData:any = localStorage.getItem('projectData');
+    if(projectData) {
+      projectData = JSON.parse(projectData)
+    }
+    if(projectData?.authorityDetails?.rowAuthorityName?.length>0) {
+      let tt:any = projectData?.authorityDetails?.rowAuthorityName;
+      this.selectedAuthority = tt;
+    }
+  }
+
+  hide() {
+    this.showModal=false;
+  }
+
+  openModal(val:any) {
+    if(val=='totalMilestone') {
+      this.modalTitle = 'Total Milestone';
+      this.showModal=true;
+      this.totalMilestoneModal=true;
+
+      this.completeMilestoneModal=false;
+      this.inProgressMilestoneModal=false;
+      this.pendingMilestoneModal=false;
+    } else if(val=='completeMilestone') {
+      this.modalTitle = 'Completed Milestone';
+      this.showModal=true;
+      this.completeMilestoneModal=true;
+
+      this.totalMilestoneModal=false;
+      this.inProgressMilestoneModal=false;
+      this.pendingMilestoneModal=false;
+    } else if(val=='inProgressMilestone') {
+      this.modalTitle = 'Im Progress Milestone';
+      this.showModal=true;
+      this.inProgressMilestoneModal=true;
+
+      this.completeMilestoneModal=false;
+      this.totalMilestoneModal=false;
+      this.pendingMilestoneModal=false;
+    } else if(val=='pendingMilestone') {
+      this.modalTitle = 'Pending Milestone';
+      this.showModal=true;
+      this.pendingMilestoneModal=true;
+
+      this.inProgressMilestoneModal=false;
+      this.completeMilestoneModal=false;
+      this.totalMilestoneModal=false;
+    }
   }
 
 }

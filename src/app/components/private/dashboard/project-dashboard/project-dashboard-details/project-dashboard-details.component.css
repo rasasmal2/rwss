@@ -66,3 +66,43 @@
 .row-status-cls td {
     padding: 3px 10px !important;
 }
+
+.project-report-cls .col-sm-2{
+    width: 20% !important;
+}
+
+.div-1 {
+    min-height: 90px;
+    width: 90px;
+    border: 1px solid;
+    border-radius: 15px;
+    background: #72716f;
+    box-shadow: 0px 0px 0px 1px #72716f;
+    position: absolute;
+    top: 30px;
+    left: 50px;
+}
+.div-2 {
+    width: 50px;
+    height: 50px;
+    background: red;
+    border-radius: 56%;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    box-shadow: 0px 0px 3px 3px;
+}
+.total-m-cls {
+    position: absolute;
+    left: 40%;
+    font-size: 50px;
+    font-weight: 600;
+    top: 25%;
+    color: #01458e;
+}
+
+.bottom-txt {
+    position: absolute;
+    bottom: 15px;
+    left: 40px;
+}
