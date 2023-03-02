@@ -50,6 +50,14 @@ const routes: Routes = [
     ],
     // canActivate: [PublicauthGuard]
   },
+  { path: 'overall-dashboard',loadChildren: () => import('./components/private/dashboard/dashboard.module').then(m => m.DashboardModule) },
+  // {
+  //   path: '',
+  //   component: OverallDashboardComponent,
+  //   children: [
+  //     { path: 'overall-dashboard',loadChildren: () => import('./components/private/dashboard/dashboard.module').then(m => m.DashboardModule) },
+  //   ]
+  // },
   
 ];
 

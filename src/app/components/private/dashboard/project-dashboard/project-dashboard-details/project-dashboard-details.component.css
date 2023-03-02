@@ -5,8 +5,8 @@
     /* padding-top: 8%; */
 }
 .utilization-cls {
-    position: relative;
-    top: 80px;
+    /* position: relative;
+    top: 80px; */
     text-align: center;
 }
 .vertical-line {
@@ -36,13 +36,13 @@
 .progress-percent {
     display: inline-block;
     position: absolute;
-    top: 40px;
+    top: 50px;
     color: #01458e;
 }
 .progress-totalamnt {
     display: inline-block;
     position: absolute;
-    top: 40px;
+    top: 50px;
     right: 10px;
     color: #01458e;
 }

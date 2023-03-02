@@ -19,7 +19,12 @@ type BarLabelOption = NonNullable<echarts.BarSeriesOption['label']>;
 })
 export class ProjectDashboardDetailsComponent implements OnInit {
 
-  @Input() projectData:any
+  @Input() projectData:any;
+
+  fundAllocatedColor= '#005587';
+  fundClaimedColor= '#86BC25'
+  // '#ed8b00c7';
+  fundReceivedColor= '#97999B';
 
   labelOption = {
     show: true,
@@ -400,6 +405,136 @@ export class ProjectDashboardDetailsComponent implements OnInit {
       }
     ]
   };
+  costUtilizationOption: any = {
+    // color: '#7596e1',
+    title: {
+      // text: 'Road Engineering',
+      left: 'center'
+    },
+    responsive: true,
+    
+    tooltip: {
+      trigger: 'axis',
+      axisPointer: {
+        type: 'shadow'
+      }
+    },
+    xAxis: {
+      type: 'category',
+      name: 'Phase',
+      data: ['Phase 1', 'Phase 2'],
+    },
+    yAxis: {
+      type: 'value',
+      axisLabel : {
+        formatter: '{value}Cr'
+      },
+      name: 'Value',
+      // nameLocation: 'top',
+      // nameGap: 50
+    },
+   
+    series: [
+        {
+          name: 'Funds Allocated',
+          type: 'bar',
+          barGap: 0,
+          label: this.labelOption,
+          color: this.fundAllocatedColor,
+          emphasis: {
+            focus: 'series'
+          },
+          data: [200, 100]
+        },
+        {
+          name: 'Funds Released',
+          type: 'bar',
+          label: this.labelOption,
+          color: this.fundClaimedColor,
+          emphasis: {
+            focus: 'series'
+          },
+          data: [100, 0]
+        },
+        {
+          name: 'Funds Utilized',
+          type: 'bar',
+          color: this.fundReceivedColor,
+          label: this.labelOption,
+          emphasis: {
+            focus: 'series'
+          },
+          data: [51, 0]
+        }
+      ],
+      legend: {
+        display: true,
+        position: 'bottom',
+        y: 200
+      },
+      // {
+      //   data: this.getChart1Data(),
+      //   type: 'bar',
+      // },
+  };
+  costUtilizationOption12: any = {
+    // title: {
+    //   text: 'Project Progress Till Date',
+    //   textStyle: {
+    //     color: '#01458e',
+    //     fontSize: '1rem',
+    //     fontWeight: 600,
+    //     fontFamily: 'Open Sans, sans-serif'
+    //   }
+    // },
+    tooltip: {
+      trigger: 'axis',
+      axisPointer: {
+        type: 'shadow'
+      },
+      formatter:  (params:any)=> {
+        // console.log("params==",params)
+        var tar = params[0].data.value;
+        return tar + ' Cr' ;
+      }
+    },
+    xAxis: {
+      type: 'category',
+      data: ['Contractor 1', 'Contractor 2'],
+      axisLabel: {
+        color: '#000'
+      }
+    },
+    yAxis: {
+      type: 'value',
+      axisLabel: {
+        color: '#000',
+        formatter: '{value}Cr'
+      },
+      
+    },
+    series: [
+      {
+        data: [
+          {
+            value: 34,
+            itemStyle: {
+              color: '#307de9'
+            }
+          },
+          {
+            value: 17,
+            itemStyle: {
+              color: '#307de9'
+            }
+          },
+          
+          100, 10  ],
+          barWidth: '20%',
+        type: 'bar'
+      }
+    ]
+  };
   gaugeOption1: EChartsOption  = {
     title: {
       text: 'Physical Progress',
@@ -644,7 +779,7 @@ export class ProjectDashboardDetailsComponent implements OnInit {
         radius: ['50%', '70%'],
         avoidLabelOverlap: false,
         label: {
-          color: '#e87210',
+          color: '#00A3E0',
           fontSize: '20',
           position: 'center',
           formatter: () => {
@@ -661,7 +796,7 @@ export class ProjectDashboardDetailsComponent implements OnInit {
         labelLine: {
           show: false
         },
-        color: ["#e87210","#ebf1f6"],
+        color: ["#00A3E0","#ebf1f6"],
         data: [
          54,46
         ]
@@ -839,5 +974,8 @@ export class ProjectDashboardDetailsComponent implements OnInit {
       this.totalMilestoneModal=false;
     }
   }
-
+  isChartDrill21 = false;
+  onChartEvent21(event: any, val: any) {
+    this.isChartDrill21 = !this.isChartDrill21;
+  }
 }

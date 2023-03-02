@@ -114,7 +114,7 @@
                 GAD Approval date
             </div>
             <div class="col-sm-8">
-                {{getDate(formDetails?.gadDetails?.GDAApprovalDate)}}
+                {{formDetails?.gadDetails?.GDAApprovalDate ? getDate(formDetails?.gadDetails?.GDAApprovalDate) : ''}}
                 
             </div>
             <div class="col-sm-3 col-md-3" style="padding-top: 10px" >
@@ -154,7 +154,7 @@
                 HFD Approval date
             </div>
             <div class="col-sm-8">
-                {{getDate(formDetails?.hfdDetails?.HFDApprovalDate)}}
+                {{formDetails?.hfdDetails?.HFDApprovalDate ? getDate(formDetails?.hfdDetails?.HFDApprovalDate) : ''}}
                 
             </div>
             <div class="col-sm-3 col-md-3" style="padding-top: 10px" >
@@ -194,7 +194,7 @@
                 Structural Approval date
             </div>
             <div class="col-sm-8">
-                {{getDate(formDetails?.structuralDetails?.structuralApprovalDate)}}
+                {{formDetails?.structuralDetails?.structuralApprovalDate ? getDate(formDetails?.structuralDetails?.structuralApprovalDate) : ''}}
                 
             </div>
             <div class="col-sm-3 col-md-3" style="padding-top: 10px" >

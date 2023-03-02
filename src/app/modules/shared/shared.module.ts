@@ -36,6 +36,7 @@ import { SelectSearchComponent } from '../../components/common/select-search/sel
 import {MatTreeModule} from '@angular/material/tree';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 // mat module import end
+import { ChartModule, HIGHCHARTS_MODULES } from 'angular-highcharts';
 import {
   FormsModule,
   ReactiveFormsModule,
@@ -94,7 +95,8 @@ import { MultiSelectComponent } from '../../components/common/multi-select/multi
     }),
     NgxEditorModule,
     MatTreeModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    ChartModule
   ],
   exports: [
     CommonModule,
@@ -128,6 +130,7 @@ import { MultiSelectComponent } from '../../components/common/multi-select/multi
     MatDialogModule,
     MatTreeModule,
     MatSlideToggleModule,
+    ChartModule,
 
     TextFieldComponent,
     TextAreaComponent,

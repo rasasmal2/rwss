@@ -11,6 +11,11 @@ import { ProjectDashboardDetailsComponent } from './project-dashboard/project-da
 
 import { SharedModule } from '../../../modules/shared/shared.module';
 import { ProjectDashboartTableComponent } from './project-dashboard/project-dashboart-table/project-dashboart-table.component';
+import { OverallDashboardComponent } from './overall-dashboard/overall-dashboard.component';
+import { OverallDashboardHomeComponent } from './overall-dashboard/overall-dashboard-home/overall-dashboard-home.component';
+import { OverallDashboardMapComponent } from './overall-dashboard/overall-dashboard-map/overall-dashboard-map.component';
+import { OverallDashboardHeaderComponent } from './overall-dashboard/overall-dashboard-header/overall-dashboard-header.component';
+import { HomeMapComponent } from './overall-dashboard/overall-dashboard-home/home-map/home-map.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +25,12 @@ import { ProjectDashboartTableComponent } from './project-dashboard/project-dash
     PwrdDashboardComponent,
     ContractorDashboardDetailsComponent,
     ProjectDashboardDetailsComponent,
-    ProjectDashboartTableComponent
+    ProjectDashboartTableComponent,
+    OverallDashboardComponent,
+    OverallDashboardHomeComponent,
+    OverallDashboardMapComponent,
+    OverallDashboardHeaderComponent,
+    HomeMapComponent
   ],
   imports: [
     CommonModule,

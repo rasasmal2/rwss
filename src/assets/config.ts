@@ -1,5 +1,5 @@
 const config = {
-    emirates:['Dubai','Abu Dhabi','Sharjah', 'Ajman', 'Umm Al Quwain', 'Ras Al Khaimah', 'Fujairah'],
+  state:['Andhra Pradesh','Assam','Bihar', 'Gujarat', 'Haryana', 'Karnataka', 'Madhya Pradesh', 'Maharashtra', 'Odisha', 'Rajasthan', 'Tamil Nadu', 'Telangana', 'Uttar Pradesh', 'West Bengal'],
     finYear: [
         {
             value: 'FY2018-19',

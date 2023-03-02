@@ -202,7 +202,7 @@ export class RowCreateComponent implements OnInit {
   }
   onSubmitRow() {
     this.submitted=true;
-    this.toastService.success('RoW certificate has been successfully sent to the concerned Divisional Tahsildar');
+    this.toastService.success('RoW certificate has been successfully sent to the concerned external authority');
     setTimeout(() => {
       this.router.navigate(['/welcome'])
     }, 500);
