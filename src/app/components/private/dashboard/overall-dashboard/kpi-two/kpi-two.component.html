@@ -1,0 +1,8 @@
+<div class="container">
+    <div class="jumbotron analytic-body">
+        <i class="fa fa-arrow-left" aria-hidden="true" style="cursor: pointer;    margin-left: 80px;"  *ngIf="isChartDrill21" (click)="onChartEvent21($event, 'chartClick')">Back</i>
+        <div *ngIf="!isChartDrill21" (chartClick)="onChartEvent21($event, 'chartClick')" echarts [options]="stateChartOption" class="demo-chart" style="height: 550px;"></div>
+        <div *ngIf="isChartDrill21" echarts [options]="stateChartOption12" class="demo-chart" style="height: 550px;"></div>
+    </div>
+    
+</div>

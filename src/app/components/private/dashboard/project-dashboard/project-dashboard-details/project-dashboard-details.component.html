@@ -280,7 +280,7 @@
                     </div>
 
                     <div class="row">
-                        <i class="fa fa-arrow-left" aria-hidden="true" style="cursor: pointer;margin-bottom:-70px;margin-top:10px;"  *ngIf="isChartDrill21" (click)="onChartEvent21($event, 'chartClick')">Back</i>
+                        <i class="fa fa-arrow-left" aria-hidden="true" style="cursor: pointer;margin-bottom:-70px;margin-top:10px;z-index: 22;height: 9px;"  *ngIf="isChartDrill21" (click)="onChartEvent21($event, 'chartClick')">Back</i>
 
                         <div class="col-sm-12">
                             <div *ngIf="!isChartDrill21" (chartClick)="onChartEvent21($event, 'chartClick')" echarts [options]="costUtilizationOption" style="height: 230px;" class="demo-chart"></div>

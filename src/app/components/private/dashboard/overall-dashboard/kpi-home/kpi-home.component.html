@@ -1,0 +1,127 @@
+<div class="container analytic-body">
+    <div>
+        <form [formGroup]="searchFormGrp">
+            <app-select-search class="property-form" [label]="'Division'" [placeholder]="'Select Division'" [optionList]="divisionList" formControlName="division" [style]="'width:16%'"></app-select-search>
+            <app-select-search class="property-form" [label]="'Name of Work'" [placeholder]="'Select Name of Work'" [optionList]="workList" formControlName="work" [style]="'width:16%'"></app-select-search>
+            <app-select-search class="property-form" [label]="'IA/Site Name '" [placeholder]="'Select IA/Site Name '" [optionList]="siteList" formControlName="site" [style]="'width:16%'"></app-select-search>
+            <app-select-search class="property-form" [label]="'Value >1Cr/<1Cr'" [placeholder]="'Select Value >1Cr/<1Cr'" [optionList]="valueList" formControlName="value" [style]="'width:17%'"></app-select-search>
+            <app-select-search class="property-form" [label]="'Project Tenure'" [placeholder]="'Select Project Tenure'" [optionList]="projectTenureList" formControlName="projectTenure" [style]="'width:17%'"></app-select-search>
+            <app-select-search class="property-form" [label]="'Past/Within Scheduled'" [placeholder]="'Select Past/Within Scheduled'" [optionList]="pastWithScheduledList" formControlName="schedule" [style]="'width:17%'"></app-select-search>
+
+            <app-button [text]="'Search'" [btnId]="'default'" (click)="onSearchProperty()" [type]="'submit'" [style]="'position: relative;left: 93%;bottom: 10px;'"></app-button>
+
+        </form>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-sm-2" style="margin-bottom:20px;">
+            <div class="card cc-cls">
+                <div class="card-body">
+                    <p>
+                        Total Contract Value of Ongoing Project
+                    </p>
+                    <p>
+                        2336.04Cr
+                    </p>
+                </div>
+            </div>
+            <div class="card cc-cls">
+                <div class="card-body">
+                    <p>
+                        Total Expenditure
+                    </p>
+                    <p>
+                        1167.73Cr
+                    </p>
+                </div>
+            </div>
+            <div class="card cc-cls">
+                <div class="card-body" style="background:#73c0de;">
+                    <p>
+                        Delay > 100% wrt contract period
+                    </p>
+                    <p>
+                        280
+                    </p>
+                </div>
+            </div>
+            <div class="card cc-cls">
+                <div class="card-body" style="background:#ee6666;">
+                    <p>
+                        Delay between 50-100% wrt contract period
+                    </p>
+                    <p>
+                        10
+                    </p>
+                </div>
+            </div>
+            <div class="card cc-cls">
+                <div class="card-body" style="background:#fac858;">
+                    <p>
+                        Delay < 50% wrt contract period
+                    </p>
+                    <p>
+                        10
+                    </p>
+                </div>
+            </div>
+            <div class="card cc-cls">
+                <div class="card-body" style="background:#91cc75;">
+                    <p>
+                        Project with 100% physical progress
+                    </p>
+                    <p>
+                        296
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-10">
+            <div class="cl-ww">
+                <div class="row">
+                    <div class="col-sm-3 cl-3">
+                        <span>Total Number of Ongoing Projects</span>
+                    </div>
+                    <div class="col-sm-1">
+                        <span class="cn-cl"> 662</span>
+                    </div>
+                    <div class="col-sm-3 cl-3">
+                        <span>Summary of the Projects Past Scheduled Completion Date</span>
+                    </div>
+                    <div class="col-sm-1">
+                        <span class="cn-cl"> 601</span>
+                    </div>
+                    <div class="col-sm-3 cl-3">
+                        <span>Summary of the Projects Within Scheduled Completion Date</span>
+                    </div>
+                    <div class="col-sm-1">
+                        <span class="cn-cl"> 61</span>
+                    </div>
+                </div>
+                
+                
+                
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card budget-cls">
+                        <div class="card-body">
+                            <h6 class="card-title card-title-cls">Contract Amount vs Total Expenditure</h6>
+                            <div echarts [options]="stateChartOption" class="demo-chart" style="height: 450px;"></div>
+                        </div>
+                    </div>
+                    
+
+                </div>
+                <div class="col-sm-6">
+                    <div class="card budget-cls">
+                        <div class="card-body">
+                            <h6 class="card-title card-title-cls">Project classification by Criticality</h6>
+                            <div echarts [options]="stateChartOption2" class="demo-chart" style="height: 450px;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

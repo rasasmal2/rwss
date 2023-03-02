@@ -1,5 +1,5 @@
 <div class="wrapper analytic-body" style="height: 50% !important;">
-    <div class="marginTopForFormCustomClass">
+    <!-- <div class="marginTopForFormCustomClass">
         <form id="frmIndexPage" novalidate="novalidate">
             <div class="row">
                 <div class="col">
@@ -9,24 +9,6 @@
                         <option *ngFor="let option of stateOpeions" [value]="option">{{option}}</option>
                     </select>
                 </div>
-                <!-- <div class="col">
-                    <label for="district">District</label>
-                    <select class="form-select" name="district" id="district">
-                        <option value="All" selected>All Districts</option>
-                        <option value="Andhra Pradesh">Andhra Pradesh</option>
-                        <option value="Asam">Asam</option>
-                        <option value="Bihar">Bihar</option>
-                        <option value="Gujrat">Gujrat</option>
-                        <option value="Haryana">Haryana</option>
-                        <option value="Karnataka">Karnataka</option>
-                        <option value="Madhya Pradesh">Madhya Pradesh</option>
-                        <option value="Rajasthan">Rajasthan</option>
-                        <option value="Tamil Nadu">Tamil Nadu</option>
-                        <option value="Telangana">Telangana</option>
-                        <option value="Uttar Pradesh">Uttar Pradesh</option>
-                        <option value="West Bengal">West Bengal</option>
-                    </select>
-                </div> -->
                 <div class="col">
                     <label for="year">Year</label>
                     <select class="form-select" name="year" id="year">
@@ -59,98 +41,12 @@
                 </div>
             </div>
         </form>
-    </div>
+    </div> -->
 
 
     <div class="col-md-12" id="divLoadIndexPage">
         <app-home-map *ngIf="!stateSelected"></app-home-map>
         <app-home-map *ngIf="stateSelected" [stateSelected]="stateSelected"></app-home-map>
 
-        <div class="NoteCustomClass">Note: The data displayed is upto 2022-2023</div>
-
-
-        <div class="jumbotron">
-
-            <div id="rowdata" class="row" style="padding: 105px 20px 0px 20px;">
-
-
-
-                <style>
-                    .col-md-2 {
-                        width: 20%;
-                    }
-                </style>
-
-                <div class="col-md-12 content-pad-0">
-                    <div class="row">
-                        <div class="col-md-2 ">
-                            <!-- small box -->
-                            <div class="small-box bg-aqua">
-                                <div class="inner">
-                                    <h3>1012</h3>
-                                    <p>Trainings on road safety conducted across states</p>
-                                </div>
-                                <div class="icon">
-                                    <i class="fa fa-road"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-2 ">
-                            <!-- small box -->
-                            <div class="small-box bg-yellow">
-                                <div class="inner">
-                                    <h3>15160</h3>
-                                    <p>Remedial action taken on blackspot area</p>
-                                </div>
-                                <div class="icon">
-                                    <i class="fa fa-spinner"></i>
-                                </div>
-                            </div>
-                        </div><!-- ./col -->
-                        <div class="col-md-2 ">
-                            <!-- small box -->
-                            <div class="small-box bg-teal">
-                                <div class="inner">
-                                    <h3>780 Cr</h3>
-                                    <p>Funds disbursed till date </p>
-                                </div>
-                                <div class="icon">
-                                    <i class="fa fa-inr"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-2 ">
-                            <!-- small box -->
-                            <div class="small-box bg-red">
-                                <div class="inner">
-                                    <h3>115</h3>
-                                    <p>Contract awarded for road safety</p>
-                                </div>
-                                <div class="icon">
-                                    <i class="fa fa-align-right"></i>
-                                </div>
-                            </div>
-                        </div><!-- ./col -->
-                        <div class="col-md-2 ">
-                            <!-- small box -->
-                            <div class="small-box bg-purple">
-                                <div class="inner">
-                                    <h3>17%</h3>
-                                    <p>Fatal accidents reduced from last year</p>
-                                </div>
-                                <div class="icon">
-                                    <i class="fa fa-exclamation-triangle"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div><!-- /.col -->
-
-
-            </div>
-
-
-        </div>
     </div>
-    <hr>
 </div>

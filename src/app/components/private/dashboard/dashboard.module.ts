@@ -16,6 +16,8 @@ import { OverallDashboardHomeComponent } from './overall-dashboard/overall-dashb
 import { OverallDashboardMapComponent } from './overall-dashboard/overall-dashboard-map/overall-dashboard-map.component';
 import { OverallDashboardHeaderComponent } from './overall-dashboard/overall-dashboard-header/overall-dashboard-header.component';
 import { HomeMapComponent } from './overall-dashboard/overall-dashboard-home/home-map/home-map.component';
+import { KpiTwoComponent } from './overall-dashboard/kpi-two/kpi-two.component';
+import { KpiHomeComponent } from './overall-dashboard/kpi-home/kpi-home.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { HomeMapComponent } from './overall-dashboard/overall-dashboard-home/hom
     OverallDashboardHomeComponent,
     OverallDashboardMapComponent,
     OverallDashboardHeaderComponent,
-    HomeMapComponent
+    HomeMapComponent,
+    KpiTwoComponent,
+    KpiHomeComponent
   ],
   imports: [
     CommonModule,

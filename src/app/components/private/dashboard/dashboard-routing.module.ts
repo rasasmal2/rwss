@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ContractorDashboardComponent } from './contractor-dashboard/contractor-dashboard.component';
 import { DivisionDashboardComponent } from './division-dashboard/division-dashboard.component';
+import { KpiHomeComponent } from './overall-dashboard/kpi-home/kpi-home.component';
+import { KpiTwoComponent } from './overall-dashboard/kpi-two/kpi-two.component';
 import { OverallDashboardHomeComponent } from './overall-dashboard/overall-dashboard-home/overall-dashboard-home.component';
 import { OverallDashboardMapComponent } from './overall-dashboard/overall-dashboard-map/overall-dashboard-map.component';
 import { OverallDashboardComponent } from './overall-dashboard/overall-dashboard.component';
@@ -28,6 +30,14 @@ const routes: Routes = [
       {
         path: 'home',
         component: OverallDashboardHomeComponent
+      },
+      {
+        path: 'kpi-2',
+        component: KpiTwoComponent
+      },
+      {
+        path: 'kpi-home',
+        component: KpiHomeComponent
       },
       {
         path: 'map-view',

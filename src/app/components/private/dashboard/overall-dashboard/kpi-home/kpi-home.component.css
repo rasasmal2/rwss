@@ -1,0 +1,29 @@
+.analytic-body {
+    top: 53px;
+    position: relative;
+    /* padding: 20px; */
+    margin-bottom: 20px;
+ }
+
+ .cl-ww {
+    /* border: 1px solid #d4d9de; */
+    /* border-radius: 5px; */
+    margin-bottom: 30px;
+    /* padding: 10px; */
+ }
+ .cl-3 {
+    background: #a1a1fa;
+    padding: 10px;
+    /* border-radius: 5px; */
+    color: #fff 
+ }
+ .cn-cl {
+    font-size: 25px;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 16px;
+    display: block;
+ }
+ .cc-cls .card-body{
+    text-align: center;
+ }
