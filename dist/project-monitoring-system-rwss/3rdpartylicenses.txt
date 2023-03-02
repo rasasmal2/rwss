@@ -314,6 +314,9 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 
+angular-highcharts
+MIT
+
 bootstrap
 MIT
 The MIT License (MIT)
@@ -568,6 +571,9 @@ See `/licenses/LICENSE-d3` for details of the license.
 
 font-awesome
 (OFL-1.1 AND MIT)
+
+highcharts
+https://www.highcharts.com/license
 
 ngx-echarts
 MIT
