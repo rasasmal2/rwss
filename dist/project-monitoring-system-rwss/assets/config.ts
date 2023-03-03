@@ -35,7 +35,8 @@ const config = {
         executingAgency: "TPL",
         registeredAddress: "Mumbai",
         contactPerson: "S Ghosh",
-        projectProgress: '12%'
+        projectProgress: '12%',
+        status: 'RoW Approved'
       },
       {
         "projectName": 'Project 2',
@@ -48,7 +49,8 @@ const config = {
         executingAgency: "L&T",
         registeredAddress: "Mumbai",
         contactPerson: "S Mehta",
-        projectProgress: '89%'
+        projectProgress: '89%',
+        status: 'RoW Approved'
       },
       {
         "projectName": 'Project 3',
@@ -61,7 +63,8 @@ const config = {
         executingAgency: "NCC",
         registeredAddress: "Hyderabad",
         contactPerson: "S Muttu",
-        projectProgress: '50%'
+        projectProgress: '50%',
+        status: 'RoW Approved'
       },
       {
         "projectName": 'Project 4',
@@ -74,7 +77,50 @@ const config = {
         executingAgency: "NCC",
         registeredAddress: "Hyderabad",
         contactPerson: "S Muttu",
-        projectProgress: '43%'
+        projectProgress: '43%',
+        status: 'RoW Approved'
+      },
+      {
+        "projectName": 'Demo Project 1',
+        "projectType": "Mega",
+        "projectStartDate": "04/01/2022",
+        "projectEndDate": "03/30/2024",
+        "circle": "C2",
+        "division": "D1",
+        projectValue: "300Cr",
+        executingAgency: "Contractor 1",
+        registeredAddress: "Demo Address",
+        contactPerson: "Sailesh Das",
+        projectProgress: '0%',
+        status: 'D&D Approved'
+      },
+      {
+        "projectName": 'Demo Project 2',
+        "projectType": "Mega",
+        "projectStartDate": "04/01/2022",
+        "projectEndDate": "03/30/2024",
+        "circle": "C2",
+        "division": "D1",
+        projectValue: "300Cr",
+        executingAgency: "Contractor 1",
+        registeredAddress: "Demo Address",
+        contactPerson: "Sailesh Das",
+        projectProgress: '0%',
+        status: 'D&D Initiated'
+      },
+      {
+        "projectName": 'Demo Project 3',
+        "projectType": "Mega",
+        "projectStartDate": "04/01/2022",
+        "projectEndDate": "03/30/2024",
+        "circle": "C2",
+        "division": "D1",
+        projectValue: "300Cr",
+        executingAgency: "Contractor 1",
+        registeredAddress: "Demo Address",
+        contactPerson: "Sailesh Das",
+        projectProgress: '0%',
+        status: 'Project Initiated'
       },
       {
         "projectName": 'Project 5',
@@ -87,7 +133,8 @@ const config = {
         executingAgency: "Contractor 1",
         registeredAddress: "Demo Address",
         contactPerson: "Sailesh Das",
-        projectProgress: '0%'
+        projectProgress: '0%',
+        status: 'Project Initiated'
       }],
       milestoneList:[
         {
