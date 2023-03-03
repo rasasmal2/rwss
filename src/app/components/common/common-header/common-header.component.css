@@ -51,11 +51,11 @@
   .logo {
     background-image: url('../../../../assets/images/logo2.jpg');
     background-repeat: no-repeat;
-    background-size: 16% auto;
+    background-size: 14% auto;
     float: left;
     line-height: 55%;
     min-height: 75px;
-    padding: 0px 0 0 70px;
+    padding: 0px 0 0 75px;
     /* text-transform: uppercase; */
     width: 40%;
     margin-top: 5px;
@@ -91,12 +91,12 @@
 .logo2 {
     background-image: url('../../../../assets/images/logo2.jpg');
     background-repeat: no-repeat;
-    background-size: 20% auto;
+    background-size: 26% auto;
     float: left;
-    min-height: 50px;
-    line-height: 40%;
+    min-height: 53px;
+    /* line-height: 40%; */
     padding: 2px 4px 0px 54px;
-    width: 53%;
+    /* width: 99%; */
     margin-bottom: 0px;
 }
 .logo2 .main_gov {
