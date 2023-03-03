@@ -172,7 +172,7 @@ stateChartOption:any = {
       ]
     },
     {
-      name: 'Achived',
+      name: 'Achieved',
       type: 'bar',
       barGap: 0,
       label: this.labelOption,

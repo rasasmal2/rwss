@@ -181,13 +181,13 @@ export class KpiHomeComponent implements OnInit{
         
         label:false,
         data: [
-          { value: 280, name: 'Delay > 100% wrt contract period' },
-          { value: 296, name: '100% Physicall Progress' },
+          { value: 280, name: 'Delay > 75% wrt contract period' },
+          { value: 296, name: '100% Physical Progress' },
           
           { value: 45, name: 'On-track' },
           { value: 20, name: 'Delay < 50% wrt contract period' },
           { value: 11, name: 'Expected Delay' },
-          { value: 10, name: 'Delay between 50-100% wrt contract period' }
+          { value: 10, name: 'Delay between 50-75% wrt contract period' }
         ],
         emphasis: {
           itemStyle: {
