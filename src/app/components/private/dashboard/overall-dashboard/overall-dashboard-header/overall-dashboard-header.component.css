@@ -9,12 +9,13 @@
     height: 50px;
 }
 .nav-link-custom.active {
-    background: green;
+    background: #37bd37;
     font-size: 16px !important;
     font-weight: 600;
+    color: white !important;
 }
 .nav-link-custom:hover {
-    background: green;
+    background: #37bd37;
 }
 .fixed-top {
     padding: 0;

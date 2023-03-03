@@ -15,9 +15,40 @@ export class KpiHomeComponent implements OnInit{
   searchFormGrp: any= UntypedFormGroup;
   pastWithScheduledList:any = [{code: 'all', name: 'All'},{code: 'div-1', name: 'Division 1'},{code: 'div-2', name: 'Division 2'},{code: 'div-3', name: 'Division 3'}];
   projectTenureList:any = [{code: 'all', name: 'All'},{code: 'div-1', name: 'Division 1'},{code: 'div-2', name: 'Division 2'},{code: 'div-3', name: 'Division 3'}];
-  valueList:any = [{code: 'all', name: 'All'},{code: 'div-1', name: 'Division 1'},{code: 'div-2', name: 'Division 2'},{code: 'div-3', name: 'Division 3'}];
-  siteList:any = [{code: 'all', name: 'All'},{code: 'div-1', name: 'Division 1'},{code: 'div-2', name: 'Division 2'},{code: 'div-3', name: 'Division 3'}];
-  workList:any = [{code: 'all', name: 'All'},{code: 'div-1', name: 'Division 1'},{code: 'div-2', name: 'Division 2'},{code: 'div-3', name: 'Division 3'}];
+  valueList:any = [{code: 'all', name: 'All'},{code: '1', name: '>1Cr to <100Cr'},{code: '2', name: '>100Cr to <200Cr'},{code: '3', name: '>200Cr to <500Cr'},{code: '4', name: '>500Cr to <1000Cr'},{code: '5', name: '>1000Cr'}];
+  distList:any = [{code:'All', name:'All'},
+  {code:'Angul', name:'Angul'},
+  {code:'Balasore', name:'Balasore'},
+  
+  {code:'Bargarh', name:'Bargarh'},
+  {code:'Bhadrak', name:'Bhadrak'},
+  {code:'Bolangir', name:'Bolangir'},
+  {code:'Boudh', name:'Boudh'},
+  {code:'Cuttack', name:'Cuttack'},
+  {code:'Deogarh', name:'Deogarh'},
+  {code:'Dhenkanal', name:'Dhenkanal'},
+  {code:'Gajapati', name:'Gajapati'},
+  {code:'Ganjam', name:'Ganjam'},
+  {code:'Jagatsignpur', name:'Jagatsignpur'},
+  {code:'Jajpur', name:'Jajpur'},
+  {code:'Jharsuguda', name:'Jharsuguda'},
+  {code:'Kalahandi', name:'Kalahandi'},
+  {code:'Kandhamal', name:'Kandhamal'},
+  {code:'Kendrapada', name:'Kendrapada'},
+  {code:'Keonjhar', name:'Keonjhar'},
+  {code:'Khurdha', name:'Khurdha'},
+  {code:'Koraput', name:'Koraput'},
+  {code:'Malkangiri', name:'Malkangiri'},
+  {code:'Mayurbhanj', name:'Mayurbhanj'},
+  {code:'Nabrangpur', name:'Nabrangpur'},
+  {code:'Nayagarh', name:'Nayagarh'},
+  {code:'Nuapada', name:'Nuapada'},
+  {code:'Puri', name:'Puri'},
+  {code:'Rayagada', name:'Rayagada'},
+  {code:'Sambalpur', name:'Sambalpur'},
+  {code:'Sonepur', name:'Sonepur'},
+  {code:'Sundargarh', name:'Sundargarh'}];
+  workList:any = [{code: 'all', name: 'All'},{code: 'Project 1', name: 'Project 1'},{code: 'Project 2', name: 'Project 2'},{code: 'Project 3', name: 'Project 3'},{code: 'Project 4', name: 'Project 4'},{code: 'Project 5', name: 'Project 5'}];
   divisionList:any = [{code: 'all', name: 'All'},{code: 'div-1', name: 'Division 1'},{code: 'div-2', name: 'Division 2'},{code: 'div-3', name: 'Division 3'}];
 
   constructor(public toastService: ToastrService, public cmnService:CommonServiceService, private _formBuilder: UntypedFormBuilder,private router: Router) {}
@@ -129,25 +160,34 @@ export class KpiHomeComponent implements OnInit{
     //   left: 'center'
     // },
     tooltip: {
-      trigger: 'item'
+      trigger: 'item',
+      formatter: '{b}: {c} ({d}%)'
+      // formatter: '{a} <br/>{b}: {c} ({d}%)'
     },
     legend: {
-      orient: 'vertical',
-      left: 'right',
-      top: '-20'
+      orient: 'horizontal',
+      top: '0'
+      // top: '-20'
+    },
+    toolbox: {
+      show: false,
+     
     },
     series: [
       {
-        name: 'Access From',
+        name: 'Project classification by Criticality',
         type: 'pie',
         radius: '50%',
+        
+        label:false,
         data: [
-          { value: 296, name: '100% Physically' },
-          { value: 280, name: 'Delay > 100% wrt' },
+          { value: 280, name: 'Delay > 100% wrt contract period' },
+          { value: 296, name: '100% Physicall Progress' },
+          
           { value: 45, name: 'On-track' },
-          { value: 20, name: 'Delay < 50% wrt' },
+          { value: 20, name: 'Delay < 50% wrt contract period' },
           { value: 11, name: 'Expected Delay' },
-          { value: 10, name: 'Delay between 50-100%' }
+          { value: 10, name: 'Delay between 50-100% wrt contract period' }
         ],
         emphasis: {
           itemStyle: {
@@ -163,12 +203,12 @@ export class KpiHomeComponent implements OnInit{
 
   ngOnInit() {
     this.searchFormGrp = this._formBuilder.group({
-      division: [''],
-      work: [''],
-      site: [''],
-      value: [''],
-      projectTenure: [''],
-      schedule: [''],
+      division: ['All'],
+      work: ['All'],
+      site: ['All'],
+      value: ['All'],
+      projectTenure: ['All'],
+      schedule: ['All'],
     });
   }
   onSearchProperty() {
