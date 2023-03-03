@@ -17,6 +17,7 @@ import { ProjectSummaryComponent } from './create-dpr/project-summary/project-su
 import { ProjectSubmitComponent } from './create-dpr/project-submit/project-submit.component';
 import { ProjectApprovalComponent } from './project-approval/project-approval.component';
 import { ProjectApprovalDetailsComponent } from './project-approval/project-approval-details/project-approval-details.component';
+import { ProjectStatusTrackingComponent } from './project-status-tracking/project-status-tracking.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { ProjectApprovalDetailsComponent } from './project-approval/project-appr
     ProjectSummaryComponent,
     ProjectSubmitComponent,
     ProjectApprovalComponent,
-    ProjectApprovalDetailsComponent
+    ProjectApprovalDetailsComponent,
+    ProjectStatusTrackingComponent
   ],
   imports: [
     CommonModule,

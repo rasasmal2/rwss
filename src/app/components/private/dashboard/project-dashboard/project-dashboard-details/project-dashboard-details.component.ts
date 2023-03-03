@@ -857,7 +857,7 @@ export class ProjectDashboardDetailsComponent implements OnInit {
         //     return '71%'; // Use sum variable here
         //   },
         // },
-        color: ["#c50404","#d24141", "#d88989"],
+        color: ["#a20303","#c66060", "#d88989"],
         data: [
           { value: 25, name: 'High' },
           { value: 50, name: 'Medium' },
